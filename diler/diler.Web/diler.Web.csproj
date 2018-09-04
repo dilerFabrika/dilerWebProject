@@ -1,0 +1,1434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A59AABC6-338A-4F36-BAB3-D4F7EF1659BD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>diler.Web</RootNamespace>
+    <AssemblyName>diler.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=17.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.17.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v16.1.Core, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.ASPxThemes.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="FarPoint.CalcEngine, Version=4.0.2021.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.CalcEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Excel, Version=4.0.2021.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.PDF, Version=1.0.2021.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.PDF.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Web.Spread, Version=4.0.2008.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.Web.Spread.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Web.Spread.Design, Version=4.0.2008.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.Web.Spread.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="FarPoint.Web.Spread.Extender, Version=4.0.2008.2008, Culture=neutral, PublicKeyToken=327c3516b1b18457, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\FarPoint Technologies\Spread.ASP.4.dotNet20\v4.0.2008\Bin\FarPoint.Web.Spread.Extender.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\Microsoft.NET\Primary Interop Assemblies\Microsoft.mshtml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\14.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\dilerweb\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files\Microsoft Visual Studio 14.0\Visual Studio Tools for Office\PIA\Common\stdole.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets1\bootstrap-inputmask\bootstrap-inputmask.min.js" />
+    <Content Include="assets1\fastclick\fastclick.js" />
+    <Content Include="assets1\font-awesome\css\font-awesome.css" />
+    <Content Include="assets1\font-awesome\css\font-awesome.min.css" />
+    <Content Include="assets1\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets1\ionicon\css\ionicons.css" />
+    <Content Include="assets1\ionicon\css\ionicons.min.css" />
+    <Content Include="assets1\ionicon\fonts\ionicons.svg" />
+    <Content Include="assets1\jquery-blockui\jquery.blockUI.js" />
+    <Content Include="assets1\jquery-detectmobile\detect.js" />
+    <Content Include="assets1\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="assets1\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="assets1\morris\morris.css" />
+    <Content Include="assets1\morris\morris.init.js" />
+    <Content Include="assets1\morris\morris.min.js" />
+    <Content Include="assets1\morris\raphael.min.js" />
+    <Content Include="assets1\responsive-table\rwd-table.min.css" />
+    <Content Include="assets1\responsive-table\rwd-table.min.js" />
+    <Content Include="assets1\spinner\spinner.min.js" />
+    <Content Include="bootstrap\css\bootstrap-theme.css" />
+    <Content Include="bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="css\DivStyle.css" />
+    <Content Include="css\images\a.JPG" />
+    <Content Include="css\images\anaekranresim\eski\r0.png" />
+    <Content Include="css\images\anaekranresim\eski\r1.png" />
+    <Content Include="css\images\anaekranresim\eski\r2.png" />
+    <Content Include="css\images\anaekranresim\r0.png" />
+    <Content Include="css\images\anaekranresim\r1.png" />
+    <Content Include="css\images\anaekranresim\r10.png" />
+    <Content Include="css\images\anaekranresim\r11.png" />
+    <Content Include="css\images\anaekranresim\r12.png" />
+    <Content Include="css\images\anaekranresim\r13.png" />
+    <Content Include="css\images\anaekranresim\r14.png" />
+    <Content Include="css\images\anaekranresim\r15.png" />
+    <Content Include="css\images\anaekranresim\r16.png" />
+    <Content Include="css\images\anaekranresim\r17.png" />
+    <Content Include="css\images\anaekranresim\r18.png" />
+    <Content Include="css\images\anaekranresim\r2.png" />
+    <Content Include="css\images\anaekranresim\r3.png" />
+    <Content Include="css\images\anaekranresim\r4.png" />
+    <Content Include="css\images\anaekranresim\r5.png" />
+    <Content Include="css\images\anaekranresim\r6.png" />
+    <Content Include="css\images\anaekranresim\r7.png" />
+    <Content Include="css\images\anaekranresim\r8.png" />
+    <Content Include="css\images\anaekranresim\r9.png" />
+    <Content Include="css\images\b.jpg" />
+    <Content Include="css\images\blog.jpg" />
+    <Content Include="css\images\celik.jpg" />
+    <Content Include="css\images\clk.jpg" />
+    <Content Include="css\images\demir.jpg" />
+    <Content Include="css\images\demircelik.jpg" />
+    <Content Include="css\images\demrr.jpg" />
+    <Content Include="css\images\dmr.jpg" />
+    <Content Include="css\images\er.jpg" />
+    <Content Include="css\images\err.jpg" />
+    <Content Include="css\images\favicon.ico" />
+    <Content Include="css\images\hole.png" />
+    <Content Include="css\images\intro-button.gif" />
+    <Content Include="css\images\intro-post-1.jpg" />
+    <Content Include="css\images\intro-post-2.jpg" />
+    <Content Include="css\images\intro-post-3.jpg" />
+    <Content Include="css\images\intro-slider.jpg" />
+    <Content Include="css\images\intro.gif" />
+    <Content Include="css\images\kutuk.png" />
+    <Content Include="css\images\li-border.gif" />
+    <Content Include="css\images\link-facebook.gif" />
+    <Content Include="css\images\link-flickr.gif" />
+    <Content Include="css\images\link-linkedin.gif" />
+    <Content Include="css\images\link-twitter.gif" />
+    <Content Include="css\images\main-button.gif" />
+    <Content Include="css\images\navigation-separator.gif" />
+    <Content Include="css\images\navigation.gif" />
+    <Content Include="css\images\partners.jpg" />
+    <Content Include="css\images\r0.png" />
+    <Content Include="css\images\r1.png" />
+    <Content Include="css\images\r10.png" />
+    <Content Include="css\images\r11.png" />
+    <Content Include="css\images\r12.png" />
+    <Content Include="css\images\r13.png" />
+    <Content Include="css\images\r14.png" />
+    <Content Include="css\images\r15.png" />
+    <Content Include="css\images\r16.png" />
+    <Content Include="css\images\r17.png" />
+    <Content Include="css\images\r18.png" />
+    <Content Include="css\images\r2.png" />
+    <Content Include="css\images\r3.png" />
+    <Content Include="css\images\r4.png" />
+    <Content Include="css\images\r5.png" />
+    <Content Include="css\images\r6.png" />
+    <Content Include="css\images\r7.png" />
+    <Content Include="css\images\r8.png" />
+    <Content Include="css\images\r9.png" />
+    <Content Include="css\images\search-submit.gif" />
+    <Content Include="css\images\slider-navigation-active.gif" />
+    <Content Include="css\images\slider-navigation-normal.gif" />
+    <Content Include="css\images\transparent-70.png" />
+    <Content Include="css\images\ul-arrow.gif" />
+    <Content Include="css\images\welcome.jpg" />
+    <Content Include="css\images\ww.jpg" />
+    <Content Include="css\Kimya_analiz.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.bootstrap.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.bootstrap.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.bootstrap4.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.bootstrap4.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.dataTables.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.dataTables.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.foundation.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.foundation.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.jqueryui.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.jqueryui.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.semanticui.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\buttons.semanticui.min.css" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.bootstrap.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.bootstrap.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.bootstrap4.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.bootstrap4.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.colVis.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.colVis.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.flash.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.flash.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.foundation.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.foundation.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.html5.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.html5.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.jqueryui.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.jqueryui.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.print.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.print.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.semanticui.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\buttons.semanticui.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\dataTables.buttons.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\js\dataTables.buttons.min.js" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\swf\flashExport.swf" />
+    <Content Include="dataTables_Js\DataTables\CloudFlare\jszip.js" />
+    <Content Include="dataTables_Js\DataTables\CloudFlare\pdfMake.js" />
+    <Content Include="dataTables_Js\DataTables\CloudFlare\vfs.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.bootstrap.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.bootstrap.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.bootstrap4.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.bootstrap4.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.foundation.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.foundation.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.jqueryui.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.jqueryui.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.semanticui.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\dataTables.semanticui.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\jquery.dataTables.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\css\jquery.dataTables.min.css" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\images\sort_asc.png" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\images\sort_asc_disabled.png" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\images\sort_both.png" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\images\sort_desc.png" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\images\sort_desc_disabled.png" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.bootstrap.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.bootstrap.min.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.bootstrap4.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.bootstrap4.min.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.foundation.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.foundation.min.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.jqueryui.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.jqueryui.min.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.semanticui.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\dataTables.semanticui.min.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\jquery.dataTables.js" />
+    <Content Include="dataTables_Js\DataTables\DataTables-1.10.18\js\jquery.dataTables.min.js" />
+    <Content Include="dataTables_Js\DataTables\datatables.css" />
+    <Content Include="dataTables_Js\DataTables\datatables.js" />
+    <Content Include="dataTables_Js\DataTables\datatables.min.css" />
+    <Content Include="dataTables_Js\DataTables\datatables.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.bootstrap.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.bootstrap.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.bootstrap4.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.bootstrap4.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.dataTables.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.dataTables.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.foundation.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.foundation.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.jqueryui.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.jqueryui.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.semanticui.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\css\fixedHeader.semanticui.min.css" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\dataTables.fixedHeader.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\dataTables.fixedHeader.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.bootstrap.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.bootstrap.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.bootstrap4.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.bootstrap4.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.dataTables.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.foundation.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.foundation.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.jqueryui.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.jqueryui.min.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.semanicui.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.semanticui.js" />
+    <Content Include="dataTables_Js\DataTables\FixedHeader-3.1.4\js\fixedHeader.semanticui.min.js" />
+    <Content Include="dataTables_Js\DataTables\jQuery-3.3.1\jquery-3.3.1.js" />
+    <Content Include="dataTables_Js\DataTables\jQuery-3.3.1\jquery-3.3.1.min.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Forms\Celikhane\Celikhane.aspx" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap.min2.css" />
+    <Content Include="css\helper.css" />
+    <Content Include="css\ie.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\material-design-iconic-font.min.css" />
+    <Content Include="css\rapor_style.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\waves-effect.css" />
+    <Content Include="Default2.aspx" />
+    <Content Include="Error.aspx" />
+    <Content Include="Forms\Celikhane\Celikhane_rapor.aspx" />
+    <Content Include="Forms\Dosis\iyilestirme_raporu.aspx" />
+    <Content Include="Forms\Dosis\rapor_ozet.aspx" />
+    <Content Include="Forms\EndMuh\as400_tanimlar.aspx" />
+    <Content Include="Forms\EndMuh\aylik_ferro_alyaj.aspx" />
+    <Content Include="Forms\EndMuh\Flm_genel_uretim.aspx" />
+    <Content Include="Forms\EndMuh\Flm_vrd_uretim_ozet.aspx" />
+    <Content Include="Forms\EndMuh\Haddehane_genel_uretim.aspx" />
+    <Content Include="Forms\EndMuh\hh_vrd_uretim_ozet.aspx" />
+    <Content Include="Forms\EndMuh\Izlenebilirlik_ikitarih_arasi.aspx" />
+    <Content Include="Forms\EndMuh\KatsayiKontrol.aspx" />
+    <Content Include="Forms\EndMuh\net_calisma_suresi.aspx" />
+    <Content Include="Forms\EndMuh\Tanimlar.aspx" />
+    <Content Include="Forms\EndMuh\uretim_ayar.aspx" />
+    <Content Include="Forms\Fizik_Lab\FizikInstron.aspx" />
+    <Content Include="Forms\Haddehane\Haddehane_rapor.aspx" />
+    <Content Include="Forms\Haddehane\istiften_soguk_sarj.aspx" />
+    <Content Include="Forms\holding_raporlari\CHTonajlari.aspx" />
+    <Content Include="Forms\holding_raporlari\Default.aspx" />
+    <Content Include="Forms\holding_raporlari\DilerCelikhaneRapor.aspx" />
+    <Content Include="Forms\holding_raporlari\FilmasinRapor.aspx" />
+    <Content Include="Forms\holding_raporlari\HaddehaneRapor.aspx" />
+    <Content Include="Forms\holding_raporlari\HHTonajlari.aspx" />
+    <Content Include="Forms\holding_raporlari\KarsilastirmalarRaporu.aspx" />
+    <Content Include="Forms\holding_raporlari\OrtakRapor.aspx" />
+    <Content Include="Forms\holding_raporlari\YaziciCelikhaneRapor.aspx" />
+    <Content Include="Forms\IK\EgitimOnay.aspx" />
+    <Content Include="Forms\IK\EgitimOnay.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\IK\Mesailer.aspx" />
+    <Content Include="Forms\IK\Performans.aspx" />
+    <Content Include="Forms\IK\Performans.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\IK\PerformansRapor.aspx" />
+    <Content Include="Forms\IK\RaporUserPerformans.aspx" />
+    <Content Include="Forms\IK\RaporUserPerformans.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\IK\Yillikizin.aspx" />
+    <Content Include="Forms\IK\Yillikizin.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\Kimya\Anastok_takip.aspx" />
+    <Content Include="Forms\Kimya\Istifler.aspx" />
+    <Content Include="Forms\Kimya\istif_giris.aspx" />
+    <Content Include="Forms\Kimya\istif_yedekleri.aspx" />
+    <Content Include="Forms\Kimya\Izlenebilirlik.aspx" />
+    <Content Include="Forms\Kimya\Izlenebilirlik_ktk.aspx" />
+    <Content Include="Forms\Kimya\kalite_ayrinti.aspx" />
+    <Content Include="Forms\Kimya\Kimyalab_genel_rapor.aspx" />
+    <Content Include="Forms\Kimya\Kimya_analiz.aspx" />
+    <Content Include="Forms\Kimya\Milltest_analiz.aspx" />
+    <Content Include="Forms\MerkezKutukTalep\MerkezKtkSip.aspx" />
+    <Content Include="Forms\MerkezKutukTalep\MerkezKtkSip.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\MerkezKutukTalep\MerkezKtkSipTlp.aspx" />
+    <Content Include="Forms\MerkezKutukTalep\MerkezKtkSipTlp.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\MerkezKutukTalep\SendMail.vb" />
+    <Content Include="Forms\ResaAracTalep\ResaAracTalep.aspx" />
+    <Content Include="Forms\ResaAracTalep\ResaAracTalep.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Forms\EndMuh\DokumAlyajRaporu.aspx" />
+    <Content Include="Forms\WebRaporlar\aylik_ferro_alyaj.aspx" />
+    <Content Include="Forms\WebRaporlar\celikhane_genel_uretim.aspx" />
+    <Content Include="Forms\WebRaporlar\Durus_raporu.aspx" />
+    <Content Include="Forms\WebRaporlar\Flm_genel_uretim.aspx" />
+    <Content Include="Forms\WebRaporlar\Flm_vrd_uretim_ozet.aspx" />
+    <Content Include="Forms\WebRaporlar\Haddehane_genel_uretim.aspx" />
+    <Content Include="Forms\WebRaporlar\hadde_duruslari.aspx" />
+    <Content Include="Forms\WebRaporlar\hh_vrd_uretim_ozet.aspx" />
+    <Content Include="Forms\WebRaporlar\Kimyalab_ikitarih_arasi.aspx" />
+    <Content Include="Forms\WebRaporlar\net_calisma_gunluk.aspx" />
+    <Content Include="Forms\WebRaporlar\net_calisma_suresi.aspx" />
+    <Content Include="Forms\WebRaporlar\PaketlemeRapor.aspx" />
+    <Content Include="Forms\WebRaporlar\PerformansRaporu.aspx" />
+    <Content Include="Forms\WebRaporlar\Refrakter_.aspx" />
+    <Content Include="Forms\WebRaporlar\sevkiyat_uretim.aspx" />
+    <Content Include="Forms\WebRaporlar\uretim_sirasi.aspx" />
+    <Content Include="Forms\WebSip\CubukSiparis.aspx" />
+    <Content Include="Forms\WebSip\CubukSiparis.aspx.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
+    <Content Include="Images\5s-uygulamalari.png" />
+    <Content Include="Images\a.JPG" />
+    <Content Include="Images\adsız.JPG" />
+    <Content Include="Images\AJAX.gif" />
+    <Content Include="Images\AMBLEM.png" />
+    <Content Include="Images\AMBLEM1.png" />
+    <Content Include="Images\AnaSayfa.png" />
+    <Content Include="Images\arka.jpg" />
+    <Content Include="Images\arka12.JPG" />
+    <Content Include="Images\arka12.png" />
+    <Content Include="Images\arka13.JPG" />
+    <Content Include="Images\b.jpg" />
+    <Content Include="Images\Baslik.html" />
+    <Content Include="Images\BASLIK.jpg" />
+    <Content Include="Images\Baslik.swf" />
+    <Content Include="Images\bg-main.png" />
+    <Content Include="Images\bg-menu-main.png" />
+    <Content Include="Images\bg-snippet-dim.png" />
+    <Content Include="Images\bg-snippet.png" />
+    <Content Include="Images\bg_body.gif" />
+    <Content Include="Images\bg_gradient-left.png" />
+    <Content Include="Images\bg_nav.gif" />
+    <Content Include="Images\bg_wrapper.gif" />
+    <Content Include="Images\blog.jpg" />
+    <Content Include="Images\body_bg.gif" />
+    <Content Include="Images\BosIp.png" />
+    <Content Include="Images\boys.png" />
+    <Content Include="Images\Calendar_scheduleHS.png" />
+    <Content Include="Images\celik.jpg" />
+    <Content Include="Images\clk.jpg" />
+    <Content Include="Images\Clkhane.jpg" />
+    <Content Include="Images\Cogalt.png" />
+    <Content Include="Images\collapse.jpg" />
+    <Content Include="Images\collapse_blue.jpg" />
+    <Content Include="Images\containerback.jpg" />
+    <Content Include="Images\containerback2.jpg" />
+    <Content Include="Images\copy.png" />
+    <Content Include="Images\delete2.png" />
+    <Content Include="Images\demir.jpg" />
+    <Content Include="Images\demircelik.jpg" />
+    <Content Include="Images\demobottom.png" />
+    <Content Include="Images\demotop.png" />
+    <Content Include="Images\demrr.jpg" />
+    <Content Include="Images\diler-logo.png" />
+    <Content Include="Images\diler-logo2.png" />
+    <Content Include="Images\diler-logo22.png" />
+    <Content Include="Images\diler-logo3.png" />
+    <Content Include="Images\dilerlogo.png" />
+    <Content Include="Images\diler_holding_logo.png" />
+    <Content Include="Images\dmr.jpg" />
+    <Content Include="Images\document_add.png" />
+    <Content Include="Images\document_check.png" />
+    <Content Include="Images\document_error.png" />
+    <Content Include="Images\document_plain.png" />
+    <Content Include="Images\document_zoom_in.png" />
+    <Content Include="Images\document_zoom_in1.png" />
+    <Content Include="Images\dosis.ico" />
+    <Content Include="Images\dosis.png" />
+    <Content Include="Images\down.gif" />
+    <Content Include="Images\EmptyStar.png" />
+    <Content Include="Images\er.jpg" />
+    <Content Include="Images\err.jpg" />
+    <Content Include="Images\EXCEL1.png" />
+    <Content Include="Images\expand.jpg" />
+    <Content Include="Images\expand_blue.jpg" />
+    <Content Include="Images\FilledStar.png" />
+    <Content Include="Images\Geri.png" />
+    <Content Include="Images\Giris.png" />
+    <Content Include="Images\GirisSayfasi.png" />
+    <Content Include="Images\HandleGrip.png" />
+    <Content Include="Images\HandleHand.png" />
+    <Content Include="Images\Hata.gif" />
+    <Content Include="Images\HataGif.gif" />
+    <Content Include="Images\header-opened.png" />
+    <Content Include="Images\header.png" />
+    <Content Include="Images\headerbottom_img.png" />
+    <Content Include="Images\headertop_img.jpg" />
+    <Content Include="Images\Hesapla.png" />
+    <Content Include="Images\hole.png" />
+    <Content Include="Images\intro-button.gif" />
+    <Content Include="Images\intro-slider.jpg" />
+    <Content Include="Images\intro.gif" />
+    <Content Include="Images\iso27001.png" />
+    <Content Include="Images\KullaniciSifre.png" />
+    <Content Include="Images\kutuk.jpg" />
+    <Content Include="Images\kutuk.png" />
+    <Content Include="Images\LG1.png" />
+    <Content Include="Images\li-border.gif" />
+    <Content Include="Images\link-facebook.gif" />
+    <Content Include="Images\link-flickr.gif" />
+    <Content Include="Images\link-linkedin.gif" />
+    <Content Include="Images\link-twitter.gif" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\Login-.swf" />
+    <Content Include="Images\Login.swf" />
+    <Content Include="Images\loginback.jpg" />
+    <Content Include="Images\logo_dark.png" />
+    <Content Include="Images\loudspeaker_preferences.png" />
+    <Content Include="Images\mail.png" />
+    <Content Include="Images\mail_add.png" />
+    <Content Include="Images\mail_attachment.png" />
+    <Content Include="Images\mail_delete.png" />
+    <Content Include="Images\mail_earth.png" />
+    <Content Include="Images\mail_exchange.png" />
+    <Content Include="Images\mail_find.png" />
+    <Content Include="Images\mail_forward.png" />
+    <Content Include="Images\mail_into.png" />
+    <Content Include="Images\mail_lock.png" />
+    <Content Include="Images\mail_new.png" />
+    <Content Include="Images\main-button.gif" />
+    <Content Include="Images\navigation-separator.gif" />
+    <Content Include="Images\navigation.gif" />
+    <Content Include="Images\navigation_back.gif" />
+    <Content Include="Images\partners.jpg" />
+    <Content Include="Images\pbrs.png" />
+    <Content Include="Images\PoweredByASPNET.gif" />
+    <Content Include="Images\Question.PNG" />
+    <Content Include="Images\Rapor.png" />
+    <Content Include="Images\resim1.jpg" />
+    <Content Include="Images\resim3.jpg" />
+    <Content Include="Images\rightcoltop.gif" />
+    <Content Include="Images\Sakla.png" />
+    <Content Include="Images\samples_bg.gif" />
+    <Content Include="Images\SavedStar.png" />
+    <Content Include="Images\search-submit.gif" />
+    <Content Include="Images\sidebar_header.png" />
+    <Content Include="Images\SifreIsteme.png" />
+    <Content Include="Images\Sifreleme.jpeg" />
+    <Content Include="Images\Sil.png" />
+    <Content Include="Images\simple_img_1.jpg" />
+    <Content Include="Images\simple_img_2.jpg" />
+    <Content Include="Images\simple_img_3.jpg" />
+    <Content Include="Images\simple_img_4.jpg" />
+    <Content Include="Images\simple_img_5.jpg" />
+    <Content Include="Images\slider-navigation-active.gif" />
+    <Content Include="Images\slider-navigation-normal.gif" />
+    <Content Include="Images\transparent-70.png" />
+    <Content Include="Images\ul-arrow.gif" />
+    <Content Include="Images\up.gif" />
+    <Content Include="Images\walkthrough_bg.gif" />
+    <Content Include="Images\welcome.jpg" />
+    <Content Include="Images\ww.jpg" />
+    <Content Include="Images\Yazdir.png" />
+    <Content Include="Images\Yeni.png" />
+    <Content Include="Images\Yenile.png" />
+    <Content Include="img\01.jpg" />
+    <Content Include="img\02.jpg" />
+    <Content Include="img\03.jpg" />
+    <Content Include="img\04.jpg" />
+    <Content Include="img\05.jpg" />
+    <Content Include="img\06.jpg" />
+    <Content Include="img\07.jpg" />
+    <Content Include="img\08.jpg" />
+    <Content Include="img\09.jpg" />
+    <Content Include="img\10.jpg" />
+    <Content Include="img\11.jpg" />
+    <Content Include="img\12.jpg" />
+    <Content Include="img\13.jpg" />
+    <Content Include="img\154_AnaSayfa_baner.jpg" />
+    <Content Include="img\155_kaliteKontrol.jpg" />
+    <Content Include="img\195_AnaSayfa_baner.jpg" />
+    <Content Include="img\198_Urunler.JPG" />
+    <Content Include="img\5S.png" />
+    <Content Include="img\boys.png" />
+    <Content Include="img\dosis.png" />
+    <Content Include="img\haber_logo1.png" />
+    <Content Include="img\haber_mini1.png" />
+    <Content Include="img\iso-27001.jpg" />
+    <Content Include="img\yemek.Jpeg" />
+    <Content Include="jquery\jquery-1.8.3.min.js" />
+    <Content Include="js\anasayfa_js.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\canvasjs.min.js" />
+    <Content Include="js\cufon-yui.js" />
+    <Content Include="js\holding_rapor.js" />
+    <Content Include="js\index.js" />
+    <Content Include="js\jquery-1.11.1.min.js" />
+    <Content Include="js\jquery-1.4.2.min.js" />
+    <Content Include="js\jquery-func.js" />
+    <Content Include="js\jquery.app.js" />
+    <Content Include="js\jquery.jcarousel.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.nicescroll.js" />
+    <Content Include="js\jquery.scrollTo.min.js" />
+    <Content Include="js\jssor.slider-25.2.1.min.js" />
+    <Content Include="js\MyriadPro.font.js" />
+    <Content Include="js\notify.js" />
+    <Content Include="js\rapor_js.js" />
+    <Content Include="js\responsivevoice.js" />
+    <Content Include="js\waves.js" />
+    <Content Include="js\wow.min.js" />
+    <Content Include="Login.aspx" />
+    <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\scripts\jquery-1.9.1.min.map" />
+    <Content Include="Images\Thumbs.db" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="img\Thumbs.db" />
+    <Content Include="assets1\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets1\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets1\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets1\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets1\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="assets1\font-awesome\less\animated.less" />
+    <Content Include="assets1\font-awesome\less\bordered-pulled.less" />
+    <Content Include="assets1\font-awesome\less\core.less" />
+    <Content Include="assets1\font-awesome\less\fixed-width.less" />
+    <Content Include="assets1\font-awesome\less\font-awesome.less" />
+    <Content Include="assets1\font-awesome\less\icons.less" />
+    <Content Include="assets1\font-awesome\less\larger.less" />
+    <Content Include="assets1\font-awesome\less\list.less" />
+    <Content Include="assets1\font-awesome\less\mixins.less" />
+    <Content Include="assets1\font-awesome\less\path.less" />
+    <Content Include="assets1\font-awesome\less\rotated-flipped.less" />
+    <Content Include="assets1\font-awesome\less\spinning.less" />
+    <Content Include="assets1\font-awesome\less\stacked.less" />
+    <Content Include="assets1\font-awesome\less\variables.less" />
+    <Content Include="assets1\font-awesome\scss\font-awesome.scss" />
+    <Content Include="assets1\font-awesome\scss\_animated.scss" />
+    <Content Include="assets1\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="assets1\font-awesome\scss\_core.scss" />
+    <Content Include="assets1\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="assets1\font-awesome\scss\_icons.scss" />
+    <Content Include="assets1\font-awesome\scss\_larger.scss" />
+    <Content Include="assets1\font-awesome\scss\_list.scss" />
+    <Content Include="assets1\font-awesome\scss\_mixins.scss" />
+    <Content Include="assets1\font-awesome\scss\_path.scss" />
+    <Content Include="assets1\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="assets1\font-awesome\scss\_spinning.scss" />
+    <Content Include="assets1\font-awesome\scss\_stacked.scss" />
+    <Content Include="assets1\font-awesome\scss\_variables.scss" />
+    <Content Include="assets1\ionicon\fonts\ionicons.eot" />
+    <Content Include="assets1\ionicon\fonts\ionicons.ttf" />
+    <Content Include="assets1\ionicon\fonts\ionicons.woff" />
+    <Content Include="css\images\anaekranresim\eski\Thumbs.db" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\common.scss" />
+    <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\mixins.scss" />
+    <None Include="Properties\PublishProfiles\Diler.pubxml" />
+    <Content Include="rapor_css\assets\fastclick\fastclick.js" />
+    <Content Include="rapor_css\assets\font-awesome\css\font-awesome.css" />
+    <Content Include="rapor_css\assets\font-awesome\css\font-awesome.min.css" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="rapor_css\assets\ionicon\css\ionicons.css" />
+    <Content Include="rapor_css\assets\ionicon\css\ionicons.min.css" />
+    <Content Include="rapor_css\assets\ionicon\fonts\ionicons.svg" />
+    <Content Include="rapor_css\assets\jquery-blockui\jquery.blockUI.js" />
+    <Content Include="rapor_css\assets\jquery-detectmobile\detect.js" />
+    <Content Include="rapor_css\assets\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="rapor_css\assets\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="rapor_css\assets\morris\morris.css" />
+    <Content Include="rapor_css\assets\morris\morris.init.js" />
+    <Content Include="rapor_css\assets\morris\morris.min.js" />
+    <Content Include="rapor_css\assets\morris\raphael.min.js" />
+    <Content Include="rapor_css\assets\responsive-table\rwd-table.min.css" />
+    <Content Include="rapor_css\assets\responsive-table\rwd-table.min.js" />
+    <Content Include="rapor_css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="rapor_css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="rapor_css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="rapor_css\assets\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="rapor_css\assets\font-awesome\less\animated.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\bordered-pulled.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\core.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\fixed-width.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\font-awesome.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\icons.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\larger.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\list.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\mixins.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\path.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\rotated-flipped.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\spinning.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\stacked.less" />
+    <Content Include="rapor_css\assets\font-awesome\less\variables.less" />
+    <Content Include="rapor_css\assets\font-awesome\scss\font-awesome.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_animated.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_core.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_icons.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_larger.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_list.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_mixins.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_path.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_spinning.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_stacked.scss" />
+    <Content Include="rapor_css\assets\font-awesome\scss\_variables.scss" />
+    <Content Include="rapor_css\assets\ionicon\fonts\ionicons.eot" />
+    <Content Include="rapor_css\assets\ionicon\fonts\ionicons.ttf" />
+    <Content Include="rapor_css\assets\ionicon\fonts\ionicons.woff" />
+    <Content Include="rapor_css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="rapor_css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="rapor_css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="rapor_css\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="rapor_css\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="rapor_css\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="rapor_css\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="siparis\CH\11SMnPb30.pdf" />
+    <Content Include="siparis\CH\analiz\11SMnPb30.pdf" />
+    <Content Include="siparis\CH\analiz\11SMnPb30.xlsx" />
+    <Content Include="siparis\CH\analiz\G40.pdf" />
+    <Content Include="siparis\CH\analiz\G40_MN.pdf" />
+    <Content Include="siparis\CH\analiz\G60 V.pdf" />
+    <Content Include="siparis\CH\analiz\GR 60-V%28140x140%29.pdf" />
+    <Content Include="siparis\CH\analiz\GR 60-V%28150x150%29.pdf" />
+    <Content Include="siparis\CH\analiz\GR 60-V.pdf" />
+    <Content Include="siparis\CH\analiz\GR A600C.pdf" />
+    <Content Include="siparis\CH\analiz\PC 52.pdf" />
+    <Content Include="siparis\CH\analiz\S220%28kapali%29.pdf" />
+    <Content Include="siparis\CH\analiz\S220%28Yarı Kapalı%29.pdf" />
+    <Content Include="siparis\CH\analiz\S220-K.xls" />
+    <Content Include="siparis\CH\analiz\S220-V.pdf" />
+    <Content Include="siparis\CH\analiz\S220.pdf" />
+    <Content Include="siparis\CH\analiz\S220.xlsx" />
+    <Content Include="siparis\CH\analiz\W400.xlsx" />
+    <Content Include="siparis\CH\analiz\W400_.xlsx" />
+    <Content Include="siparis\CH\BS4449.pdf" />
+    <Content Include="siparis\CH\GR 60-V.pdf" />
+    <Content Include="siparis\CH\GRA600C.pdf" />
+    <Content Include="siparis\CH\S220-K.pdf" />
+    <Content Include="siparis\CH\S220-Mn KAPALI.pdf" />
+    <Content Include="siparis\CH\S220-Mn.pdf" />
+    <Content Include="siparis\CH\W400.pdf" />
+    <Content Include="siparis\CH\W400_140x11.90.pdf" />
+    <Content Include="siparis\CH\G40-V.pdf" />
+    <Content Include="siparis\CH\G40.pdf" />
+    <Content Include="siparis\CH\KTK180301.pdf" />
+    <Content Include="siparis\CH\KTK180312.pdf" />
+    <Content Include="siparis\CH\KTK180319_2.pdf" />
+    <Content Include="siparis\CH\KTK180319_3.pdf" />
+    <Content Include="siparis\CH\KTK180320.pdf" />
+    <Content Include="siparis\CH\KTK180322.pdf" />
+    <Content Include="URETIMPROGRAMI\CH201803.pdf" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\scripts\ai.0.22.9-build00167.js" />
+    <Content Include="Content\scripts\ai.0.22.9-build00167.min.js" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Content\scripts\jquery-1.9.1.intellisense.js" />
+    <Content Include="Content\scripts\bootstrap.js" />
+    <Content Include="Content\scripts\bootstrap.min.js" />
+    <Content Include="Content\scripts\jquery-1.9.1.js" />
+    <Content Include="Content\scripts\jquery-1.9.1.min.js" />
+    <Content Include="rapor_css\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="rapor_css\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="rapor_css\bootstrap\css\bootstrap.css" />
+    <Content Include="rapor_css\bootstrap\css\bootstrap.min.css" />
+    <Content Include="rapor_css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="rapor_css\bootstrap\js\bootstrap.js" />
+    <Content Include="rapor_css\bootstrap\js\bootstrap.min.js" />
+    <Content Include="rapor_css\css\animate.css" />
+    <Content Include="rapor_css\css\bootstrap.css" />
+    <Content Include="rapor_css\css\bootstrap.min.css" />
+    <Content Include="rapor_css\css\bootstrap.min2.css" />
+    <Content Include="rapor_css\css\helper.css" />
+    <Content Include="rapor_css\css\index.css" />
+    <Content Include="rapor_css\css\material-design-iconic-font.min.css" />
+    <Content Include="rapor_css\css\rapor_style.css" />
+    <Content Include="rapor_css\css\style.css" />
+    <Content Include="rapor_css\css\waves-effect.css" />
+    <Content Include="rapor_css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="rapor_css\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="rapor_css\images\5s-uygulamalari.png" />
+    <Content Include="rapor_css\images\a.JPG" />
+    <Content Include="rapor_css\images\b.jpg" />
+    <Content Include="rapor_css\images\blog.jpg" />
+    <Content Include="rapor_css\images\boys.png" />
+    <Content Include="rapor_css\images\celik.jpg" />
+    <Content Include="rapor_css\images\clk.jpg" />
+    <Content Include="rapor_css\images\demir.jpg" />
+    <Content Include="rapor_css\images\demircelik.jpg" />
+    <Content Include="rapor_css\images\demrr.jpg" />
+    <Content Include="rapor_css\images\diler-logo.png" />
+    <Content Include="rapor_css\images\diler-logo2.png" />
+    <Content Include="rapor_css\images\diler-logo22.png" />
+    <Content Include="rapor_css\images\diler-logo3.png" />
+    <Content Include="rapor_css\images\diler_holding_logo.png" />
+    <Content Include="rapor_css\images\dmr.jpg" />
+    <Content Include="rapor_css\images\dosis.png" />
+    <Content Include="rapor_css\images\er.jpg" />
+    <Content Include="rapor_css\images\err.jpg" />
+    <Content Include="rapor_css\images\hole.png" />
+    <Content Include="rapor_css\images\intro-button.gif" />
+    <Content Include="rapor_css\images\intro-slider.jpg" />
+    <Content Include="rapor_css\images\intro.gif" />
+    <Content Include="rapor_css\images\iso27001.png" />
+    <Content Include="rapor_css\images\kutuk.png" />
+    <Content Include="rapor_css\images\li-border.gif" />
+    <Content Include="rapor_css\images\link-facebook.gif" />
+    <Content Include="rapor_css\images\link-flickr.gif" />
+    <Content Include="rapor_css\images\link-linkedin.gif" />
+    <Content Include="rapor_css\images\link-twitter.gif" />
+    <Content Include="rapor_css\images\logo_dark.png" />
+    <Content Include="rapor_css\images\main-button.gif" />
+    <Content Include="rapor_css\images\navigation-separator.gif" />
+    <Content Include="rapor_css\images\navigation.gif" />
+    <Content Include="rapor_css\images\partners.jpg" />
+    <Content Include="rapor_css\images\search-submit.gif" />
+    <Content Include="rapor_css\images\slider-navigation-active.gif" />
+    <Content Include="rapor_css\images\slider-navigation-normal.gif" />
+    <Content Include="rapor_css\images\transparent-70.png" />
+    <Content Include="rapor_css\images\ul-arrow.gif" />
+    <Content Include="rapor_css\images\welcome.jpg" />
+    <Content Include="rapor_css\images\ww.jpg" />
+    <Content Include="rapor_css\img\01.jpg" />
+    <Content Include="rapor_css\img\02.jpg" />
+    <Content Include="rapor_css\img\03.jpg" />
+    <Content Include="rapor_css\img\04.jpg" />
+    <Content Include="rapor_css\img\05.jpg" />
+    <Content Include="rapor_css\img\06.jpg" />
+    <Content Include="rapor_css\img\07.jpg" />
+    <Content Include="rapor_css\img\08.jpg" />
+    <Content Include="rapor_css\img\09.jpg" />
+    <Content Include="rapor_css\img\10.jpg" />
+    <Content Include="rapor_css\img\11.jpg" />
+    <Content Include="rapor_css\img\12.jpg" />
+    <Content Include="rapor_css\img\13.jpg" />
+    <Content Include="rapor_css\img\154_AnaSayfa_baner.jpg" />
+    <Content Include="rapor_css\img\155_kaliteKontrol.jpg" />
+    <Content Include="rapor_css\img\195_AnaSayfa_baner.jpg" />
+    <Content Include="rapor_css\img\198_Urunler.JPG" />
+    <Content Include="rapor_css\img\5S.png" />
+    <Content Include="rapor_css\img\boys.png" />
+    <Content Include="rapor_css\img\dosis.png" />
+    <Content Include="rapor_css\img\iso-27001.jpg" />
+    <Content Include="rapor_css\jquery\jquery-1.8.3.min.js" />
+    <Content Include="rapor_css\js\anasayfa_js.js" />
+    <Content Include="rapor_css\js\bootstrap.min.js" />
+    <Content Include="rapor_css\js\canvasjs.min.js" />
+    <Content Include="rapor_css\js\index.js" />
+    <Content Include="rapor_css\js\jquery-1.11.1.min.js" />
+    <Content Include="rapor_css\js\jquery.app.js" />
+    <Content Include="rapor_css\js\jquery.min.js" />
+    <Content Include="rapor_css\js\jquery.nicescroll.js" />
+    <Content Include="rapor_css\js\jquery.scrollTo.min.js" />
+    <Content Include="rapor_css\js\jssor.slider-25.2.1.min.js" />
+    <Content Include="rapor_css\js\rapor_js.js" />
+    <Content Include="rapor_css\js\waves.js" />
+    <Content Include="rapor_css\js\wow.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\Celikhane\Celikhane.aspx.cs">
+      <DependentUpon>Celikhane.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Celikhane\Celikhane.aspx.designer.cs">
+      <DependentUpon>Celikhane.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default2.aspx.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default2.aspx.designer.cs">
+      <DependentUpon>Default2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Celikhane\Celikhane_rapor.aspx.cs">
+      <DependentUpon>Celikhane_rapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Celikhane\Celikhane_rapor.aspx.designer.cs">
+      <DependentUpon>Celikhane_rapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dosis\iyilestirme_raporu.aspx.cs">
+      <DependentUpon>iyilestirme_raporu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dosis\iyilestirme_raporu.aspx.designer.cs">
+      <DependentUpon>iyilestirme_raporu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Dosis\rapor_ozet.aspx.cs">
+      <DependentUpon>rapor_ozet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Dosis\rapor_ozet.aspx.designer.cs">
+      <DependentUpon>rapor_ozet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\as400_tanimlar.aspx.cs">
+      <DependentUpon>as400_tanimlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\as400_tanimlar.aspx.designer.cs">
+      <DependentUpon>as400_tanimlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\aylik_ferro_alyaj.aspx.cs">
+      <DependentUpon>aylik_ferro_alyaj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\aylik_ferro_alyaj.aspx.designer.cs">
+      <DependentUpon>aylik_ferro_alyaj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Flm_genel_uretim.aspx.cs">
+      <DependentUpon>Flm_genel_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Flm_genel_uretim.aspx.designer.cs">
+      <DependentUpon>Flm_genel_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Flm_vrd_uretim_ozet.aspx.cs">
+      <DependentUpon>Flm_vrd_uretim_ozet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Flm_vrd_uretim_ozet.aspx.designer.cs">
+      <DependentUpon>Flm_vrd_uretim_ozet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Haddehane_genel_uretim.aspx.cs">
+      <DependentUpon>Haddehane_genel_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Haddehane_genel_uretim.aspx.designer.cs">
+      <DependentUpon>Haddehane_genel_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\hh_vrd_uretim_ozet.aspx.cs">
+      <DependentUpon>hh_vrd_uretim_ozet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\hh_vrd_uretim_ozet.aspx.designer.cs">
+      <DependentUpon>hh_vrd_uretim_ozet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Izlenebilirlik_ikitarih_arasi.aspx.cs">
+      <DependentUpon>Izlenebilirlik_ikitarih_arasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Izlenebilirlik_ikitarih_arasi.aspx.designer.cs">
+      <DependentUpon>Izlenebilirlik_ikitarih_arasi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\KatsayiKontrol.aspx.cs">
+      <DependentUpon>KatsayiKontrol.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\KatsayiKontrol.aspx.designer.cs">
+      <DependentUpon>KatsayiKontrol.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\net_calisma_suresi.aspx.cs">
+      <DependentUpon>net_calisma_suresi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\net_calisma_suresi.aspx.designer.cs">
+      <DependentUpon>net_calisma_suresi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Tanimlar.aspx.cs">
+      <DependentUpon>Tanimlar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\Tanimlar.aspx.designer.cs">
+      <DependentUpon>Tanimlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\uretim_ayar.aspx.cs">
+      <DependentUpon>uretim_ayar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\uretim_ayar.aspx.designer.cs">
+      <DependentUpon>uretim_ayar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Fizik_Lab\FizikInstron.aspx.cs">
+      <DependentUpon>FizikInstron.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Fizik_Lab\FizikInstron.aspx.designer.cs">
+      <DependentUpon>FizikInstron.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Haddehane\Haddehane_rapor.aspx.cs">
+      <DependentUpon>Haddehane_rapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Haddehane\Haddehane_rapor.aspx.designer.cs">
+      <DependentUpon>Haddehane_rapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Haddehane\istiften_soguk_sarj.aspx.cs">
+      <DependentUpon>istiften_soguk_sarj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Haddehane\istiften_soguk_sarj.aspx.designer.cs">
+      <DependentUpon>istiften_soguk_sarj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\CHTonajlari.aspx.cs">
+      <DependentUpon>CHTonajlari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\CHTonajlari.aspx.designer.cs">
+      <DependentUpon>CHTonajlari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\DilerCelikhaneRapor.aspx.cs">
+      <DependentUpon>DilerCelikhaneRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\DilerCelikhaneRapor.aspx.designer.cs">
+      <DependentUpon>DilerCelikhaneRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\FilmasinRapor.aspx.cs">
+      <DependentUpon>FilmasinRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\FilmasinRapor.aspx.designer.cs">
+      <DependentUpon>FilmasinRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\HaddehaneRapor.aspx.cs">
+      <DependentUpon>HaddehaneRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\HaddehaneRapor.aspx.designer.cs">
+      <DependentUpon>HaddehaneRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\HHTonajlari.aspx.cs">
+      <DependentUpon>HHTonajlari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\HHTonajlari.aspx.designer.cs">
+      <DependentUpon>HHTonajlari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\KarsilastirmalarRaporu.aspx.cs">
+      <DependentUpon>KarsilastirmalarRaporu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\KarsilastirmalarRaporu.aspx.designer.cs">
+      <DependentUpon>KarsilastirmalarRaporu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\OrtakRapor.aspx.cs">
+      <DependentUpon>OrtakRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\OrtakRapor.aspx.designer.cs">
+      <DependentUpon>OrtakRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\YaziciCelikhaneRapor.aspx.cs">
+      <DependentUpon>YaziciCelikhaneRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\holding_raporlari\YaziciCelikhaneRapor.aspx.designer.cs">
+      <DependentUpon>YaziciCelikhaneRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IK\Mesailer.aspx.cs">
+      <DependentUpon>Mesailer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\IK\Mesailer.aspx.designer.cs">
+      <DependentUpon>Mesailer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IK\PerformansRapor.aspx.cs">
+      <DependentUpon>PerformansRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\IK\PerformansRapor.aspx.designer.cs">
+      <DependentUpon>PerformansRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Anastok_takip.aspx.cs">
+      <DependentUpon>Anastok_takip.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Anastok_takip.aspx.designer.cs">
+      <DependentUpon>Anastok_takip.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Istifler.aspx.cs">
+      <DependentUpon>Istifler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Istifler.aspx.designer.cs">
+      <DependentUpon>Istifler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\istif_giris.aspx.cs">
+      <DependentUpon>istif_giris.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\istif_giris.aspx.designer.cs">
+      <DependentUpon>istif_giris.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\istif_yedekleri.aspx.cs">
+      <DependentUpon>istif_yedekleri.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\istif_yedekleri.aspx.designer.cs">
+      <DependentUpon>istif_yedekleri.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Izlenebilirlik.aspx.cs">
+      <DependentUpon>Izlenebilirlik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Izlenebilirlik.aspx.designer.cs">
+      <DependentUpon>Izlenebilirlik.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Izlenebilirlik_ktk.aspx.cs">
+      <DependentUpon>Izlenebilirlik_ktk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Izlenebilirlik_ktk.aspx.designer.cs">
+      <DependentUpon>Izlenebilirlik_ktk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\kalite_ayrinti.aspx.cs">
+      <DependentUpon>kalite_ayrinti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\kalite_ayrinti.aspx.designer.cs">
+      <DependentUpon>kalite_ayrinti.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Kimyalab_genel_rapor.aspx.cs">
+      <DependentUpon>Kimyalab_genel_rapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Kimyalab_genel_rapor.aspx.designer.cs">
+      <DependentUpon>Kimyalab_genel_rapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\DokumAlyajRaporu.aspx.cs">
+      <DependentUpon>DokumAlyajRaporu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\DokumAlyajRaporu.aspx.designer.cs">
+      <DependentUpon>DokumAlyajRaporu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Kimya_analiz.aspx.cs">
+      <DependentUpon>Kimya_analiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Kimya_analiz.aspx.designer.cs">
+      <DependentUpon>Kimya_analiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kimya\Milltest_analiz.aspx.cs">
+      <DependentUpon>Milltest_analiz.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\Kimya\Milltest_analiz.aspx.designer.cs">
+      <DependentUpon>Milltest_analiz.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\aylik_ferro_alyaj.aspx.cs">
+      <DependentUpon>aylik_ferro_alyaj.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\aylik_ferro_alyaj.aspx.designer.cs">
+      <DependentUpon>aylik_ferro_alyaj.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\celikhane_genel_uretim.aspx.cs">
+      <DependentUpon>celikhane_genel_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\celikhane_genel_uretim.aspx.designer.cs">
+      <DependentUpon>celikhane_genel_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Durus_raporu.aspx.cs">
+      <DependentUpon>Durus_raporu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Durus_raporu.aspx.designer.cs">
+      <DependentUpon>Durus_raporu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Flm_genel_uretim.aspx.cs">
+      <DependentUpon>Flm_genel_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Flm_genel_uretim.aspx.designer.cs">
+      <DependentUpon>Flm_genel_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Flm_vrd_uretim_ozet.aspx.cs">
+      <DependentUpon>Flm_vrd_uretim_ozet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Flm_vrd_uretim_ozet.aspx.designer.cs">
+      <DependentUpon>Flm_vrd_uretim_ozet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Haddehane_genel_uretim.aspx.cs">
+      <DependentUpon>Haddehane_genel_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Haddehane_genel_uretim.aspx.designer.cs">
+      <DependentUpon>Haddehane_genel_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\hadde_duruslari.aspx.cs">
+      <DependentUpon>hadde_duruslari.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\hadde_duruslari.aspx.designer.cs">
+      <DependentUpon>hadde_duruslari.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\hh_vrd_uretim_ozet.aspx.cs">
+      <DependentUpon>hh_vrd_uretim_ozet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\hh_vrd_uretim_ozet.aspx.designer.cs">
+      <DependentUpon>hh_vrd_uretim_ozet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Kimyalab_ikitarih_arasi.aspx.cs">
+      <DependentUpon>Kimyalab_ikitarih_arasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Kimyalab_ikitarih_arasi.aspx.designer.cs">
+      <DependentUpon>Kimyalab_ikitarih_arasi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\net_calisma_gunluk.aspx.cs">
+      <DependentUpon>net_calisma_gunluk.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\net_calisma_gunluk.aspx.designer.cs">
+      <DependentUpon>net_calisma_gunluk.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\net_calisma_suresi.aspx.cs">
+      <DependentUpon>net_calisma_suresi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\net_calisma_suresi.aspx.designer.cs">
+      <DependentUpon>net_calisma_suresi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\PaketlemeRapor.aspx.cs">
+      <DependentUpon>PaketlemeRapor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\PaketlemeRapor.aspx.designer.cs">
+      <DependentUpon>PaketlemeRapor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\PerformansRaporu.aspx.cs">
+      <DependentUpon>PerformansRaporu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\PerformansRaporu.aspx.designer.cs">
+      <DependentUpon>PerformansRaporu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Refrakter_.aspx.cs">
+      <DependentUpon>Refrakter_.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\Refrakter_.aspx.designer.cs">
+      <DependentUpon>Refrakter_.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\sevkiyat_uretim.aspx.cs">
+      <DependentUpon>sevkiyat_uretim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\sevkiyat_uretim.aspx.designer.cs">
+      <DependentUpon>sevkiyat_uretim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\uretim_sirasi.aspx.cs">
+      <DependentUpon>uretim_sirasi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\WebRaporlar\uretim_sirasi.aspx.designer.cs">
+      <DependentUpon>uretim_sirasi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\MessageBox.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\128\" />
+    <Folder Include="Images\32\" />
+    <Folder Include="Images\ASPxRoundPanel\" />
+    <Folder Include="Images\big\" />
+    <Folder Include="Images\gallery\" />
+    <Folder Include="Images\Gif\" />
+    <Folder Include="Images\small\" />
+    <Folder Include="Images\users\" />
+    <Folder Include="rapor_css\images\big\" />
+    <Folder Include="rapor_css\images\gallery\" />
+    <Folder Include="rapor_css\images\small\" />
+    <Folder Include="rapor_css\images\users\" />
+    <Folder Include="rapor_css\Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\diler.Dal\diler.Dal.csproj">
+      <Project>{06d64fd7-e6b4-419f-9d90-c0d6bd082c30}</Project>
+      <Name>diler.Dal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\diler.Entity\diler.Entity.csproj">
+      <Project>{51cd1925-9325-4cd7-a3ce-db2bd02b4199}</Project>
+      <Name>diler.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole1">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50753</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50753/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

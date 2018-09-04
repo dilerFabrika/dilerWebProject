@@ -1,0 +1,38 @@
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Bll\bin\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Bll\obj\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Bll\obj\Debug\diler.Bll.pdb
+C:\inetpub\wwwroot\diler\diler.Bll\bin\Debug\diler.Bll.dll
+C:\inetpub\wwwroot\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+C:\inetpub\wwwroot\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\diler\diler.Bll\obj\Debug\diler.Bll.dll
+C:\inetpub\wwwroot\diler\diler.Bll\obj\Debug\diler.Bll.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\bin\Debug\diler.Bll.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\obj\Debug\diler.Bll.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\obj\Debug\diler.Bll.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\bin\Debug\System.Net.Http.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Bll\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\bin\Debug\diler.Bll.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\bin\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\bin\Debug\System.Net.Http.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\bin\Debug\System.Net.Http.xml
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\obj\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Bll\obj\Debug\diler.Bll.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Bll\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\bin\Debug\diler.Bll.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\bin\Debug\diler.Bll.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.csprojResolveAssemblyReference.cache
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Bll\obj\Debug\diler.Bll.pdb

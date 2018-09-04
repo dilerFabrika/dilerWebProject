@@ -1,0 +1,123 @@
+﻿.tr_blue {
+    background-color: #0094ff;
+}
+
+div.table-responsive .table thead tr {
+    background-color: lightblue;
+}
+
+    div.table-responsive .table thead tr th {
+        line-height: 1em;
+        font-weight: bold;
+        font-size: 10px !important;
+        text-align: center;
+        padding: 1px;
+        margin: 0;
+    }
+
+div.table-responsive .table tbody tr td {
+    line-height: 1em;
+    font-weight: normal;
+    font-size: 10px !important;
+    text-align: LEFT;
+    padding: 1px;
+    margin: 0;
+}
+
+div.table-responsive .table tbody tr th {
+    line-height: 1em;
+    font-weight: normal;
+    font-size: 10px !important;
+    text-align: left;
+    padding: 1px;
+    margin: 0;
+}
+
+.tbl_baslik {
+    text-align: center;
+    font-weight: bold;
+    background-color: #1e88e5;
+    padding: 2px;
+}
+
+.table-rapor {
+    padding: 0 !important;
+}
+
+/** input'un icindeki ok'u gizler
+            .unstyled_date::-webkit-calendar-picker-indicator {
+            display: none;
+            -webkit-appearance: none;
+        } 
+
+        */
+
+.unstyled_date::-webkit-inner-spin-button {
+            display: none;
+            -webkit-appearance: none;
+        }
+
+        .td_kahve {
+            background-color: #f89148;
+            color: #000;
+        }
+
+        .td_turuncu {
+            background-color: #ff7a1c;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .td_mavi {
+            background-color: #1bb8eb;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .td_sari {
+            background-color: #ffff00;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .td_yesil {
+            background-color: #00ff00;
+            color: #000;
+            font-weight: bold;
+        }
+
+li.dropdown > a {
+    line-height: 21px;
+}
+
+li.dropdown a:hover {
+    background-color: #1e88e5;
+}
+
+li.dropdown a:focus {
+    background-color: #1e88e5;
+}
+
+li.dropdown a:active {
+    background-color: #1e88e5;
+}
+
+li.dropdown a:after {
+    background-color: #1e88e5;
+}
+
+.nav.navbar-nav {
+    background-color: #1e88e5;
+}
+
+.rapor_tarihi_getir {
+    background-color: #1e88e5;
+    padding: 0;
+    margin: 0;
+    padding-top: 5px;
+}
+
+.fa-long-arrow-white {
+    color:#FFF;
+    font-weight:bold;
+}

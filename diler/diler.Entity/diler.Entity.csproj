@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{51CD1925-9325-4CD7-A3CE-DB2BD02B4199}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>diler.Entity</RootNamespace>
+    <AssemblyName>diler.Entity</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="alyaj_bilgileri.cs" />
+    <Compile Include="Analizler.cs" />
+    <Compile Include="Aylik_alyaj_rapor_bilgileri.cs" />
+    <Compile Include="Dosis_rapor_bilgileri.cs" />
+    <Compile Include="Duruslar.cs" />
+    <Compile Include="Durus_ayrintisi.cs" />
+    <Compile Include="Enerjiler.cs" />
+    <Compile Include="genel_bilgiler.cs" />
+    <Compile Include="Genel_uretim.cs" />
+    <Compile Include="Haber.cs" />
+    <Compile Include="Haddehane_ozet.cs" />
+    <Compile Include="Hh_vrd_Ozet.cs" />
+    <Compile Include="Hurdalar.cs" />
+    <Compile Include="Istif_bilgileri.cs" />
+    <Compile Include="Izlenebilirlik_bilgileri.cs" />
+    <Compile Include="Kalibrasyon_Paketleme.cs" />
+    <Compile Include="Kangal_uretim.cs" />
+    <Compile Include="Kangal_uretim_ozet.cs" />
+    <Compile Include="katsayi_kontrol.cs" />
+    <Compile Include="Kimya_lab_analiz.cs" />
+    <Compile Include="Kullanici_bilgileri.cs" />
+    <Compile Include="Mesai_yillik_izin.cs" />
+    <Compile Include="Net_calisma.cs" />
+    <Compile Include="Oksijen.cs" />
+    <Compile Include="Ortak_rapor.cs" />
+    <Compile Include="PaketlemeRapor.cs" />
+    <Compile Include="Performans_raporu.cs" />
+    <Compile Include="Personel.cs" />
+    <Compile Include="Rm_veriler.cs" />
+    <Compile Include="R_ao_alyaj.cs" />
+    <Compile Include="R_ark_ocagi_genel.cs" />
+    <Compile Include="R_enerji.cs" />
+    <Compile Include="R_hurda.cs" />
+    <Compile Include="R_pota_ocagi_genel.cs" />
+    <Compile Include="R_po_alyaj.cs" />
+    <Compile Include="R_sarfmalzeme.cs" />
+    <Compile Include="R_sdm_genel.cs" />
+    <Compile Include="Sarfiyatlar.cs" />
+    <Compile Include="Sevkiyat_uretim.cs" />
+    <Compile Include="Tanim_bilgileri.cs" />
+    <Compile Include="Tonajlar.cs" />
+    <Compile Include="Uretimler.cs" />
+    <Compile Include="uretim_bilgileri.cs" />
+    <Compile Include="durus_bilgileri.cs" />
+    <Compile Include="hurda_bilgileri.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="refrakter_bilgileri.cs" />
+    <Compile Include="sarf_bilgileri.cs" />
+    <Compile Include="Uretim_ozetler.cs" />
+    <Compile Include="uretim_sira.cs" />
+    <Compile Include="Yemek.cs" />
+    <Compile Include="Yol_bazinda_uretim_ozet.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,2678 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using diler.Dal;
+using diler.Entity;
+namespace diler.Web
+{
+    public partial class celikhanex : System.Web.UI.Page
+    {
+
+        dynamic gun_kontrol;
+        dynamic DonenDeger;
+        dynamic KULLANICI;
+        public string gelentarih;
+        public string gelendurusKodu;
+        public string tarih_parse;
+        public string message;
+        Database database = new Database();
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!Page.IsPostBack)
+            {
+
+                Cmb_Celikcinsii.Text = "S 220";
+                txt_dkmtip.Text = "AC";
+                Txt_tarih.Value = DateTime.Today;
+                KULLANICI = Session["KULLANICI"];
+                Btn_Refrakteryeni.Visible = false;
+                Btn_hurdasakla.Visible = false;
+                ANATAB.TabPages[0].Visible = false; //Üretim
+                ANATAB.TabPages[1].Visible = true;  //Genel bilgi
+                ANATAB.TabPages[2].Visible = true; //Enerji
+                ANATAB.TabPages[3].Visible = true; //Sarf
+                ANATAB.TabPages[4].Visible = true;  //Hurda
+                ANATAB.TabPages[5].Visible = true;  //Alyaj
+                ANATAB.TabPages[6].Visible = false;  //Duruş
+                ANATAB.TabPages[7].Visible = false; //Refrakter
+                ANATAB.TabPages[8].Visible = false; //Analiz
+                ANATAB.TabPages[9].Visible = false; //TARİH/VARDİYA DEĞİŞTİR
+                Btn_Refraktersakla.Visible = false;
+                GRD_CH_SARFMLZ_AO.Enabled = false;
+
+
+                if (KULLANICI == "CHAOOPR")
+                {
+                    GRD_CH_GENELBILGILER_AO.Enabled = true;
+                    GRD_CH_ENERJI_AO.Enabled = true;
+                    GRD_CH_SARFMLZ_AO.Enabled = true;
+                    GRD_CH_HURDA.Enabled = true;
+                    GRD_CH_ALYAJ_AO.Enabled = true;
+                    Btn_genelbilgisakla.Visible = true;
+                    ANATAB.TabPages[6].Visible = true; //Duruş
+                    ANATAB.TabPages[7].Visible = true; //Refrakter
+                   ANATAB.TabPages[9].Visible = true; //TARİH/VARDİYA DEĞİŞTİR
+                    Btn_durusSakla.Visible = true;
+                    Btn_alyajsakla.Visible = true;
+                    Btn_hurdasakla.Visible = true;
+                    Btn_sarfsakla.Visible = true;
+                    Btn_enerjisakla.Visible = true;
+                    Btn_vrd_tarih_change.Visible = true;
+                   Grd_dokum_ozellikleri.Enabled = true;
+                }
+                if (KULLANICI == "D1947")  //Kenan Kırboğa görüyor
+                {
+                    ANATAB.TabPages[7].Visible = true; //Refrakter
+                }
+
+                if (KULLANICI == "CHPOOPR")
+                {
+                    ANATAB.TabPages[7].Visible = true; //Refrakter
+                    ANATAB.TabPages[8].Visible = true; //Analiz
+                    GRD_CH_GENELBILGILER_PO.Enabled = true;
+                    GRD_CH_ENERJI_PO.Enabled = true;
+                    GRD_CH_ALYAJ_PO.Enabled = true;
+                    Btn_genelbilgisakla.Visible = true;
+                    Btn_alyajsakla.Visible = true;
+                    Btn_enerjisakla.Visible = true;
+
+
+                }
+                if (KULLANICI == "CHSDMOPR")
+                {
+                    ANATAB.TabPages[7].Visible = true; //Refrakter
+                    GRD_CH_GENELBILGILER_SDM.Enabled = true;
+                    GRD_CH_SARFMLZ_SDM.Enabled = true;
+                    Btn_genelbilgisakla.Visible = true;
+                    Btn_sarfsakla.Visible = true;
+
+                }
+                if (KULLANICI == "OPRKIM")
+                {
+
+                    ANATAB.TabPages[0].Visible = true;
+                    ANATAB.TabPages[8].Visible = true; //Analiz
+                    Grd_analiz1.Enabled = true;
+                    Grd_analiz2.Enabled = true;
+                    Btn_analiz_kayit.Visible = true;
+                    //  txt_DokumNo.ReadOnly = false;
+                }
+                if (KULLANICI == "CHREFOPR")
+                {
+                    ANATAB.TabPages[7].Visible = true; //Refrakter
+                    Btn_Refraktersakla.Visible = true;
+                    Btn_Refrakteryeni.Visible = true;
+                    Btn_refrakter_dokum_sil.Visible = true;
+                    //GRD_REFRAKTER.Enabled = false;
+                    txt_DokumNo.Visible = false;
+                    Label1.Visible = false;
+
+                }
+            }
+            else
+            {
+                KULLANICI = Session["KULLANICI"];
+            }
+            kutukboy_comboDoldur();
+            kutukEbat_comboDoldur();
+            kalite_comboDoldur();
+            durusNeden_cmbDoldur();
+            arizaNeden_cmbDoldur();
+
+
+        }
+
+        public void dokum_listesi()
+        {
+            database.connect();
+            List<uretim_bilgileri> dokumler = new List<uretim_bilgileri>();
+            dokumler = database.dokum_listesi(Convert.ToDateTime(Txt_tarih.Text));
+            GRD_CELIKHANE_DOKUMNO.DataSource = dokumler;
+            GRD_CELIKHANE_DOKUMNO.DataBind();
+            database.disConnect();
+        }
+
+        //Alyaj
+        public void alyaj_listesi_ao(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "AO";
+            List<alyaj_bilgileri> alyaj_listesi_veriler = new List<alyaj_bilgileri>();
+            alyaj_listesi_veriler = database.alyaj_listesi(dokumno, lokasyon);
+            GRD_CH_ALYAJ_AO.DataSource = alyaj_listesi_veriler;
+            GRD_CH_ALYAJ_AO.DataBind();
+            database.disConnect();
+
+        }
+        public void alyaj_listesi_po(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "PO";
+            List<alyaj_bilgileri> alyaj_listesi_veriler = new List<alyaj_bilgileri>();
+            alyaj_listesi_veriler = database.alyaj_listesi(dokumno, lokasyon);
+            GRD_CH_ALYAJ_PO.DataSource = alyaj_listesi_veriler;
+            GRD_CH_ALYAJ_PO.DataBind();
+            database.disConnect();
+        }
+        public void alyaj_kayit_ao()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_ALYAJ_AO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_ALYAJ_AO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ALYAJ_AO.Columns["DEGERI"], "txtDegeri");
+                    //if (deger.Text != null)
+                    //{
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    //d1 = deger.Text;
+                    d2 = GRD_CH_ALYAJ_AO.GetRowValues(i, "SARJTIP").ToString();
+                    d3 = GRD_CH_ALYAJ_AO.GetRowValues(i, "LOKASYON").ToString();
+                    if (d1 != ".")
+                    {
+                        if (Convert.ToDecimal(d1) >= 0)
+                        {
+                            MESAJ = database.alyaj_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                            ALYAJ_MSG.Text = "DÖKÜMÜN ALYAJ BİLGİLERİ " + MESAJ;
+                            ALYAJ_MSG.ShowOnPageLoad = true;
+                        }
+                    }
+
+                }
+            }
+
+            else
+            {
+                ALYAJ_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                ALYAJ_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+
+        }
+        public void alyaj_kayit_po()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_ALYAJ_PO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_ALYAJ_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ALYAJ_PO.Columns["DEGERI"], "txtDegeri");
+                    //if (deger.Text != null)
+                    //{
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    //d1 = deger.Text;
+                    d2 = GRD_CH_ALYAJ_PO.GetRowValues(i, "SARJTIP").ToString();
+                    d3 = GRD_CH_ALYAJ_PO.GetRowValues(i, "LOKASYON").ToString();
+                    if (d1 != ".")
+                    {
+                        if (Convert.ToDecimal(d1) >= 0)
+                        {
+                            MESAJ = database.alyaj_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                            ALYAJ_MSG.Text = "DÖKÜMÜN ALYAJ BİLGİLERİ " + MESAJ;
+                            ALYAJ_MSG.ShowOnPageLoad = true;
+                        }
+                    }
+
+                    // }
+                }
+            }
+            else
+            {
+                ALYAJ_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                ALYAJ_MSG.ShowOnPageLoad = true;
+            }
+
+            database.disConnect();
+        }
+
+        //Hurda
+        public void hurda_listesi(object dokumno)
+        {
+            database.connect();
+            List<hurda_bilgileri> hurda_listesi_veriler = new List<hurda_bilgileri>();
+            hurda_listesi_veriler = database.hurda_listesi(Convert.ToDateTime(Txt_tarih.Text), dokumno);
+            List<string> secilenler = new List<string>();
+            secilenler = database.Toplam_Sarj_(txt_DokumNo.Text, Convert.ToDateTime(Txt_tarih.Text));
+            Txt_Toplam_sarj1.Text = secilenler[0];
+            Txt_Toplam_sarj2.Text = secilenler[1];
+            Txt_Toplam_sarj3.Text = secilenler[2];
+            Txt_Toplam_sarj4.Text = secilenler[3];
+            Txt_Toplam_sarj.Text = secilenler[4];
+            GRD_CH_HURDA.DataSource = hurda_listesi_veriler;
+            GRD_CH_HURDA.DataBind();
+            database.disConnect();
+
+        }
+        public void hurda_kayit()
+        {
+            int Sarj1, Sarj2, Sarj3, Sarj4;
+            string hurdatanim;
+            for (int i = 0; i <= GRD_CH_HURDA.VisibleRowCount - 1; i++)
+            {
+
+                TextBox sarj1 = (TextBox)GRD_CH_HURDA.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_HURDA.Columns["SARJ1"], "SARJ1");
+                TextBox sarj2 = (TextBox)GRD_CH_HURDA.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_HURDA.Columns["SARJ2"], "SARJ2");
+                TextBox sarj3 = (TextBox)GRD_CH_HURDA.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_HURDA.Columns["SARJ3"], "SARJ3");
+                TextBox sarj4 = (TextBox)GRD_CH_HURDA.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_HURDA.Columns["SARJ4"], "SARJ4");
+
+                Sarj1 = Convert.ToInt32(sarj1.Text);
+                Sarj2 = Convert.ToInt32(sarj2.Text);
+                Sarj3 = Convert.ToInt32(sarj3.Text);
+                Sarj4 = Convert.ToInt32(sarj4.Text);
+
+                hurdatanim = GRD_CH_HURDA.GetRowValues(i, "HURDATIP").ToString();
+
+                if (Sarj1 > 0)
+                    hurda_Insert(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, 1, hurdatanim, Sarj1);
+                if (Sarj2 > 0)
+                    hurda_Insert(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, 2, hurdatanim, Sarj2);
+                if (Sarj3 > 0)
+                    hurda_Insert(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, 3, hurdatanim, Sarj3);
+                if (Sarj4 > 0)
+                    hurda_Insert(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, 4, hurdatanim, Sarj4);
+            }
+
+        }
+        public void hurda_Insert(DateTime Tarih, object DokumNo, object SarjNo, object HurdaTanim, object Degeri)
+        {
+            database.connect();
+            string MESAJ;
+            gun_kontrol = database.GunKontroluYap(Tarih, KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                MESAJ = database.hurda_kayit(Tarih, DokumNo, SarjNo, HurdaTanim, Degeri);
+                HURDA_MSG.Text = "\n" + "DÖKÜMÜN HURDA BİLGİLERİ " + MESAJ;
+                HURDA_MSG.ShowOnPageLoad = true;
+            }
+            else
+            {
+                HURDA_MSG.Text = "\n" + " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                HURDA_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+
+
+        //Sarf
+        public void sarf_listesi_sdm(object dokumno)
+        {
+            database.connect();
+            dynamic ALANADI = null;
+            List<sarf_bilgileri> sarf_Listesi_veriler = new List<sarf_bilgileri>();
+            sarf_Listesi_veriler = database.Sarf_Listesi(dokumno);
+            GRD_CH_SARFMLZ_SDM.DataSource = sarf_Listesi_veriler;
+            GRD_CH_SARFMLZ_SDM.DataBind();
+            for (int i = 0; i <= GRD_CH_SARFMLZ_SDM.VisibleRowCount - 1; i++)
+            {
+                ALANADI = GRD_CH_SARFMLZ_SDM.GetRowValues(i, "SARFMLZTNM").ToString();
+
+                TextBox he = (TextBox)GRD_CH_SARFMLZ_SDM.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_SARFMLZ_SDM.Columns["DEGERI4"], "txtDegeri4");
+                if (ALANADI == "STARTER TUBE (ADET)")
+                {
+                    DonenDeger = "6";
+
+                }
+            }
+            database.disConnect();
+        }
+        public void sarf_listesi_ao(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "AO";
+            List<sarf_bilgileri> sarf_Listesi_veriler = new List<sarf_bilgileri>();
+            sarf_Listesi_veriler = database.sarf_veriler(dokumno, lokasyon);
+            GRD_CH_SARFMLZ_AO.DataSource = sarf_Listesi_veriler;
+            GRD_CH_SARFMLZ_AO.DataBind();
+            database.disConnect();
+        }
+        public void sarf_kayit_sdm()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_SARFMLZ_SDM.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_SARFMLZ_SDM.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_SARFMLZ_SDM.Columns["DEGERI4"], "txtDegeri4");
+                    //if (deger.Text != null)
+                    //{
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    //d1 = deger.Text;
+                    d2 = GRD_CH_SARFMLZ_SDM.GetRowValues(i, "SARFMLZTNM").ToString();
+                    d3 = "SDM";
+                    if (d1 != ".")
+                    {
+                        if (Convert.ToDecimal(d1) >= 0)
+                        {
+                            MESAJ = database.sarf_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                            SARFMLZ_MSG.Text = "Dökümün Sarf Bilgileri" + MESAJ;
+                            SARFMLZ_MSG.ShowOnPageLoad = true;
+                        }
+                    }
+                }
+            }
+            else
+
+            {
+                SARFMLZ_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                SARFMLZ_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+        public void sarf_kayit_ao()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_SARFMLZ_AO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_SARFMLZ_AO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_SARFMLZ_SDM.Columns["DEGERI4"], "txtDegeri4");
+                    //if (deger.Text != null)
+                    //{
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    //d1 = deger.Text;
+                    d2 = GRD_CH_SARFMLZ_AO.GetRowValues(i, "SARFMLZTNM").ToString();
+                    d3 = "AO";
+                    if (d1 != ".")
+                    {
+                        if (Convert.ToDecimal(d1) >= 0)
+                        {
+                            MESAJ = database.sarf_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                            SARFMLZ_MSG.Text = "Dökümün Sarf Bilgileri" + MESAJ;
+                            SARFMLZ_MSG.ShowOnPageLoad = true;
+                        }
+
+                    }
+
+                }
+            }
+            else
+
+            {
+                SARFMLZ_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                SARFMLZ_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+
+
+        //Genelbilgi
+
+        public void genel_bilgi_listesi_sdm(object dokumno)
+        {
+
+            database.connect();
+            string lokasyon = "SDM";
+            List<genel_bilgiler> genel_bilgi_listesi_veriler = new List<genel_bilgiler>();
+            genel_bilgi_listesi_veriler = database.genel_bilgi_listesi(Convert.ToDateTime(Txt_tarih.Text), dokumno, lokasyon);
+            GRD_CH_GENELBILGILER_SDM.DataSource = genel_bilgi_listesi_veriler;
+            GRD_CH_GENELBILGILER_SDM.DataBind();
+            database.disConnect();
+
+        }
+        public void genel_bilgi_listesi_ao(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "AO";
+            List<genel_bilgiler> genel_bilgi_listesi_veriler = new List<genel_bilgiler>();
+            genel_bilgi_listesi_veriler = database.genel_bilgi_listesi(Convert.ToDateTime(Txt_tarih.Text), dokumno, lokasyon);
+            GRD_CH_GENELBILGILER_AO.DataSource = genel_bilgi_listesi_veriler;
+            GRD_CH_GENELBILGILER_AO.DataBind();
+            database.disConnect();
+
+        }
+        public void genel_bilgi_listesi_po(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "PO";
+            List<genel_bilgiler> genel_bilgi_listesi_veriler = new List<genel_bilgiler>();
+            genel_bilgi_listesi_veriler = database.genel_bilgi_listesi(Convert.ToDateTime(Txt_tarih.Text), dokumno, lokasyon);
+            GRD_CH_GENELBILGILER_PO.DataSource = genel_bilgi_listesi_veriler;
+            GRD_CH_GENELBILGILER_PO.DataBind();
+            database.disConnect();
+
+        }
+        public void genel_bilgi_kayit_sdm()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_GENELBILGILER_SDM.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_SDM.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_SDM.Columns["DEGERI"], "txtDegeri6");
+                    d1 = deger.Text;
+                    d2 = GRD_CH_GENELBILGILER_SDM.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "SDM";
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+                    MESAJ = database.genel_bilgi_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                    GENELBILGI_MSG.Text = "DÖKÜMÜN GENEL BİLGİLERİ " + MESAJ;
+                    GENELBILGI_MSG.ShowOnPageLoad = true;
+                    // }
+                }
+            }
+
+            else
+            {
+
+                GENELBILGI_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                GENELBILGI_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+        }
+        public void genel_bilgi_kayit_ao()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_GENELBILGILER_AO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_AO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_AO.Columns["DEGERI"], "txtDegeri7");
+                    d1 = deger.Text;
+                    d2 = GRD_CH_GENELBILGILER_AO.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "AO";
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+                    MESAJ = database.genel_bilgi_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                    GENELBILGI_MSG.Text = "DÖKÜMÜN GENEL BİLGİLERİ " + MESAJ;
+                    GENELBILGI_MSG.ShowOnPageLoad = true;
+                    // }
+                }
+
+            }
+            else
+            {
+                GENELBILGI_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                GENELBILGI_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+        public void genel_bilgi_kayit_po()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+
+                for (int i = 0; i <= GRD_CH_GENELBILGILER_PO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    d1 = deger.Text;
+                    d2 = GRD_CH_GENELBILGILER_PO.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "PO";
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+
+                    MESAJ = database.genel_bilgi_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                    GENELBILGI_MSG.Text = "DÖKÜMÜN GENEL BİLGİLERİ " + MESAJ;
+                    GENELBILGI_MSG.ShowOnPageLoad = true;
+                    // }
+                }
+            }
+
+            else
+            {
+
+                GENELBILGI_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                GENELBILGI_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+
+        }
+
+
+
+
+        //Enerji
+        public void enerji_liste_ao(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "AO";
+            List<genel_bilgiler> enerji_listesi_veriler = new List<genel_bilgiler>();
+            enerji_listesi_veriler = database.enerji_liste(Convert.ToDateTime(Txt_tarih.Text), dokumno, lokasyon);
+            GRD_CH_ENERJI_AO.DataSource = enerji_listesi_veriler;
+            GRD_CH_ENERJI_AO.DataBind();
+            database.disConnect();
+
+        }
+        public void enerji_liste_po(object dokumno)
+        {
+            database.connect();
+            string lokasyon = "PO";
+            List<genel_bilgiler> enerji_listesi_veriler = new List<genel_bilgiler>();
+            enerji_listesi_veriler = database.enerji_liste(Convert.ToDateTime(Txt_tarih.Text), dokumno, lokasyon);
+            GRD_CH_ENERJI_PO.DataSource = enerji_listesi_veriler;
+            GRD_CH_ENERJI_PO.DataBind();
+            database.disConnect();
+        }
+        public void enerji_kayit_ao()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= GRD_CH_ENERJI_AO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_ENERJI_AO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ENERJI_AO.Columns["DEGERI"], "txtDegeri6");
+                    // d1 = Convert.ToInt32(he.Text);
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    // d1 = deger.Text;
+                    d2 = GRD_CH_ENERJI_AO.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "AO";
+                    MESAJ = database.enerji_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                    ENERJI_MSG.Text = "DÖKÜMÜN ENERJİ BİLGİLERİ " + MESAJ;
+                    ENERJI_MSG.ShowOnPageLoad = true;
+
+                }
+            }
+
+            else
+            {
+                ENERJI_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                ENERJI_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+
+        }
+        public void enerji_kayit_po()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+
+                for (int i = 0; i <= GRD_CH_ENERJI_PO.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)GRD_CH_ENERJI_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ENERJI_PO.Columns["DEGERI"], "txtDegeri7");
+                    d1 = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    d2 = GRD_CH_ENERJI_PO.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "PO";
+                    MESAJ = database.enerji_kayit(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, d1, d2, d3);
+                    ENERJI_MSG.Text = "DÖKÜMÜN ENERJİ BİLGİLERİ " + MESAJ;
+                    ENERJI_MSG.ShowOnPageLoad = true;
+
+                }
+            }
+            else
+            {
+                ENERJI_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                ENERJI_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+
+        //Üretim
+
+        public void uretim_liste()
+        {
+            database.connect();
+            string dokum_No = txt_DokumNo.Text;
+            List<uretim_bilgileri> uretim_listesi_veriler = new List<uretim_bilgileri>();
+            uretim_listesi_veriler = database.uretim_liste(dokum_No);
+            GRD_KUTUKURETIM.DataSource = uretim_listesi_veriler;
+            GRD_KUTUKURETIM.DataBind();
+            database.disConnect();
+
+        }
+        public void Dokum_ac()
+        {
+            database.connect();
+            string d3, d2, MESAJ;
+            txt_Sirano.Text = "1";
+            d2 = Cmb_vrd.Text;
+            d3 = "AÇIK";
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (d2 != "")
+                {
+                    MESAJ = database.dokumSakla(txt_Sirano.Text, Convert.ToDateTime(Txt_tarih.Text), d2, d3);
+                    KUTUK_MSG.Text = MESAJ;
+                    KUTUK_MSG.ShowOnPageLoad = true;
+
+                }
+                else
+                {
+                    MESAJ = "VARDİYA ALANINI DOLDURUNUZ.";
+                    KUTUK_MSG.Text = MESAJ;
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+
+                Cmb_Celikcinsii.Text = ""; txt_Sirano.Text = "";
+                Cmb_Kutukboy.Text = ""; Cmb_KutukEbat.Text = "";
+                txt_KutukSayisi.Text = ""; txt_dkmtip.Text = "";
+                Cmb_vrd.Text = ""; txt_SarikutukSayisi.Text = "";
+                txt_SarikutukTonaji.Text = ""; cmb_KutukGidecekYer.Text = "";
+                cmb_sarikutukCelikcinsi.Text = ""; txt_karisimTonaji.Text = "";
+                txt_Siparisno.Text = ""; Cmb_sapmanedeni.Text = "";
+                cmb_standartDisinedeni.Text = ""; cmb_standartDisiKimyasali.Text = "";
+                Cmb_sapmaKimyasali.Text = ""; txt_standartKarisimSayisi.Text = "";
+                txt_OzelKod.Text = ""; txt_Genelaciklama.Text = ""; tx_radyoaktivite.Text = "";
+                Txt_KutukTonaj.Text = "";
+            }
+            else
+            {
+                KUTUK_MSG.Text = "GÜN KAPANMIŞTIR. DÖKÜM AÇAMAZSINIZ !!";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+
+            Cmb_Celikcinsii.Text = ""; txt_Sirano.Text = "";
+            Cmb_Kutukboy.Text = ""; Cmb_KutukEbat.Text = "";
+            txt_KutukSayisi.Text = ""; txt_dkmtip.Text = "";
+            Cmb_vrd.Text = ""; txt_SarikutukSayisi.Text = "";
+            txt_SarikutukTonaji.Text = ""; cmb_KutukGidecekYer.Text = "";
+            cmb_sarikutukCelikcinsi.Text = ""; txt_karisimTonaji.Text = "";
+            txt_Siparisno.Text = ""; Cmb_sapmanedeni.Text = "";
+            cmb_standartDisinedeni.Text = ""; cmb_standartDisiKimyasali.Text = "";
+            Cmb_sapmaKimyasali.Text = ""; txt_standartKarisimSayisi.Text = "";
+            txt_OzelKod.Text = ""; txt_Genelaciklama.Text = "";
+            Txt_KutukTonaj.Text = ""; tx_radyoaktivite.Text = "";
+            database.disConnect();
+        }
+        public void dokumkapat(object gelenDokum)
+        {
+            database.connect();
+            dynamic MESAJ;
+            string d3 = "KAPALI";
+            int d1 = Convert.ToInt32(txt_DokumNo.Text);
+            if (d1 > 0)
+            {
+                database.dokumKapat(gelenDokum, d3);
+                MESAJ = "DÖKÜM DURUMU KAPATILDI";
+                KUTUK_MSG.Text = MESAJ;
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+            else
+            {
+                MESAJ = "DÖKÜM NUMARASI LİSTESİNDEN DÖKÜM SEÇİNİZ";
+                KUTUK_MSG.Text = MESAJ;
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+        public void uretim_kayit()
+        {
+            database.connect();
+            string d1, d2, d3, d4, d5, d11, d12, d13, d14, d15, d16, d18, d19, d20, d21, d22, radyo_aktivite, MESAJ, dokum_durumu, vardiya, dokumtip;
+            List<string> uretimDegiskenleri = new List<string>();
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (txt_DokumNo.Text != "0")
+                {
+                    uretimDegiskenleri = database.uretimdegiskeni_Bul(txt_DokumNo.Text);
+                    // **string gelendokumTip = database.dokum_tip_getir(Cmb_Celikcinsii.SelectedItem);
+
+                    d1 = txt_Sirano.Text;
+                    d2 = Cmb_Kutukboy.Text;
+                    d3 = Cmb_KutukEbat.Text;
+                    d4 = Cmb_Celikcinsii.Text;
+                    d5 = txt_KutukSayisi.Text;
+                    dokum_durumu = uretimDegiskenleri[0];
+                    // d7 = uretimDegiskenleri[1];
+                    vardiya = Cmb_vrd.Text;
+                    dokumtip = txt_dkmtip.Text;
+
+
+                    string kutuk_tonaj = Txt_KutukTonaj.Text.Replace(",", ".").Equals("") ? "0" : Txt_KutukTonaj.Text.Replace(",", ".").ToString();
+                    // double d9 = Convert.ToDouble(Txt_KutukTonaj.Text.Replace(",", ".").Equals("") ? "0.0" : Txt_KutukTonaj.Text.Replace(",", ".").ToString());  
+                    // double d10 = Convert.ToDouble(txt_karisimTonaji.Text.Replace(",", ".").Equals("") ? "0.0" : txt_karisimTonaji.Text.Replace(",", ".").ToString());
+                    string karisim_tonaj = txt_karisimTonaji.Text.Replace(",", ".").Equals("") ? "0" : txt_karisimTonaji.Text.Replace(",", ".").ToString();
+                    // d10 = txt_karisimTonaji.Text.Replace(",", "."); 
+                    d11 = txt_OzelKod.Text;
+                    d12 = txt_standartKarisimSayisi.Text;
+                    d13 = Cmb_sapmaKimyasali.Text;
+                    d14 = cmb_standartDisiKimyasali.Text;
+                    d15 = cmb_standartDisinedeni.Text;
+                    d16 = Cmb_sapmanedeni.Text;
+                    double d17 = Convert.ToDouble(txt_SarikutukTonaji.Text.Replace(",", ".").Equals("") ? "0.0" : txt_SarikutukTonaji.Text.Replace(",", ".").ToString());
+                    //d17 = txt_SarikutukTonaji.Text.Replace(",", ".");
+                    d18 = txt_SarikutukSayisi.Text;
+                    d19 = txt_Siparisno.Text;
+                    d20 = cmb_KutukGidecekYer.Text;
+                    d21 = cmb_sarikutukCelikcinsi.Text;
+                    d22 = txt_Genelaciklama.Text;
+                    radyo_aktivite = tx_radyoaktivite.Text;
+
+
+                    MESAJ = database.uretim_kayit(txt_DokumNo.Text, d1, Convert.ToDateTime(Txt_tarih.Text), vardiya, d11, d19, d4, d2, d3, d16, d13, d15, d14, d20, d5, kutuk_tonaj, d18, d17, d21, d12, karisim_tonaj, d22, dokum_durumu, dokumtip, radyo_aktivite);
+                    KUTUK_MSG.Text = "\n" + MESAJ;
+                    KUTUK_MSG.ShowOnPageLoad = true;
+
+                    //**kimyacı kapat dedi
+
+                    //Cmb_Celikcinsii.Text = ""; txt_Sirano.Text = "";
+                    //Cmb_Kutukboy.Text = ""; Cmb_KutukEbat.Text = "";
+                    //txt_KutukSayisi.Text = ""; txt_dkmtip.Text = "";
+                    //Cmb_vrd.Text = ""; txt_SarikutukSayisi.Text = "";
+                    //txt_SarikutukTonaji.Text = ""; cmb_KutukGidecekYer.Text = "";
+                    //cmb_sarikutukCelikcinsi.Text = ""; txt_karisimTonaji.Text = "";
+                    //txt_Siparisno.Text = ""; Cmb_sapmanedeni.Text = "";
+                    //cmb_standartDisinedeni.Text = ""; cmb_standartDisiKimyasali.Text = "";
+                    //Cmb_sapmaKimyasali.Text = ""; txt_standartKarisimSayisi.Text = "";
+                    //txt_OzelKod.Text = ""; txt_Genelaciklama.Text = "";
+                    //Txt_KutukTonaj.Text = ""; tx_radyoaktivite.Text = "";
+
+                    //**kimyacı kapat dedi
+
+                }
+
+                else
+                {
+                    KUTUK_MSG.Text = "DÖKÜM SEÇMEDEN ÜRETİM BİLGİSİ SAKLAYAMAZSINIZ !!";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+            }
+
+            else
+            {
+                KUTUK_MSG.Text = "GÜN KAPANMIŞTIR. İŞLEM YAPAMAZSINIZ !!";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+
+
+            database.disConnect();
+        }
+        public void dokum_tip_getir(object gelencelikCinsi)
+        {
+            database.connect();
+            string gelendokumTip = database.dokum_tip_getir(gelencelikCinsi);
+            txt_dkmtip.Text = gelendokumTip;
+            database.disConnect();
+
+        }
+        public void uretim_secilen_getir()
+        {
+            database.connect();
+            List<string> secilenler = new List<string>();
+            secilenler = database.uretim_secilen_getir(txt_DokumNo.Text, txt_Sirano.Text, Convert.ToDateTime(Txt_tarih.Text));
+            Cmb_Celikcinsii.Text = secilenler[0];
+            Cmb_Kutukboy.Text = secilenler[1];
+            Cmb_KutukEbat.Text = secilenler[2];
+            txt_KutukSayisi.Text = secilenler[3];
+            Cmb_vrd.Text = secilenler[4];
+            txt_dkmtip.Text = secilenler[5];
+            txt_OzelKod.Text = secilenler[6];
+            txt_Siparisno.Text = secilenler[7];
+            Cmb_sapmanedeni.Text = secilenler[8];
+            Cmb_sapmaKimyasali.Text = secilenler[9];
+            cmb_standartDisinedeni.Text = secilenler[10];
+            cmb_standartDisiKimyasali.Text = secilenler[11];
+            cmb_KutukGidecekYer.Text = secilenler[12];
+            Txt_KutukTonaj.Text = secilenler[13];
+            txt_SarikutukSayisi.Text = secilenler[14];
+            txt_SarikutukTonaji.Text = secilenler[15];
+            cmb_sarikutukCelikcinsi.Text = secilenler[16];
+            txt_standartKarisimSayisi.Text = secilenler[17];
+            txt_karisimTonaji.Text = secilenler[18];
+            txt_Genelaciklama.Text = secilenler[19];
+            tx_radyoaktivite.Text = secilenler[22];
+            database.disConnect();
+        }
+
+
+        public void uretim_secilen_getir_deneme()
+        {
+            database.connect();
+            List<string> secilenler = new List<string>();
+            secilenler = database.uretim_secilen_getir(txt_DokumNo.Text, "1", Convert.ToDateTime(Txt_tarih.Text));
+            Cmb_Celikcinsii.Text = secilenler[0];
+            Cmb_Kutukboy.Text = secilenler[1];
+            Cmb_KutukEbat.Text = secilenler[2];
+            txt_KutukSayisi.Text = secilenler[3];
+            Cmb_vrd.Text = secilenler[4];
+            txt_dkmtip.Text = secilenler[5];
+            txt_OzelKod.Text = secilenler[6];
+            txt_Siparisno.Text = secilenler[7];
+            Cmb_sapmanedeni.Text = secilenler[8];
+            Cmb_sapmaKimyasali.Text = secilenler[9];
+            cmb_standartDisinedeni.Text = secilenler[10];
+            cmb_standartDisiKimyasali.Text = secilenler[11];
+            cmb_KutukGidecekYer.Text = secilenler[12];
+            Txt_KutukTonaj.Text = secilenler[13];
+            txt_SarikutukSayisi.Text = secilenler[14];
+            txt_SarikutukTonaji.Text = secilenler[15];
+            cmb_sarikutukCelikcinsi.Text = secilenler[16];
+            txt_standartKarisimSayisi.Text = secilenler[17];
+            txt_karisimTonaji.Text = secilenler[18];
+            txt_Genelaciklama.Text = secilenler[19];
+            tx_radyoaktivite.Text = secilenler[22];
+            txt_Sirano.Text = "1";
+            database.disConnect();
+
+        }
+        public void dokum_yeni_sira()
+        {
+            //  Cmb_Celikcinsii.Text = "";   Cmb_vrd.Text = "";
+            txt_Sirano.Text = "";
+            Cmb_Kutukboy.Text = ""; Cmb_KutukEbat.Text = "";
+            txt_KutukSayisi.Text = ""; //txt_dkmtip.Text = "";
+            txt_SarikutukSayisi.Text = "";
+            txt_SarikutukTonaji.Text = ""; cmb_KutukGidecekYer.Text = "";
+            cmb_sarikutukCelikcinsi.Text = ""; txt_karisimTonaji.Text = "";
+            txt_Siparisno.Text = ""; Cmb_sapmanedeni.Text = "";
+            cmb_standartDisinedeni.Text = ""; cmb_standartDisiKimyasali.Text = "";
+            Cmb_sapmaKimyasali.Text = ""; txt_standartKarisimSayisi.Text = "";
+            txt_OzelKod.Text = ""; txt_Genelaciklama.Text = "";
+            Txt_KutukTonaj.Text = "";
+            Cmb_Celikcinsii.Enabled = false;
+            Cmb_vrd.Enabled = false; txt_dkmtip.Enabled = false;
+            if (txt_DokumNo.Text != "0")
+            {
+                database.connect();
+                dynamic gelenSirano = database.dokum_yeni_sira(txt_DokumNo.Text);
+                gelenSirano = Convert.ToInt32(gelenSirano) + 1;
+                txt_Sirano.Text = Convert.ToString(gelenSirano);
+                database.disConnect();
+            }
+            else
+            {
+                KUTUK_MSG.Text = "DÖKÜM NUMARASI SEÇMEDEN YENİ SIRA ALAMAZSINIZ !!";
+                KUTUK_MSG.ShowOnPageLoad = true;
+
+            }
+        }
+        public void kutukboy_comboDoldur()
+        {
+            Cmb_Kutukboy.Items.Clear();
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.kutukboy_comboDoldur();
+            foreach (var boy in veriler)
+            {
+                Cmb_Kutukboy.Items.Add(boy);
+            }
+            database.disConnect();
+        }
+        public void kutukEbat_comboDoldur()
+        {
+            Cmb_KutukEbat.Items.Clear();
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.kutukEbat_comboDoldur();
+            foreach (var ebat in veriler)
+            {
+                Cmb_KutukEbat.Items.Add(ebat);
+            }
+            database.disConnect();
+        }
+        public void kalite_comboDoldur()
+        {
+            Cmb_Celikcinsii.Items.Clear();
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.kalite_comboDoldur();
+            foreach (var kalite in veriler)
+            {
+                Cmb_Celikcinsii.Items.Add(kalite);
+            }
+            database.disConnect();
+
+            //Cmb_Celikcinsii.Text = "S 220";
+        }
+        public void standartKutukTonajiGetir()
+        {
+            database.connect();
+            decimal std_ktk_tonaj;
+            string boy, ebat, vardiya, kalite;
+            boy = Cmb_Kutukboy.Text; ebat = Cmb_KutukEbat.Text; kalite = Cmb_Celikcinsii.Text; vardiya = Cmb_vrd.Text;
+            Txt_KutukTonaj.Text = "";
+            List<string> uretimDegiskenleri = new List<string>();
+            if (txt_DokumNo.Text != "0")
+            {
+                //uretimDegiskenleri = database.uretimdegiskeni_Bul(txt_DokumNo.Text);
+                //vardiya = uretimDegiskenleri[0];
+                if (boy != "" && ebat != "")
+                {
+                    string tonaj = database.katsayiGetir(boy, ebat, Convert.ToDateTime(Txt_tarih.Text), vardiya, kalite);
+                    if (tonaj != null)
+                    {
+                        //decimal tonajj = Convert.ToDecimal(tonaj.Replace(",", "."));
+
+                        // tonajj = tonajj / 1000;
+
+                        // lbl_kutukTonaj.Text = Convert.ToString(tonajj);
+                        decimal tonajj = Convert.ToDecimal(tonaj) / 1000;
+                        lbl_kutukTonaj.Text = Convert.ToString(tonajj).Replace(",", ".");
+                        if (lbl_kutukTonaj.Text != "" && lbl_kutukTonaj.Text != null)
+                        {
+                            if (txt_KutukSayisi.Text != "")
+                            {
+                                int kutuksayisi = Convert.ToInt32(txt_KutukSayisi.Text);
+                                if (kutuksayisi != 0)
+                                {
+                                    std_ktk_tonaj = kutuksayisi * tonajj;
+                                    Txt_KutukTonaj.Text = Convert.ToString(std_ktk_tonaj).Replace(",", ".");
+
+                                }
+                            }
+                            else
+                            {
+
+                                KUTUK_MSG.Text = "\n" + "KÜTÜK SAYISI GİRİNİZ !";
+                                KUTUK_MSG.ShowOnPageLoad = true;
+                            }
+
+                            // decimal d3 = Convert.ToDecimal(txt_KutukSayisi.Text);
+
+                        }
+                    }
+                    else
+                    {
+                        txt_KutukSayisi.Text = "";
+                        KUTUK_MSG.Text = "TONAJ BULUNAMADIĞI İÇİN STANDART KÜTÜK TONAJI HESAPLANAMIYOR!";
+                        KUTUK_MSG.ShowOnPageLoad = true;
+                        //KUTUK_MSG.ShowMaximizeButton=true;
+                    }
+
+                }
+                else
+                {
+                    txt_KutukSayisi.Text = "";
+                    KUTUK_MSG.Text = "TONAJIN HESAPLANABİLMESİ İÇİN BOY VE EBATI GİRİNİZ !! ";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                KUTUK_MSG.Text = "DÖKÜM SEÇİNİZ !! ";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+
+            database.disConnect();
+
+        }
+        public void sariKutukTonajiGetir()
+        {
+
+            database.connect();
+            decimal sari_kutuk_tonaji;
+            string boy, ebat, vardiya, kalite;
+            boy = Cmb_Kutukboy.Text; ebat = Cmb_KutukEbat.Text; kalite = Cmb_Celikcinsii.Text; vardiya = Cmb_vrd.Text;
+            txt_SarikutukTonaji.Text = "";
+            List<string> uretimDegiskenleri = new List<string>();
+            if (txt_DokumNo.Text != "0")
+            {
+                //uretimDegiskenleri = database.uretimdegiskeni_Bul(txt_DokumNo.Text);
+                //vardiya = uretimDegiskenleri[0];
+                if (boy != "" && ebat != "")
+                {
+                    string tonaj = database.katsayiGetir(boy, ebat, Convert.ToDateTime(Txt_tarih.Text), vardiya, kalite);
+                    if (tonaj != null)
+                    {
+                        decimal tonajj = Convert.ToDecimal(tonaj.Replace(",", "."));
+                        tonajj = tonajj / 1000;
+                        lbl_kutukTonaj.Text = Convert.ToString(tonajj);
+                        if (lbl_kutukTonaj.Text != "" && lbl_kutukTonaj.Text != null)
+                        {
+                            if (txt_SarikutukSayisi.Text != "")
+                            {
+                                int sari_ktk_sayisi = Convert.ToInt32(txt_SarikutukSayisi.Text);
+                                if (sari_ktk_sayisi != 0)
+                                {
+                                    sari_kutuk_tonaji = sari_ktk_sayisi * tonajj;
+                                    txt_SarikutukTonaji.Text = Convert.ToString(sari_kutuk_tonaji).Replace(",", ".");
+
+                                }
+                            }
+                            else
+                            {
+
+                                KUTUK_MSG.Text = "\n" + " SARI KÜTÜK SAYISI GİRİNİZ !";
+                                KUTUK_MSG.ShowOnPageLoad = true;
+                            }
+
+                            // decimal d3 = Convert.ToDecimal(txt_KutukSayisi.Text);
+
+                        }
+                    }
+                    else
+                    {
+                        txt_SarikutukSayisi.Text = "";
+                        KUTUK_MSG.Text = "TONAJ BULUNAMADIĞI İÇİN SARI KÜTÜK TONAJI HESAPLANAMIYOR!";
+                        KUTUK_MSG.ShowOnPageLoad = true;
+                        //KUTUK_MSG.ShowMaximizeButton=true;
+                    }
+                }
+
+                else
+                {
+                    txt_SarikutukSayisi.Text = "";
+                    KUTUK_MSG.Text = "TONAJIN HESAPLANABİLMESİ İÇİN BOY VE EBATI GİRİNİZ !! ";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                KUTUK_MSG.Text = "DÖKÜM SEÇİNİZ !! ";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+        public void stdKarisimTonajiGetir()
+        {
+
+            database.connect();
+            decimal karisim_tonaj;
+            string boy, ebat, vardiya, kalite;
+            boy = Cmb_Kutukboy.Text; ebat = Cmb_KutukEbat.Text; kalite = Cmb_Celikcinsii.Text; vardiya = Cmb_vrd.Text;
+            txt_karisimTonaji.Text = "";
+            List<string> uretimDegiskenleri = new List<string>();
+            if (txt_DokumNo.Text != "0")
+            {
+                //uretimDegiskenleri = database.uretimdegiskeni_Bul(txt_DokumNo.Text);
+                //vardiya = uretimDegiskenleri[0];
+                if (boy != "" && ebat != "")
+                {
+                    string tonaj = database.katsayiGetir(boy, ebat, Convert.ToDateTime(Txt_tarih.Text), vardiya, kalite);
+                    if (tonaj != null)
+                    {
+                        decimal tonajj = Convert.ToDecimal(tonaj) / 1000;
+                        lbl_kutukTonaj.Text = Convert.ToString(tonajj).Replace(",", ".");
+                        if (lbl_kutukTonaj.Text != "" && lbl_kutukTonaj.Text != null)
+                        {
+                            if (txt_standartKarisimSayisi.Text != "")
+                            {
+                                int std_karisim_sayisi = Convert.ToInt32(txt_standartKarisimSayisi.Text);
+                                if (std_karisim_sayisi != 0)
+                                {
+                                    karisim_tonaj = std_karisim_sayisi * tonajj;
+                                    txt_karisimTonaji.Text = Convert.ToString(karisim_tonaj).Replace(",", ".");
+
+                                }
+                            }
+                            else
+                            {
+
+                                txt_standartKarisimSayisi.Text = "";
+                                KUTUK_MSG.Text = "\n" + "STANDART KARIŞIM SAYISI GİRİNİZ !";
+                                KUTUK_MSG.ShowOnPageLoad = true;
+                            }
+
+                            // decimal d3 = Convert.ToDecimal(txt_KutukSayisi.Text);
+
+                        }
+                    }
+                    else
+                    {
+                        txt_standartKarisimSayisi.Text = "";
+                        KUTUK_MSG.Text = "TONAJ BULUNAMADIĞI İÇİN STANDART KARIŞIM TONAJI HESAPLANAMIYOR!";
+                        KUTUK_MSG.ShowOnPageLoad = true;
+                    }
+                }
+
+                else
+                {
+                    txt_standartKarisimSayisi.Text = "";
+                    KUTUK_MSG.Text = "TONAJIN HESAPLANABİLMESİ İÇİN BOY VE EBATI GİRİNİZ !! ";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                KUTUK_MSG.Text = "DÖKÜM SEÇİNİZ !! ";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+        }
+        public void send_ktk_dokum_liste()
+        {
+            database.connect();
+            List<uretim_bilgileri> dokumno = new List<uretim_bilgileri>();
+            dokumno = database.send_ktk_dokum_liste(txt_DokumNo.Text);
+            GRD_Send_Ktk.DataSource = dokumno;
+            GRD_Send_Ktk.DataBind();
+            database.disConnect();
+        }
+        public void sicak_sarja_gonderilecek_kutuk()
+        {
+            database.connect();
+            string x, MESAJ, sirano;
+            int gonderilecek_kutuk_sayisi;
+            sirano = txt_Sirano.Text;
+            for (int i = 0; i <= GRD_Send_Ktk.VisibleRowCount - 1; i++)
+            {
+                TextBox deger = (TextBox)GRD_Send_Ktk.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_Send_Ktk.Columns["GTKSAYISI"], "GKTKSAYISI");
+                x = Convert.ToString(deger.Text);
+                if (x != "")
+                {
+                    gonderilecek_kutuk_sayisi = Convert.ToInt32(deger.Text);
+                    List<string> degiskenler = new List<string>();
+                    if (Cmb_Celikcinsii.Text != "" && Cmb_Kutukboy.Text != "" && Cmb_KutukEbat.Text != "")
+                    {
+                        degiskenler = database.kaliteBoyEbat_Kodbul(Cmb_Celikcinsii.Text, Cmb_Kutukboy.Text, Cmb_KutukEbat.Text);
+                        string kalite = degiskenler[0];
+                        string boy = degiskenler[1];
+                        string ebat = degiskenler[2];
+                        MESAJ = database.sicak_sarja_gonderilecek_kutuk(Convert.ToDateTime(Txt_tarih.Text), txt_DokumNo.Text, gonderilecek_kutuk_sayisi, kalite, boy, ebat);
+                        KUTUK_MSG.Text = MESAJ;
+                        KUTUK_MSG.ShowOnPageLoad = true;
+                    }
+                    else
+                    {
+                        KUTUK_MSG.Text = "      Kalite,boy, ebat alanını doldurunuz !!";
+                        KUTUK_MSG.ShowOnPageLoad = true;
+                    }
+                }
+                else
+                {
+                    KUTUK_MSG.Text = " SICAK ŞARJA GÖNDERECEĞİNİZ KÜTÜK ADETİ 0'DAN FARKLI OLMALIDIR !!";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+
+                }
+            }
+            database.disConnect();
+
+        }
+        public void toplam_tonaj_getir()
+        {
+            database.connect();
+            string toplamTonaj = database.toplam_tonaj_getir(Convert.ToInt32(txt_DokumNo.Text));
+            Txt_KutukTonajii.Text = toplamTonaj.Replace(",", ".");
+            database.disConnect();
+
+        }
+        public void dokum_sirasi_sil()
+        {
+            database.connect();
+            string d1, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (txt_DokumNo.Text != "0")
+                {
+
+                    d1 = txt_Sirano.Text;
+                    MESAJ = database.dokum_sirasi_sil(txt_DokumNo.Text, d1, Convert.ToDateTime(Txt_tarih.Text));
+                    KUTUK_MSG.Text = MESAJ;
+                    KUTUK_MSG.ShowOnPageLoad = true;
+
+                    Cmb_Celikcinsii.Text = ""; txt_Sirano.Text = "";
+                    Cmb_Kutukboy.Text = ""; Cmb_KutukEbat.Text = "";
+                    txt_KutukSayisi.Text = ""; txt_dkmtip.Text = "";
+                    Cmb_vrd.Text = ""; txt_SarikutukSayisi.Text = "";
+                    txt_SarikutukTonaji.Text = ""; cmb_KutukGidecekYer.Text = "";
+                    cmb_sarikutukCelikcinsi.Text = ""; txt_karisimTonaji.Text = "";
+                    txt_Siparisno.Text = ""; Cmb_sapmanedeni.Text = "";
+                    cmb_standartDisinedeni.Text = ""; cmb_standartDisiKimyasali.Text = "";
+                    Cmb_sapmaKimyasali.Text = ""; txt_standartKarisimSayisi.Text = "";
+                    txt_OzelKod.Text = ""; txt_Genelaciklama.Text = "";
+                    Txt_KutukTonaj.Text = "";
+
+                }
+
+                else
+                {
+                    KUTUK_MSG.Text = "DÖKÜM SIRASI SEÇMEDEN ÜRETİM BİLGİSİ SİLEMEZSİNİZ  !!";
+                    KUTUK_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                KUTUK_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                KUTUK_MSG.ShowOnPageLoad = true;
+            }
+
+            database.disConnect();
+
+        }
+
+
+
+        //Duruş
+        public void durus_liste()
+        {
+            database.connect();
+            List<durus_bilgileri> durus_listesi_veriler = new List<durus_bilgileri>();
+            durus_listesi_veriler = database.durus_liste(txt_DokumNo.Text, Convert.ToDateTime(Txt_tarih.Text));
+            GRD_DURUS.DataSource = durus_listesi_veriler;
+            GRD_DURUS.DataBind();
+            database.disConnect();
+        }
+        public void durus_kayit()
+        {
+            database.connect();
+            string durusneden, duruskod, ariza_neden, vardiya, sarj_durum, d6, netsure, ariza_kod, aciklama, baslangic_saat, bitis_saat, d12, MESAJ;
+            durusneden = cmb_durusNeden.Text;
+            duruskod = txt_durusKod.Text;
+            ariza_neden = Cmb_ArizaNeden.Text;
+            ariza_kod = txt_ArizaKod.Text;
+            d6 = "DCH";
+            sarj_durum = cmb_sarjdurumu.Text;
+            // d7 = txt_Netsure.Text;
+            baslangic_saat = txt_BasSaat.Text;
+            bitis_saat = txt_BitisSaat.Text;
+            // netsure = Netsure_Getir(baslangic_saat, bitis_saat);
+            netsure = txt_Netsure.Text;
+            d12 = txt_DurusID.Text;
+            aciklama = txt_Aciklama.Text;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (txt_DokumNo.Text != "0")
+                {
+                    List<string> uretimDegiskenleri = new List<string>();
+                    uretimDegiskenleri = database.uretimdegiskeni_Bul(txt_DokumNo.Text);
+                    vardiya = uretimDegiskenleri[1];
+                    if (durusneden != "" && duruskod != "" && ariza_neden != "" && ariza_kod != "" && baslangic_saat != "" && bitis_saat != "" && netsure != "")
+                    {
+                        MESAJ = database.durus_kayit(txt_DokumNo.Text, durusneden, duruskod, ariza_neden, vardiya, sarj_durum, d6, netsure, ariza_kod, aciklama, baslangic_saat, bitis_saat, d12, Convert.ToDateTime(Txt_tarih.Text));
+                        durus_liste();
+                        DURUS_MSG.Text = MESAJ;
+                        DURUS_MSG.ShowOnPageLoad = true;
+
+                        cmb_durusNeden.Text = "";
+                        txt_durusKod.Text = "";
+                        Cmb_ArizaNeden.Text = "";
+                        txt_ArizaKod.Text = "";
+                        cmb_sarjdurumu.Text = "";
+                        txt_Netsure.Text = "";
+                        txt_Aciklama.Text = "";
+                        txt_BasSaat.Text = "";
+                        txt_BitisSaat.Text = "";
+                        txt_DurusID.Text = "";
+                    }
+                    else
+                    {
+
+                        MESAJ = "   LÜTFEN TÜM ALANLARI DOLDURUNUZ !";
+                        DURUS_MSG.Text = MESAJ;
+                        DURUS_MSG.ShowOnPageLoad = true;
+
+                    }
+                }
+
+                else
+                {
+
+                    MESAJ = "DÖKÜM NUMARASI SEÇMEDEN DURUŞ GİREMEZSİNİZ !!";
+                    DURUS_MSG.Text = MESAJ;
+                    DURUS_MSG.ShowOnPageLoad = true;
+
+                }
+            }
+            else
+            {
+                DURUS_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ! ";
+                DURUS_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+
+        }
+        public void yeni_durus_Getir()
+        {
+            durus_liste();
+            cmb_durusNeden.Text = "";
+            txt_durusKod.Text = "";
+            Cmb_ArizaNeden.Text = "";
+            txt_ArizaKod.Text = "";
+            cmb_sarjdurumu.Text = "";
+            txt_Netsure.Text = "";
+            txt_Aciklama.Text = "";
+            txt_BasSaat.Text = "";
+            txt_BitisSaat.Text = "";
+            txt_DurusID.Text = "";
+
+        }
+        public void durus_sablon_getir()
+        {
+            database.connect();
+            dynamic MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (txt_DokumNo.Text != "0")
+                {
+                    database.durus_sablon_getir(txt_DokumNo.Text, Convert.ToDateTime(Txt_tarih.Text), txt_DurusID.Text);
+                    //  durusListe();
+                }
+
+                else
+                {
+                    MESAJ = "DÖKÜM NUMARASI SEÇMEDEN ŞABLON GETİREMEZSİNİZ!!";
+                    DURUS_MSG.Text = MESAJ;
+                    DURUS_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                DURUS_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ! ";
+                DURUS_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+
+        }
+        public void durusNeden_cmbDoldur()
+        {
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.durusNeden_comboDoldur();
+            foreach (var neden in veriler)
+            {
+                cmb_durusNeden.Items.Add(neden);
+                durus_kod_getir(cmb_durusNeden.SelectedItem);
+            }
+            database.disConnect();
+        }
+        public void durus_kod_getir(object gelenNeden)
+        {
+            database.connect();
+            gelendurusKodu = database.durus_kod_getir(gelenNeden);
+            txt_durusKod.Text = gelendurusKodu;
+            // arizaNeden_cmbDoldur();
+            database.disConnect();
+        }
+        public void arizaNeden_cmbDoldur()
+        {
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.arizaNeden_cmbDoldur(gelendurusKodu);
+            foreach (var neden in veriler)
+            {
+                Cmb_ArizaNeden.Items.Add(neden);
+            }
+
+            database.disConnect();
+
+        }
+        public void arizaNeden_cmbDoldur(object gelendurusKodu)
+        {
+            database.connect();
+            List<string> veriler = new List<string>();
+            veriler = database.arizaNeden_cmbDoldur(gelendurusKodu);
+            foreach (var neden in veriler)
+            {
+                Cmb_ArizaNeden.Items.Add(neden);
+            }
+
+            database.disConnect();
+
+        }
+        public void ariza_kod_getir(object gelenarizaNeden)
+        {
+            database.connect();
+            //if (gelenarizaNeden.ToString() == "SARJ ALMA")
+            //{
+            //    cmb_sarjdurumu.Enabled = true;
+
+            //}
+            string gelenarizaKodu = database.ariza_kod_getir(gelenarizaNeden);
+            txt_ArizaKod.Text = gelenarizaKodu;
+            database.disConnect();
+        }
+        public string net_sure_getir()
+        {
+
+            string d3, d4;
+            d3 = txt_BasSaat.Text;
+            d4 = txt_BitisSaat.Text;
+            if (d3 != "" && d4 != "")
+            {
+                DateTime d1 = DateTime.ParseExact(txt_BasSaat.Text, "HH:mm", null);
+                DateTime d2 = DateTime.ParseExact(txt_BitisSaat.Text, "HH:mm", null);
+                if (d2.Hour == d1.Hour && d2.Minute < d1.Minute)
+                {
+                    txt_Netsure.Text = "";
+                    message = "DAKİKAYI TEKRAR DÜZENLEYİNİZ !!";
+                    DURUS_MSG.Text = message;
+                    DURUS_MSG.ShowOnPageLoad = true;
+
+
+                }
+                if (d2.Hour == d1.Hour && d2.Minute == d1.Minute)
+                {
+                    txt_Netsure.Text = "0";
+
+                }
+                else
+                if (d2.Hour >= d1.Hour)
+                {
+                    TimeSpan t = d2.Subtract(d1);
+                    int saat = int.Parse(t.Hours.ToString());
+                    int dakika = int.Parse(t.Minutes.ToString());
+                    int toplamFark = saat * 60 + dakika;
+                    txt_Netsure.Text = toplamFark.ToString();
+                }
+                else
+                {
+                    txt_Netsure.Text = "";
+                    message = "BİTİŞ SAATİNİ BAŞLANGIÇ SAATİNDEN GERİ SEÇEMEZSİNİZ !!";
+                    DURUS_MSG.Text = message;
+                    DURUS_MSG.ShowOnPageLoad = true;
+                }
+
+            }
+            return txt_Netsure.Text;
+        }
+        public string Netsure_Getir(string d10, string d11)
+        {
+
+            string d3, d4;
+            d3 = txt_BasSaat.Text;
+            d4 = txt_BitisSaat.Text;
+            if (d3 != "" && d4 != "")
+            {
+                DateTime d1 = DateTime.ParseExact(txt_BasSaat.Text, "HH:mm", null);
+                DateTime d2 = DateTime.ParseExact(txt_BitisSaat.Text, "HH:mm", null);
+                if (d2.Hour == d1.Hour && d2.Minute < d1.Minute)
+                {
+                    txt_Netsure.Text = "";
+                    message = "DAKİKAYI TEKRAR DÜZENLEYİNİZ !!";
+                    DURUS_MSG.Text = message;
+                    DURUS_MSG.ShowOnPageLoad = true;
+
+
+                }
+                if (d2.Hour == d1.Hour && d2.Minute == d1.Minute)
+                {
+                    txt_Netsure.Text = "0";
+
+                }
+                else
+                if (d2.Hour >= d1.Hour)
+                {
+                    TimeSpan t = d2.Subtract(d1);
+                    int saat = int.Parse(t.Hours.ToString());
+                    int dakika = int.Parse(t.Minutes.ToString());
+                    int toplamFark = saat * 60 + dakika;
+                    txt_Netsure.Text = toplamFark.ToString();
+                }
+                else
+                {
+                    txt_Netsure.Text = "";
+                    message = "BİTİŞ SAATİNİ BAŞLANGIÇ SAATİNDEN GERİ SEÇEMEZSİNİZ !!";
+                    DURUS_MSG.Text = message;
+                    DURUS_MSG.ShowOnPageLoad = true;
+                }
+
+            }
+            return txt_Netsure.Text;
+        }
+        public void durus_bilgisi_getir()
+        {
+            database.connect();
+            List<string> secilenler = new List<string>();
+            secilenler = database.durus_bilgisi_getir(txt_DokumNo.Text, txt_DurusID.Text);
+            txt_BasSaat.Text = secilenler[0];
+            txt_BitisSaat.Text = secilenler[1];
+            cmb_sarjdurumu.Text = secilenler[2];
+            cmb_durusNeden.Text = secilenler[3];
+            Cmb_ArizaNeden.Text = secilenler[4];
+            txt_durusKod.Text = secilenler[5];
+            txt_ArizaKod.Text = secilenler[6];
+            txt_Netsure.Text = secilenler[7];
+            txt_Aciklama.Text = secilenler[8];
+            database.disConnect();
+
+        }
+        public void durus_delete()
+        {
+
+            database.connect();
+            string d1, MESAJ;
+            string durus_Id = txt_DurusID.Text;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (durus_Id != "")
+                {
+
+                    MESAJ = database.durus_bilgisi_sil(durus_Id);
+                    DURUS_MSG.Text = MESAJ;
+                    DURUS_MSG.ShowOnPageLoad = true;
+
+                    cmb_durusNeden.Text = "";
+                    txt_durusKod.Text = "";
+                    Cmb_ArizaNeden.Text = "";
+                    txt_ArizaKod.Text = "";
+                    cmb_sarjdurumu.Text = "";
+                    txt_Netsure.Text = "";
+                    txt_Aciklama.Text = "";
+                    txt_BasSaat.Text = "";
+                    txt_BitisSaat.Text = "";
+                    txt_DurusID.Text = "";
+
+                }
+                else
+                {
+                    DURUS_MSG.Text = "DURUŞ BİLGİSİ SEÇİNİZ   !!";
+                    DURUS_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                DURUS_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ ! ";
+                DURUS_MSG.ShowOnPageLoad = true;
+            }
+
+            database.disConnect();
+
+        }
+
+
+        //  Refrakter
+        //public void refrakter_listesi()
+        //{
+        //    if (txt_dokumno_ref_liste.Text != "")
+        //    {
+        //        database.connect();
+        //        List<refrakter_bilgileri> refrakter_listesi_veriler = new List<refrakter_bilgileri>();
+        //        refrakter_listesi_veriler = database.refrakter_liste(txt_dokumno_ref_liste.Text);
+        //        GRD_REFRAKTER.DataSource = refrakter_listesi_veriler;
+        //        GRD_REFRAKTER.DataBind();
+        //        database.disConnect();
+        //    }
+
+        //}
+        public void refrakter_listesi()
+        {
+            if (Txt_tarih.Text != "")
+            {
+                database.connect();
+                List<refrakter_bilgileri> refrakter_listesi_veriler = new List<refrakter_bilgileri>();
+                refrakter_listesi_veriler = database.refrakter_liste(Convert.ToDateTime(Txt_tarih.Text));
+                GRD_REFRAKTER.DataSource = refrakter_listesi_veriler;
+                GRD_REFRAKTER.DataBind();
+                database.disConnect();
+            }
+
+        }
+        public void refrakter_kayit()
+        {
+            database.connect();
+            string baslangic_tarih, pota_no, dokum_sayisi, d4, d5, d6, d7, d8, d9, d10, d13, d14, d15, d16, d17, d18, d19, d20, iskarta_tarih, d22, d23, d24, MESAJ;
+            baslangic_tarih = date_baslangicTarihi.Text;
+            pota_no = cmb_Potano.Text;
+            dokum_sayisi = txt_Dokumsayisi.Text;
+            d4 = cmb_TuglaFirma.Text;
+            d5 = cmb_Potadurum.Text;
+            d6 = cmb_pskTmr.Text;
+            d7 = Txt_gazds.Text;
+            d8 = Cmb_gazFirma.Text;
+            d9 = cmb_Tip.Text;
+            d10 = Cmb_Tandis_Plk_Frm.Text;
+            d13 = Txt_UstDS.Text;
+            d14 = Cmb_UstFirma.Text;
+            d15 = Txt_AltDS.Text;
+            d16 = Cmb_AltFirma.Text;
+            d17 = Txt_surguDS.Text;
+            d18 = Cmb_SurguFirma.Text;
+            d19 = cmb_PlkTY.Text;
+            d20 = Cmb_KontrolEden.Text;
+            iskarta_tarih = Date_IskartaTarih.Text;
+            d22 = dt_Gelis_saati.Text;
+            d23 = dt_Cks_saati.Text;
+            d24 = txt_Genelaciklamaa.Text;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+
+            if (gun_kontrol == "True")
+            {
+                if (tx_refrakter_dokum.Text != "")
+                {
+                    if (pota_no != "" && dokum_sayisi != "" && baslangic_tarih != "" && d4 != "" && d5 != "" && d6 != "" && d7 != "" && d8 != "" && d9 != "" && d13 != "" && d14 != "" && d15 != "" && d16 != "" && d17 != "" && d18 != "")
+                    {
+
+                        MESAJ = database.refrakter_kayit(tx_refrakter_dokum.Text, Convert.ToDateTime(Txt_tarih.Text), baslangic_tarih, pota_no, dokum_sayisi, d4, d5, d6, d7, d8, d9, d10, d13, d14, d15, d16, d17, d18, d19, d20, iskarta_tarih, d22, d23, d24);
+                        REFRAKTER_MSG.Text = MESAJ;
+                        REFRAKTER_MSG.ShowOnPageLoad = true;
+
+                        date_baslangicTarihi.Text = ""; cmb_Potano.Text = "";
+                        txt_Dokumsayisi.Text = ""; cmb_TuglaFirma.Text = "";
+                        cmb_Potadurum.Text = ""; cmb_pskTmr.Text = "";
+                        Txt_gazds.Text = ""; Cmb_gazFirma.Text = "";
+                        cmb_Tip.Text = "";
+                        Txt_UstDS.Text = ""; Cmb_UstFirma.Text = "";
+                        Txt_AltDS.Text = ""; Cmb_AltFirma.Text = "";
+                        Txt_surguDS.Text = ""; Cmb_SurguFirma.Text = "";
+                        cmb_PlkTY.Text = ""; Cmb_KontrolEden.Text = "";
+                        Date_IskartaTarih.Text = ""; dt_Gelis_saati.Text = "";
+                        dt_Cks_saati.Text = ""; txt_Genelaciklamaa.Text = ""; tx_refrakter_dokum.Text = "";
+                    }
+                    else
+                    {
+                        //REFRAKTER_MSG.Text = "  POTA NUMARASI VE DÖKÜM SAYISI SEÇİNİZ !!";
+                        REFRAKTER_MSG.Text = "  LÜTFEN TÜM ALANLARI DOLDURUNUZ !!";
+                        REFRAKTER_MSG.ShowOnPageLoad = true;
+                    }
+                }
+                else
+                {
+                    REFRAKTER_MSG.Text = " DÖKÜM NUMARASI SEÇİNİZ ";
+                    REFRAKTER_MSG.ShowOnPageLoad = true;
+                }
+            }
+            else
+            {
+                REFRAKTER_MSG.Text = "GÜN KAPANMIŞTIR. İŞLEM YAPAMAZSINIZ !! ";
+                REFRAKTER_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+        }
+        //public void refrakter_bilgisi_getir()
+        //{
+
+        //    database.connect();
+        //    List<string> secilenler = new List<string>();
+        //    secilenler = database.refrakter_bilgisi_getir(txt_dokumno_ref.Text);
+        //    if (secilenler.Count != 0)
+        //    {
+        //        cmb_Potadurum.Text = secilenler[0];
+        //        txt_Dokumsayisi.Text = secilenler[1];
+        //        cmb_TuglaFirma.Text = secilenler[2];
+        //        cmb_pskTmr.Text = secilenler[3];
+        //        Txt_gazds.Text = secilenler[4];
+        //        Cmb_gazFirma.Text = secilenler[5];
+        //        cmb_Tip.Text = secilenler[6];
+        //        Txt_UstDS.Text = secilenler[7];
+        //        Cmb_UstFirma.Text = secilenler[8];
+        //        Txt_AltDS.Text = secilenler[9];
+        //        Cmb_AltFirma.Text = secilenler[10];
+        //        Txt_surguDS.Text = secilenler[11];
+        //        Cmb_SurguFirma.Text = secilenler[12];
+        //        cmb_PlkTY.Text = secilenler[13];
+        //        Cmb_KontrolEden.Text = secilenler[14];
+        //        if (secilenler[15] != "" && secilenler[19] != "")
+        //        {
+        //            int Iskarta = Convert.ToInt32(secilenler[15]);
+        //            tarih_parse = database.tarihFormat1(Iskarta);
+        //            date_IskartaTarih.Text = tarih_parse;
+        //            int baslangicTarihi = Convert.ToInt32(secilenler[19]);
+        //            tarih_parse = database.tarihFormat1(baslangicTarihi);
+        //            date_baslangicTarihi.Text = tarih_parse;
+        //        }
+        //        else
+        //        {
+        //            date_IskartaTarih.Text = "";
+        //            date_baslangicTarihi.Text = "";
+        //        }
+        //        dt_Gelis_saati.Text = secilenler[17];
+        //        dt_Cks_saati.Text = secilenler[16];
+        //        txt_Genelaciklamaa.Text = secilenler[18];
+        //        cmb_Potano.Text = secilenler[20];
+        //        Cmb_Tandis_Plk_Frm.Text = secilenler[21];
+        //    }
+        //    else
+        //    {
+        //        date_baslangicTarihi.Text = ""; cmb_Potano.Text = "";
+        //        txt_Dokumsayisi.Text = ""; cmb_TuglaFirma.Text = "";
+        //        cmb_Potadurum.Text = ""; cmb_pskTmr.Text = "";
+        //        Txt_gazds.Text = ""; Cmb_gazFirma.Text = "";
+        //        cmb_Tip.Text = ""; 
+        //        Txt_UstDS.Text = ""; Cmb_UstFirma.Text = "";
+        //        Txt_AltDS.Text = ""; Cmb_AltFirma.Text = "";
+        //        Txt_surguDS.Text = ""; Cmb_SurguFirma.Text = "";
+        //        cmb_PlkTY.Text = ""; Cmb_KontrolEden.Text = "";
+        //        date_IskartaTarih.Text = ""; dt_Gelis_saati.Text = "";
+        //        dt_Cks_saati.Text = ""; txt_Genelaciklamaa.Text = "";  Cmb_Tandis_Plk_Frm.Text = "";
+
+        //        //REFRAKTER_MSG.Text = "BU DÖKÜME AİT REFRAKTER BİLGİSİ BULUNAMADI ";
+        //        //REFRAKTER_MSG.ShowOnPageLoad = true;
+        //    }
+
+        //    database.disConnect();
+        //}
+        public void refrakter_bilgisi_getir()
+        {
+
+            database.connect();
+            List<string> secilenler = new List<string>();
+            secilenler = database.refrakter_bilgisi_getir(tx_refrakter_dokum.Text);
+            if (secilenler.Count != 0)
+            {
+                cmb_Potadurum.Text = secilenler[0];
+                txt_Dokumsayisi.Text = secilenler[1];
+                cmb_TuglaFirma.Text = secilenler[2];
+                cmb_pskTmr.Text = secilenler[3];
+                Txt_gazds.Text = secilenler[4];
+                Cmb_gazFirma.Text = secilenler[5];
+                cmb_Tip.Text = secilenler[6];
+                Txt_UstDS.Text = secilenler[7];
+                Cmb_UstFirma.Text = secilenler[8];
+                Txt_AltDS.Text = secilenler[9];
+                Cmb_AltFirma.Text = secilenler[10];
+                Txt_surguDS.Text = secilenler[11];
+                Cmb_SurguFirma.Text = secilenler[12];
+                cmb_PlkTY.Text = secilenler[13];
+                Cmb_KontrolEden.Text = secilenler[14];
+                //if (secilenler[15] != "" && secilenler[19] != "")
+                //{
+                //    int Iskarta = Convert.ToInt32(secilenler[15]);
+                //    tarih_parse = database.tarihFormat1(Iskarta);
+                //    date_IskartaTarih.Text = tarih_parse;
+                //    int baslangicTarihi = Convert.ToInt32(secilenler[19]);
+                //    tarih_parse = database.tarihFormat1(baslangicTarihi);
+                //    date_baslangicTarihi.Text = tarih_parse;
+                //}
+                //else
+                //{
+                //    date_IskartaTarih.Text = "";
+                //    date_baslangicTarihi.Text = "";
+                //}
+                if (secilenler[15] != "")
+                {
+                    int Iskarta = Convert.ToInt32(secilenler[15]);
+                    tarih_parse = database.tarihFormat1(Iskarta);
+                    Date_IskartaTarih.Text = tarih_parse;
+
+                }
+                else
+                {
+                    Date_IskartaTarih.Text = "";
+
+                }
+                if (secilenler[19] != "")
+                {
+                    int baslangicTarihi = Convert.ToInt32(secilenler[19]);
+                    tarih_parse = database.tarihFormat1(baslangicTarihi);
+                    date_baslangicTarihi.Text = tarih_parse;
+                }
+                else
+                {
+                    date_baslangicTarihi.Text = "";
+                }
+
+                dt_Gelis_saati.Text = secilenler[17];
+                dt_Cks_saati.Text = secilenler[16];
+                txt_Genelaciklamaa.Text = secilenler[18];
+                cmb_Potano.Text = secilenler[20];
+                Cmb_Tandis_Plk_Frm.Text = secilenler[21];
+                string gelen_tandis_miktari = database.tandis_degeri_bul(tx_refrakter_dokum.Text);
+                if (gelen_tandis_miktari == "1")
+                {
+                    Cmb_Tandis_Plk_Frm.Enabled = true;
+                }
+                if (secilenler[0] == "ISKARTA")
+                {
+                    Date_IskartaTarih.Enabled = true;
+                }
+
+            }
+            else
+            {
+                string gelen_tandis_miktari = database.tandis_degeri_bul(tx_refrakter_dokum.Text);
+                if (gelen_tandis_miktari == "1")
+                {
+                    Cmb_Tandis_Plk_Frm.Enabled = true;
+                }
+                date_baslangicTarihi.Text = ""; cmb_Potano.Text = "";
+                txt_Dokumsayisi.Text = ""; cmb_TuglaFirma.Text = "";
+                cmb_Potadurum.Text = ""; cmb_pskTmr.Text = "";
+                Txt_gazds.Text = ""; Cmb_gazFirma.Text = "";
+                cmb_Tip.Text = "";
+                Txt_UstDS.Text = ""; Cmb_UstFirma.Text = "";
+                Txt_AltDS.Text = ""; Cmb_AltFirma.Text = "";
+                Txt_surguDS.Text = ""; Cmb_SurguFirma.Text = "";
+                cmb_PlkTY.Text = ""; Cmb_KontrolEden.Text = "";
+                Date_IskartaTarih.Text = ""; dt_Gelis_saati.Text = "";
+                dt_Cks_saati.Text = ""; txt_Genelaciklamaa.Text = ""; Cmb_Tandis_Plk_Frm.Text = "";
+
+                //REFRAKTER_MSG.Text = "BU DÖKÜME AİT REFRAKTER BİLGİSİ BULUNAMADI ";
+                //REFRAKTER_MSG.ShowOnPageLoad = true;
+            }
+
+            database.disConnect();
+        }
+        public void yeni_refrakter()
+        {
+            database.connect();
+            string potano;
+            potano = cmb_Potano.Text;
+            //if (tx_refrakter_dokum.Text != "")
+            //{
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (potano == "")
+                {
+                    REFRAKTER_MSG.Text = "POTA NUMARASI SEÇİNİZ";
+                    REFRAKTER_MSG.ShowOnPageLoad = true;
+                }
+                else
+                {
+                    List<string> secilenler = new List<string>();
+                    secilenler = database.yeni_refrakter(potano);
+                    if (secilenler.Count != 0)
+                    {
+                        tx_refrakter_dokum.Text = database.yenirefrakter_dokum(Convert.ToDateTime(Txt_tarih.Text));
+                        if (tx_refrakter_dokum.Text != "0")
+                        {
+                            cmb_Potadurum.Text = secilenler[0];
+                            if (cmb_Potadurum.Text == "ISKARTA")
+                            {
+                                cmb_Potadurum.Text = "DEVAM";
+                                cmb_TuglaFirma.Text = "HAZNEDAR";
+                                Cmb_UstFirma.Text = "METAMİN";
+                                Cmb_AltFirma.Text = "METAMİN";
+                                Cmb_gazFirma.Text = "METAMİN";
+                                cmb_Tip.Text = "HIBRIT";
+                            }
+                            else
+                            {
+
+                                cmb_Potadurum.Text = secilenler[0];
+                                cmb_TuglaFirma.Text = secilenler[2];
+                                Cmb_gazFirma.Text = secilenler[5];
+                                Cmb_UstFirma.Text = secilenler[8];
+                                Cmb_AltFirma.Text = secilenler[10];
+                                cmb_Tip.Text = secilenler[6];
+                            }
+                            txt_Dokumsayisi.Text = secilenler[1];
+                            //  cmb_TuglaFirma.Text = secilenler[2];
+                            cmb_pskTmr.Text = secilenler[3];
+                            Txt_gazds.Text = secilenler[4];
+                            //  Cmb_gazFirma.Text = secilenler[5];
+                            //cmb_Tip.Text = secilenler[6];
+                            Txt_UstDS.Text = secilenler[7];
+                            //  Cmb_UstFirma.Text = secilenler[8];
+                            Txt_AltDS.Text = secilenler[9];
+                            // Cmb_AltFirma.Text = secilenler[10];
+                            Txt_surguDS.Text = secilenler[11];
+                            Cmb_SurguFirma.Text = secilenler[12];
+                            cmb_PlkTY.Text = secilenler[13];
+                            Cmb_KontrolEden.Text = secilenler[14];
+                            //**
+                            //if (secilenler[15] != "" && secilenler[19] != "")
+                            //{
+                            //    int Iskarta = Convert.ToInt32(secilenler[15]);
+                            //    tarih_parse = database.tarihFormat1(Iskarta);
+                            //    date_IskartaTarih.Text = tarih_parse;
+                            //    int baslangicTarihi = Convert.ToInt32(secilenler[19]);
+                            //    tarih_parse = database.tarihFormat1(baslangicTarihi);
+                            //    date_baslangicTarihi.Text = tarih_parse;
+                            //}
+                            //else
+                            //{
+                            //    date_IskartaTarih.Text = "";
+                            //    date_baslangicTarihi.Text = "";
+                            //}
+                            //**
+                            if (secilenler[15] != "")
+                            {
+                                int Iskarta = Convert.ToInt32(secilenler[15]);
+                                tarih_parse = database.tarihFormat1(Iskarta);
+                                Date_IskartaTarih.Text = tarih_parse;
+
+                            }
+                            else
+                            {
+                                Date_IskartaTarih.Text = "";
+
+                            }
+                            if (secilenler[19] != "")
+                            {
+                                int baslangicTarihi = Convert.ToInt32(secilenler[19]);
+                                tarih_parse = database.tarihFormat1(baslangicTarihi);
+                                date_baslangicTarihi.Text = tarih_parse;
+                            }
+                            else
+                            {
+                                date_baslangicTarihi.Text = "";
+                            }
+
+                            string saat = string.Format("{0:HH:mm}", DateTime.Now);
+
+                            string saat2 = (Convert.ToInt32(DateTime.Now.Hour) + 2).ToString();
+                            string dakika2 = DateTime.Now.Minute.ToString();
+                            if (saat2.Length == 1)
+                            {
+                                saat = "0" + saat2;
+                            }
+                            if (dakika2.Length == 1)
+                            {
+                                dakika2 = "0" + dakika2;
+                            }
+
+                            dt_Cks_saati.Text = saat;
+                            dt_Gelis_saati.Text = saat2 + ":" + dakika2;
+
+
+                            //dt_Gelis_saati.Text = secilenler[17];
+                            //dt_Cks_saati.Text = secilenler[16];
+                            txt_Genelaciklamaa.Text = secilenler[18];
+                            cmb_Potano.Text = secilenler[20];
+                            Cmb_Tandis_Plk_Frm.Text = secilenler[21];
+                        }
+                        else
+                        {
+                            date_baslangicTarihi.Text = ""; cmb_Potano.Text = "";
+                            txt_Dokumsayisi.Text = ""; cmb_TuglaFirma.Text = "";
+                            cmb_Potadurum.Text = ""; cmb_pskTmr.Text = "";
+                            Txt_gazds.Text = ""; Cmb_gazFirma.Text = "";
+                            cmb_Tip.Text = "";
+                            Txt_UstDS.Text = ""; Cmb_UstFirma.Text = "";
+                            Txt_AltDS.Text = ""; Cmb_AltFirma.Text = "";
+                            Txt_surguDS.Text = ""; Cmb_SurguFirma.Text = "";
+                            cmb_PlkTY.Text = ""; Cmb_KontrolEden.Text = "";
+                            Date_IskartaTarih.Text = ""; dt_Gelis_saati.Text = "";
+                            dt_Cks_saati.Text = ""; txt_Genelaciklamaa.Text = "";
+                            tx_refrakter_dokum.Text = "";
+                            REFRAKTER_MSG.Text = "REFRAKTER TABLOSUNDA BUGÜN GİRİLMİŞ KAYIT BULUNMAMAKTADIR. !";
+                            REFRAKTER_MSG.ShowOnPageLoad = true;
+
+                        }
+                    }
+                }
+            }
+            else
+            {
+                REFRAKTER_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                REFRAKTER_MSG.ShowOnPageLoad = true;
+            }
+            //}
+
+            //else
+            //{
+
+            //    REFRAKTER_MSG.Text = "DÖKÜM SEÇİNİZ !!";
+            //    REFRAKTER_MSG.ShowOnPageLoad = true;
+            //}
+
+
+            database.disConnect();
+
+
+        }
+        private void refrakter_dokum_sil()
+        {
+            database.connect();
+            string MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                if (tx_refrakter_dokum.Text != "")
+                {
+
+                    MESAJ = database.refrakter_dokum_sil(tx_refrakter_dokum.Text, Convert.ToDateTime(Txt_tarih.Text));
+                    REFRAKTER_MSG.Text = MESAJ;
+                    REFRAKTER_MSG.ShowOnPageLoad = true;
+
+                    date_baslangicTarihi.Text = ""; cmb_Potano.Text = "";
+                    txt_Dokumsayisi.Text = ""; cmb_TuglaFirma.Text = "";
+                    cmb_Potadurum.Text = ""; cmb_pskTmr.Text = "";
+                    Txt_gazds.Text = ""; Cmb_gazFirma.Text = "";
+                    cmb_Tip.Text = "";
+                    Txt_UstDS.Text = ""; Cmb_UstFirma.Text = "";
+                    Txt_AltDS.Text = ""; Cmb_AltFirma.Text = "";
+                    Txt_surguDS.Text = ""; Cmb_SurguFirma.Text = "";
+                    cmb_PlkTY.Text = ""; Cmb_KontrolEden.Text = "";
+                    Date_IskartaTarih.Text = ""; dt_Gelis_saati.Text = "";
+                    dt_Cks_saati.Text = ""; txt_Genelaciklamaa.Text = ""; tx_refrakter_dokum.Text = "";
+
+                }
+            }
+
+            else
+            {
+                REFRAKTER_MSG.Text = "GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                REFRAKTER_MSG.ShowOnPageLoad = true;
+            }
+
+            //else
+            //{
+            //    KUTUK_MSG.Text = "DÖKÜM SIRASI SEÇMEDEN ÜRETİM BİLGİSİ SİLEMEZSİNİZ  !!";
+            //    KUTUK_MSG.ShowOnPageLoad = true;
+            //}
+
+            database.disConnect();
+
+        }
+
+
+        // 
+        public void analiz_listesi1()
+        {
+            database.connect();
+            string lokasyon = "URT";
+            List<genel_bilgiler> analiz_listesi_veriler = new List<genel_bilgiler>();
+            analiz_listesi_veriler = database.genel_bilgi_listesi_analiz(Convert.ToDateTime(Txt_tarih.Text), lokasyon);
+            Grd_analiz1.DataSource = analiz_listesi_veriler;
+            Grd_analiz1.DataBind();
+            database.disConnect();
+
+        }
+        public void analiz_kayit()
+        {
+            database.connect();
+            string d1, d2, d3, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+
+                for (int i = 0; i <= Grd_analiz1.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)Grd_analiz1.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)Grd_analiz1.Columns["DEGERI"], "txtDegeri6");
+                    d1 = deger.Text;
+                    d2 = Grd_analiz1.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "URT";
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+                    MESAJ = database.genel_bilgi_kayit_analiz(Convert.ToDateTime(Txt_tarih.Text), d1, d2, d3);
+                    Analiz_msg.Text = MESAJ;
+                    Analiz_msg.ShowOnPageLoad = true;
+                    // }
+                }
+                for (int i = 0; i <= Grd_analiz2.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger = (TextBox)Grd_analiz2.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)Grd_analiz2.Columns["DEGERI"], "txtDegeri7");
+                    d1 = deger.Text;
+                    d2 = Grd_analiz2.GetRowValues(i, "BILGITNM").ToString();
+                    d3 = "URT2";
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+                    MESAJ = database.genel_bilgi_kayit_analiz(Convert.ToDateTime(Txt_tarih.Text), d1, d2, d3);
+                    Analiz_msg.Text = MESAJ;
+                    Analiz_msg.ShowOnPageLoad = true;
+                    // }
+                }
+
+            }
+
+            else
+            {
+
+                GENELBILGI_MSG.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                GENELBILGI_MSG.ShowOnPageLoad = true;
+
+            }
+            database.disConnect();
+
+        }
+        public void analiz_listesi2()
+        {
+            database.connect();
+            string lokasyon = "URT2";
+            List<genel_bilgiler> analiz_listesi_veriler = new List<genel_bilgiler>();
+            analiz_listesi_veriler = database.genel_bilgi_listesi_analiz(Convert.ToDateTime(Txt_tarih.Text), lokasyon);
+            Grd_analiz2.DataSource = analiz_listesi_veriler;
+            Grd_analiz2.DataBind();
+            database.disConnect();
+
+        }
+
+
+        //
+
+        public void dokum_ozellikleri_liste()
+        {
+
+            database.connect();
+            List<uretim_bilgileri> dokumler = new List<uretim_bilgileri>();
+            dokumler = database.dokum_ozellikleri_liste(Convert.ToDateTime(Txt_tarih.Text));
+            Grd_dokum_ozellikleri.DataSource = dokumler;
+            Grd_dokum_ozellikleri.DataBind();
+            database.disConnect();
+
+
+        }
+        public void dokum_ozellikleri_kayit()
+        {
+            database.connect();
+            string dokumno, vardiya, dokumtarihi, MESAJ;
+            gun_kontrol = database.GunKontroluYap(Convert.ToDateTime(Txt_tarih.Text), KULLANICI);
+            if (gun_kontrol == "True")
+            {
+                for (int i = 0; i <= Grd_dokum_ozellikleri.VisibleRowCount - 1; i++)
+                {
+                    TextBox deger1 = (TextBox)Grd_dokum_ozellikleri.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)Grd_dokum_ozellikleri.Columns["vardiya"], "txtDegeri_vrd");
+                    TextBox deger2 = (TextBox)Grd_dokum_ozellikleri.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)Grd_dokum_ozellikleri.Columns["dokumtarihi"], "txtDegeri_dokumtarihi");
+                    vardiya = deger1.Text;
+                    dokumno = Grd_dokum_ozellikleri.GetRowValues(i, "DOKUMNO").ToString();
+                    dokumtarihi = deger2.Text;
+                    //if (!string.IsNullOrEmpty(d1))
+                    //{
+                    MESAJ = database.dokum_ozellikleri_kayit(vardiya, dokumno, dokumtarihi);
+                    Dokum_ozellik_msg.Text = "DÖKÜMÜN BİLGİLERİ " + MESAJ;
+                    Dokum_ozellik_msg.ShowOnPageLoad = true;
+                    // }
+                }
+
+            }
+            else
+            {
+                Dokum_ozellik_msg.Text = " GÜN KAPANMIŞTIR.İŞLEM YAPAMAZSINIZ !!";
+                Dokum_ozellik_msg.ShowOnPageLoad = true;
+            }
+            database.disConnect();
+
+        }
+
+
+
+
+        //
+
+        protected void sdm_genel_bilgi_TextChanged(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i <= GRD_CH_GENELBILGILER_SDM.VisibleRowCount - 1; i++)
+            {
+                if (GRD_CH_GENELBILGILER_SDM.GetRowValues(i, "BILGITNM").ToString() == "POTA KAPATMA SAATI")
+                {
+                    // string DENEME = GRD_CH_GENELBILGILER_PO.GetRowValues(i - 1, "BILGITNM").ToString();
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_SDM.FindRowCellTemplateControl(i - 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_SDM.Columns["DEGERI"], "txtDegeri6");
+                    TextBox deger2 = (TextBox)GRD_CH_GENELBILGILER_SDM.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_SDM.Columns["DEGERI"], "txtDegeri6");
+                    TextBox deger3 = (TextBox)GRD_CH_GENELBILGILER_SDM.FindRowCellTemplateControl(i + 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_SDM.Columns["DEGERI"], "txtDegeri6");
+                    if (deger.Text != "" && deger2.Text != "")
+                    {
+                        DateTime d1 = DateTime.ParseExact(deger.Text, "HH:mm", null);
+                        DateTime d2 = DateTime.ParseExact(deger2.Text, "HH:mm", null);
+                        if (d2.Hour == d1.Hour && d2.Minute < d1.Minute)
+                        {
+                            deger3.Text = "";
+                            //message = "PO GIRIS SAATI KISMININ DAKİKASINI TEKRAR DÜZENLEYİNİZ !!";
+                            //GENELBILGI_MSG.Text = message;
+                            //GENELBILGI_MSG.ShowOnPageLoad = true;
+
+                        }
+                        if (d2.Hour == d1.Hour && d1.Minute < d2.Minute)
+                        {
+                            TimeSpan t = d2.Subtract(d1);
+                            int saat = int.Parse(t.Hours.ToString());
+                            int dakika = int.Parse(t.Minutes.ToString());
+                            int toplamFark = saat * 60 + dakika;
+                            deger3.Text = toplamFark.ToString();
+
+                        }
+                        if (d2.Hour == d1.Hour && d2.Minute == d1.Minute)
+                        {
+                            deger3.Text = "0";
+
+                        }
+                        else
+                        if (d2.Hour > d1.Hour && (d2.Minute >= d1.Minute || d1.Minute >= d2.Minute))
+                        {
+                            TimeSpan t = d2.Subtract(d1);
+                            int saat = int.Parse(t.Hours.ToString());
+                            int dakika = int.Parse(t.Minutes.ToString());
+                            int toplamFark = saat * 60 + dakika;
+                            deger3.Text = toplamFark.ToString();
+                        }
+                        if (d1.Hour > d2.Hour)
+                        {
+                            deger3.Text = "";
+
+                        }
+
+                    }
+                }
+            }
+        }
+
+        protected void po_genel_bilgi_TextChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i <= GRD_CH_GENELBILGILER_PO.VisibleRowCount - 1; i++)
+            {
+                if (GRD_CH_GENELBILGILER_PO.GetRowValues(i, "BILGITNM").ToString() == "PO BOS POTA TONAJ")
+                {
+                    // string DENEME = GRD_CH_GENELBILGILER_PO.GetRowValues(i - 1, "BILGITNM").ToString();
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i - 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    TextBox deger2 = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    TextBox deger3 = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i + 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    if (deger2.Text != "" && deger.Text != "")
+                    {
+                        int deger8 = Convert.ToInt32(deger.Text);
+                        int deger9 = Convert.ToInt32(deger2.Text);
+
+                        if (deger8 >= deger9)
+                        {
+                            int net = Convert.ToInt32(deger.Text) - Convert.ToInt32(deger2.Text);
+                            deger3.Text = net.ToString();
+                        }
+                        else
+                        {
+                            deger3.Text = "";
+                        }
+                    }
+                }
+
+
+                if (GRD_CH_GENELBILGILER_PO.GetRowValues(i, "BILGITNM").ToString() == "PO CIKIS SAATI")
+                {
+                    // string DENEME = GRD_CH_GENELBILGILER_PO.GetRowValues(i - 1, "BILGITNM").ToString();
+                    TextBox deger = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i - 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    TextBox deger2 = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    TextBox deger3 = (TextBox)GRD_CH_GENELBILGILER_PO.FindRowCellTemplateControl(i + 1, (DevExpress.Web.GridViewDataColumn)GRD_CH_GENELBILGILER_PO.Columns["DEGERI"], "txtDegeri8");
+                    if (deger.Text != "" && deger2.Text != "")
+                    {
+                        DateTime d1 = DateTime.ParseExact(deger.Text, "HH:mm", null);
+                        DateTime d2 = DateTime.ParseExact(deger2.Text, "HH:mm", null);
+                        if (d2.Hour == d1.Hour && d2.Minute < d1.Minute)
+                        {
+                            deger3.Text = "";
+                            //message = "PO GIRIS SAATI KISMININ DAKİKASINI TEKRAR DÜZENLEYİNİZ !!";
+                            //GENELBILGI_MSG.Text = message;
+                            //GENELBILGI_MSG.ShowOnPageLoad = true;
+
+                        }
+                        if (d2.Hour == d1.Hour && d1.Minute < d2.Minute)
+                        {
+                            TimeSpan t = d2.Subtract(d1);
+                            int saat = int.Parse(t.Hours.ToString());
+                            int dakika = int.Parse(t.Minutes.ToString());
+                            int toplamFark = saat * 60 + dakika;
+                            deger3.Text = toplamFark.ToString();
+
+                        }
+                        if (d2.Hour == d1.Hour && d2.Minute == d1.Minute)
+                        {
+                            deger3.Text = "0";
+
+                        }
+                        else
+                        if (d2.Hour > d1.Hour && (d2.Minute >= d1.Minute || d1.Minute >= d2.Minute))
+                        {
+                            TimeSpan t = d2.Subtract(d1);
+                            int saat = int.Parse(t.Hours.ToString());
+                            int dakika = int.Parse(t.Minutes.ToString());
+                            int toplamFark = saat * 60 + dakika;
+                            deger3.Text = toplamFark.ToString();
+                        }
+                        if (d1.Hour > d2.Hour)
+                        {
+                            deger3.Text = "";
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+        //
+
+
+
+
+        protected void GRD_CELIKHANE_DOKUMNO_CustomCallback(object sender, DevExpress.Web.ASPxGridViewCustomCallbackEventArgs e)
+        {
+            if (e.Parameters == "dokum_listele")
+            {
+                dokum_listesi();
+            }
+
+        }
+        protected void ASPxCallbackPanel_ALYAJ_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "alyaj_sakla")
+            {
+
+                if (KULLANICI == "CHAOOPR")
+                {
+                    alyaj_kayit_ao();
+
+                }
+                else if (KULLANICI == "CHPOOPR")
+                {
+                    alyaj_kayit_po();
+
+
+                }
+            }
+
+            if (e.Parameter == "alyaj_listesi")
+            {
+                alyaj_listesi_ao(txt_DokumNo.Text);
+                alyaj_listesi_po(txt_DokumNo.Text);
+            }
+            if (e.Parameter == "alyaj_listesi2")
+            {
+                alyaj_listesi_ao(txt_dokumno_ref_liste.Text);
+                alyaj_listesi_po(txt_dokumno_ref_liste.Text);
+            }
+
+        }
+        protected void ASPxCallbackPanel_HURDA_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "hurda_sakla")
+            {
+                if (KULLANICI == "CHAOOPR")
+                {
+
+
+                    hurda_kayit();
+                    hurda_listesi(txt_DokumNo.Text);
+
+                }
+            }
+            if (e.Parameter == "hurda_listesi")
+            {
+                hurda_listesi(txt_DokumNo.Text);
+                // HurdaListesi2();
+            }
+            if (e.Parameter == "hurda_listesi2")
+            {
+                hurda_listesi(txt_dokumno_ref_liste.Text);
+
+            }
+
+        }
+        protected void ASPxCallbackPanel_SARFMALZEMELER_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "sarf_sakla")
+            {
+                if (KULLANICI == "CHSDMOPR")
+                {
+                    sarf_kayit_sdm();
+
+                }
+                else if (KULLANICI == "CHAOOPR")
+                {
+                    sarf_kayit_ao();
+
+                }
+            }
+
+            if (e.Parameter == "sarf_liste")
+            {
+
+                sarf_listesi_sdm(txt_DokumNo.Text);
+                sarf_listesi_ao(txt_DokumNo.Text);
+
+            }
+
+            if (e.Parameter == "sarf_liste2")
+            {
+
+                sarf_listesi_sdm(txt_dokumno_ref_liste.Text);
+                sarf_listesi_ao(txt_dokumno_ref_liste.Text);
+
+            }
+        }
+        protected void ASPxCallbackPanel_GENELBILGILER_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "genel_bilgi_sakla")
+            {
+                if (KULLANICI == "CHSDMOPR")
+                {
+                    genel_bilgi_kayit_sdm();
+
+                }
+                else if (KULLANICI == "CHAOOPR")
+                {
+                    genel_bilgi_kayit_ao();
+
+                }
+                else if (KULLANICI == "CHPOOPR")
+                {
+                    genel_bilgi_kayit_po();
+                }
+
+            }
+            if (e.Parameter == "genel_bilgi_listesi")
+            {
+                genel_bilgi_listesi_sdm(txt_DokumNo.Text);
+                genel_bilgi_listesi_ao(txt_DokumNo.Text);
+                genel_bilgi_listesi_po(txt_DokumNo.Text);
+            }
+            if (e.Parameter == "genel_bilgi_listesi2")
+            {
+                genel_bilgi_listesi_sdm(txt_dokumno_ref_liste.Text);
+                genel_bilgi_listesi_ao(txt_dokumno_ref_liste.Text);
+                genel_bilgi_listesi_po(txt_dokumno_ref_liste.Text);
+            }
+
+
+        }
+        protected void ASPxCallbackPanel_ENERJI_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "enerji_sakla")
+            {
+                if (KULLANICI == "CHAOOPR") { enerji_kayit_ao(); }
+                if (KULLANICI == "CHPOOPR") { enerji_kayit_po(); }
+            }
+
+            if (e.Parameter == "enerji_listesi")
+            {
+
+                enerji_liste_ao(txt_DokumNo.Text);
+                enerji_liste_po(txt_DokumNo.Text);
+            }
+            if (e.Parameter == "enerji_listesi2")
+            {
+
+                enerji_liste_ao(txt_dokumno_ref_liste.Text);
+                enerji_liste_po(txt_dokumno_ref_liste.Text);
+            }
+        }
+        protected void ASPxCallbackPanel_KUTUKKAYIT_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "uretim_sakla")
+            {
+                uretim_kayit();
+            }
+            if (e.Parameter == "uretim_listesi")
+            {
+                uretim_liste();
+            }
+            if (e.Parameter == "dokum_yeni_sira")
+            {
+                dokum_yeni_sira();
+            }
+
+            if (e.Parameter == "dokum_ac")
+            {
+                Dokum_ac();
+
+            }
+            if (e.Parameter == "dokum_sirasi_sil")
+            {
+                dokum_sirasi_sil();
+
+            }
+            if (e.Parameter == "dokumKapat")
+            {
+                dokumkapat(txt_DokumNo.Text);
+            }
+
+            if (e.Parameter == "dokumtipGetir")
+            {
+
+                dokum_tip_getir(Cmb_Celikcinsii.SelectedItem);
+            }
+
+            if (e.Parameter == "uretim_secilen_getir")
+            {
+                uretim_secilen_getir();
+            }
+
+            if (e.Parameter == "katsayiGetir")
+            {
+                //katsayiGetir();
+            }
+            if (e.Parameter == "standartKutukTonajiGetir")
+            {
+                standartKutukTonajiGetir();
+            }
+
+
+            if (e.Parameter == "sariKutukTonajiGetir")
+            {
+                sariKutukTonajiGetir();
+            }
+            if (e.Parameter == "stdKarisimTonajiGetir")
+            {
+                stdKarisimTonajiGetir();
+
+            }
+            if (e.Parameter == "transfer")
+            {
+                sicak_sarja_gonderilecek_kutuk();
+            }
+            if (e.Parameter == "uretim_bilgi")
+            {
+                uretim_secilen_getir_deneme();
+
+            }
+        }
+        protected void ASPxCallbackPanel_KUTUKLISTE_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "uretim_listesi")
+            {
+                uretim_liste();
+                toplam_tonaj_getir();
+
+            }
+
+        }
+        protected void ASPxCallbackPanel_DURUSLISTE_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+
+            if (e.Parameter == "durus_liste")
+            {
+                durus_liste();
+            }
+
+        }
+        protected void ASPxCallbackPanel_DURUSKAYIT_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+
+            if (e.Parameter == "durus_kayit")
+            {
+                durus_kayit();
+            }
+            if (e.Parameter == "durus_sablon_getir")
+            {
+                durus_sablon_getir();
+            }
+            if (e.Parameter == "ArizaKodGetir")
+            {
+                ariza_kod_getir(Cmb_ArizaNeden.SelectedItem);
+
+            }
+            if (e.Parameter == "yeni_durus")
+            {
+
+                yeni_durus_Getir();
+            }
+            if (e.Parameter == "NetsureGetir")
+            {
+                net_sure_getir();
+            }
+            if (e.Parameter == "durus_bilgisi_getir")
+            {
+                durus_bilgisi_getir();
+            }
+            if (e.Parameter == "ariza_neden")
+            {
+                arizaNeden_cmbDoldur(txt_durusKod.Text);
+            }
+            if (e.Parameter == "durus_sil")
+            {
+                durus_delete();
+            }
+
+        }
+        protected void ASPxCallbackPanel_Send_Ktk_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "send_ktk_dokum")
+            {
+                send_ktk_dokum_liste();
+            }
+
+        }
+        protected void ASPxCallbackPanel_REFRAKTERLISTE_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "refrakter_liste")
+            {
+                refrakter_listesi();
+            }
+
+        }
+        protected void ASPxCallbackPanel_RefrakterKayit_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "refrakter_kayit")
+            {
+                refrakter_kayit();
+            }
+            if (e.Parameter == "refrakter_bilgi")
+            {
+                refrakter_bilgisi_getir();
+
+            }
+            if (e.Parameter == "yeni_refrakter")
+            {
+                yeni_refrakter();
+
+            }
+
+            if (e.Parameter == "pota_durum")
+            {
+                if (cmb_Potadurum.Text == "ISKARTA")
+                {
+                    Date_IskartaTarih.Enabled = true;
+                }
+
+            }
+            if (e.Parameter == "refrakter_dokum_sil")
+            {
+                refrakter_dokum_sil();
+
+            }
+
+        }
+        protected void ASPxCallbackPanel_Analiz_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+
+            if (e.Parameter == "analiz_listesi")
+            {
+
+                analiz_listesi1();
+                analiz_listesi2();
+
+            }
+
+            if (e.Parameter == "analiz_kayit")
+            {
+
+                analiz_kayit();
+
+
+
+            }
+
+
+        }
+        protected void ASPxCallbackPanel_Dokum_Ozellikleri_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "dokum_ozellikleri_liste")
+            {
+                dokum_ozellikleri_liste();
+
+            }
+
+            if (e.Parameter == "dokum_ozellik_change")
+            {
+
+                dokum_ozellikleri_kayit();
+            }
+
+        }
+
+
+    }
+}

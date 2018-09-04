@@ -1,0 +1,7 @@
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Release\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Release\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Release\System.Net.Http.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Release\System.Net.Http.xml
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Release\diler.Entity.csprojResolveAssemblyReference.cache
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Release\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Release\diler.Entity.pdb

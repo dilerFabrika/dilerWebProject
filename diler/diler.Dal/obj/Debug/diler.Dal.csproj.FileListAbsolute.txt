@@ -1,0 +1,300 @@
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk6\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\calisanlar\ydk12\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\inetpub\wwwroot\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\inetpub\wwwroot\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\inetpub\wwwroot\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Desktop\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\ddc1132\Documents\IISExpresss\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Dal.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Bll.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\obj\Debug\diler.Dal.dll
+\\192.168.198.8\c$\Web Projeleri\20180117_ydk_diler\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Dal.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Bll.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\obj\Debug\diler.Dal.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+Q:\Web Projeleri\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+Q:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+Q:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.dll
+Q:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Dal.pdb
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Bll.pdb
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\diler.Entity.pdb
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\DevExpress.Data.v16.1.xml
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\System.Net.Http.xml
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\de\DevExpress.Data.v16.1.resources.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\es\DevExpress.Data.v16.1.resources.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\ja\DevExpress.Data.v16.1.resources.dll
+Y:\Web Projeleri\diler\diler.Dal\bin\Debug\ru\DevExpress.Data.v16.1.resources.dll
+Y:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.csprojResolveAssemblyReference.cache
+Y:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.dll
+Y:\Web Projeleri\diler\diler.Dal\obj\Debug\diler.Dal.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Dal\bin\Debug\Oracle.ManagedDataAccess.dll

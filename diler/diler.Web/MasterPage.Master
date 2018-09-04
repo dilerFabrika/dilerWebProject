@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="diler.Web.MasterPage" %>
+
+<%@ Register Assembly="DevExpress.Web.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title></title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.jcarousel.js"></script>
+    <script type="text/javascript" src="js/cufon-yui.js"></script>
+    <script type="text/javascript" src="js/MyriadPro.font.js"></script>
+    <script type="text/javascript" src="js/jquery-func.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        #form1 {
+            height: 24px;
+            width: 1179px;
+        }
+
+        .style1 {
+            width: 196px;
+            text-align: left;
+        }
+
+        .style4 {
+            text-align: center;
+        }
+
+        .style5 {
+            width: 196px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .auto-style1 {
+            width: 196px;
+            font-weight: bold;
+            text-align: left;
+            height: 25px;
+             padding-left:175px;
+        }
+
+        .auto-style2 {
+            text-align: center;
+            height: 25px;
+        }
+
+        .auto-style3 {
+            width: 196px;
+            text-align: left;
+            height: 160px;
+        }
+
+        .auto-style4 {
+            height: 470px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form id="form1" runat="server" class="auto-style4">
+        <table style="height: 891px; width: 1160px; z-index: 1; left: 14px; top: 15px; position: absolute;">
+            <tr>
+                <td class="auto-style1">&nbsp;<marquee behavior="alternate"><%--<img src="Images/AMBLEM1.png"/>--%></marquee>
+                </td>
+                <td class="auto-style2">
+                    <dx:ASPxMenu ID="ASPxMenu1" runat="server"
+                        BorderBetweenItemAndSubMenu="HideRootOnly"
+                        CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
+                        CssPostfix="Office2003Blue" Height="51px" ShowPopOutImages="True"
+                        SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
+                        Width="1650px" OnItemClick="ASPxMenu1_ItemClick1" Style="margin-left: 18px">
+                        <ItemStyle HorizontalAlign="Left" />
+                        <LoadingPanelImage Url="~/App_Themes/Office2003Blue/Web/Loading.gif">
+                        </LoadingPanelImage>
+                        <Items>
+                            <dx:MenuItem Text="Ana Sayfa">
+                                <Image Url="~/Images/AnaSayfa.png">
+                                </Image>
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Holding Raporları">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="ENVIDAS">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="Diler Holding">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="DUSWEB">
+                            </dx:MenuItem>
+                           
+                            <dx:MenuItem Text="BOYS">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="ÇIKIŞ">
+                            </dx:MenuItem>
+                        </Items>
+                        <ItemSubMenuOffset FirstItemX="2" LastItemX="2" X="2" />
+                        <SubMenuStyle GutterWidth="17px" />
+                    </dx:ASPxMenu>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="auto-style3">
+                    <dx:ASPxNavBar ID="AnaMenuList" runat="server" Height="835px" Width="198px" OnItemClick="AnaMenuList_ItemClick1" Style="position: relative">
+                    </dx:ASPxNavBar>
+                </td>
+            </tr>
+            <tr>
+                <td style="background-color: #Fff">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        <table>
+                        </table>
+                    </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

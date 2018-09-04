@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{06D64FD7-E6B4-419F-9D90-C0D6BD082C30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>diler.Dal</RootNamespace>
+    <AssemblyName>diler.Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.1, Version=16.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\dilerweb\packages\Oracle.ManagedDataAccess.12.2.1100\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Celikhane_db.cs" />
+    <Compile Include="Celikhane_rapor_db.cs" />
+    <Compile Include="Dosis_rapor_db.cs" />
+    <Compile Include="Durus_raporu_db.cs" />
+    <Compile Include="EndMuh_raporlar_db.cs" />
+    <Compile Include="Fizik_Instron_db.cs" />
+    <Compile Include="Istiften_soguksarj_db.cs" />
+    <Compile Include="Kalibrasyon_Paketleme_db.cs" />
+    <Compile Include="Kalite_ayrinti_db.cs" />
+    <Compile Include="Haddehane_rapor_db.cs" />
+    <Compile Include="Holding_raporu_db.cs" />
+    <Compile Include="Istife_kutuk_gonderimi_db.cs" />
+    <Compile Include="Kimya_analiz_db.cs" />
+    <Compile Include="Login_db.cs" />
+    <Compile Include="Mesai_db.cs" />
+    <Compile Include="Izlenebilirlik_db.cs" />
+    <Compile Include="KatsayiKontrol_DB.cs" />
+    <Compile Include="Kimya_raporu_db.cs" />
+    <Compile Include="Performans_db.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Refrakter_db.cs" />
+    <Compile Include="Tanim_db.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\diler.Bll\diler.Bll.csproj">
+      <Project>{637689c5-faa2-4c66-9960-994c87aec959}</Project>
+      <Name>diler.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\diler.Entity\diler.Entity.csproj">
+      <Project>{51cd1925-9325-4cd7-a3ce-db2bd02b4199}</Project>
+      <Name>diler.Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

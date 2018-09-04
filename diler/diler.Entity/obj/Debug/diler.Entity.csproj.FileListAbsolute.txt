@@ -1,0 +1,89 @@
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\inetpub\wwwroot\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\inetpub\wwwroot\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\inetpub\wwwroot\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\inetpub\wwwroot\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\diler.Entity.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+G:\BILGIISL\DDC1131\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\f\20171206_Celikhane_son\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\Public\Documents\DevExpress Demos 16.1\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\IIS\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpress\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Desktop\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Desktop\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Desktop\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Desktop\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Desktop\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\ddc1132\Documents\IISExpresss\20182\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\bin\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\obj\Debug\diler.Entity.dll
+C:\Users\Public\Documents\DevExpress 2011.2 Demos\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\c$\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+Q:\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.dll
+Q:\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+Q:\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+Q:\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+Q:\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+Q:\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.dll
+Q:\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\bin\Debug\diler.Entity.pdb
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\bin\Debug\System.Net.Http.xml
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.csprojResolveAssemblyReference.cache
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.dll
+\\192.168.198.8\Web Projeleri\diler\diler.Entity\obj\Debug\diler.Entity.pdb
