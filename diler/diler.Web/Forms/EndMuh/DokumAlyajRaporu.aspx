@@ -167,6 +167,28 @@
             color: #3366FF;
         }
         
+        .auto-style10 {
+            width: 186px;
+        }
+        .auto-style11 {
+            width: 194px;
+        }
+        .auto-style12 {
+            width: 98%;
+            height: 34px;
+            position: relative;
+            min-height: 1px;
+            float: left;
+            left: 0px;
+            top: 0px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+        
+        .auto-style13 {
+            height: 15px;
+        }
+        
     </style>
 
 </head>
@@ -176,7 +198,33 @@
     <div class="jumbotron text-center" style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: medium; height: 8px;">
         ÇELİKHANE PROGRAMI ALYAJ DATALARI DUZELTME EKRANI
     </div>
-
+  <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        Adım 1.     Tarih aralığını seçip Getir  tusuna basın Alyaj Listesi gelecektir
+    </div>
+    <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        Adım 2.     Sakla(Excel) tuşuna basın. Sakladığınız bu dosya üzerinde değişiklikleri yapınca. Dosyayı "\\192.168.198.8\Documents\ALYAJLAR.xlsx" olarak saklayın
+    </div>
+    <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        Adım 2 Not. Dosya isminiz ALYAJLAR.XLSX Olmalıdır.
+    </div>
+        <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        Adım 3.     Duzeltme yapıp kopylayadıgınız dosyayı Getir(Excel) tuşu ile çağırın ve Hazırla butonuna basın
+    </div>
+     <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        Adım 4.     Ozeti oluşan bu dosyayıda saklayın SaklaOzet(excel). Bu dosyayı Mail olarak atın
+    </div>
+    <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        
+    </div>
+    <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        
+    </div>
+            <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; height: 15px;">
+        
+    </div>
+            <div style="color: #FFFFFF; font-family: 'Courier New', Courier, monospace; font-size: smaller; " class="auto-style13">
+        
+    </div>
         <div class="auto-style5">
         <table class="auto-style6">
             <tr>
@@ -186,7 +234,7 @@
                             ImageUrl="~/Images//AnaSayfa.png" ToolTip="Ana Sayfa" OnClick="ImageButton1_Click" Height="27px" Width="34px" />
                     </span>
                 </td>
-                    <td class="auto-style7"> Baş. Tar. </td>
+                    <td class="auto-style12"> Baş. Tar. </td>
                     <td>
                         <asp:TextBox ID="bastar" runat="server"  Height="25px" TextMode="Date"></asp:TextBox>
                     </td>
@@ -197,17 +245,22 @@
                 <td style="color: #2B3E50">__</td>
                     <td> <asp:Button ID="Button1" class="btn btn-primary" runat="server" Text="Getir" Width="75px" OnClick="Button1_Click" Height="34px" Font-Bold="False" Font-Size="Small" /></td>
                 <td style="color: #2B3E50">&nbsp;</td>
-                <td style="color: #2B3E50" class="auto-style4">&nbsp;</td>
-                <td style="color: #2B3E50"> <asp:Button ID="Button5" class="btn btn-success" runat="server" Text="Hazırla" Width="85px"  Height="36px" Font-Bold="False" Font-Size="Small" OnClick="Button5_Click" /></td>
+                <td style="color: #2B3E50" class="auto-style4"><asp:Button ID="Button2" class="btn btn-warning" runat="server" Text="Sakla(Excel)" Width="113px" OnClick="Button2_Click" Height="36px" Font-Bold="False" Font-Size="Small" /></td>
+                <td style="color: #2B3E50"> &nbsp;</td>
                     <td> <asp:Button ID="Button3" class="btn btn-success" runat="server" Text="Sakla" Width="68px" OnClick="Button3_Click" Height="36px" Font-Bold="False" Font-Size="Small" Visible="False" /></td>
                 <td style="color: #2B3E50">_&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _</td>
                     <td class="auto-style3">  
 
-                        <asp:FileUpload ID="FileUpload1" runat="server" Height="35px" OnInit="FileUpload1_Init" Width="82px"/>
+                        <asp:FileUpload ID="FileUpload1" runat="server" Height="21px" OnInit="FileUpload1_Init" Width="16px" Visible="False"/>
                         </td>
                 <td style="color: #2B3E50"><asp:Button ID="Button4" class="btn btn-default" runat="server" Text="Getir(Excel)" Width="104px"  Height="36px" Font-Bold="False" Font-Size="Small" OnClick="Button4_Click" /></td>
-                    <td> <asp:Button ID="Button2" class="btn btn-warning" runat="server" Text="Sakla(Excel)" Width="113px" OnClick="Button2_Click" Height="36px" Font-Bold="False" Font-Size="Small" /></td>
+                    <td class="auto-style11"> &nbsp;</td>
+                    <td class="auto-style10"> <asp:Button ID="Button5" class="btn btn-success" runat="server" Text="Hazırla" Width="85px"  Height="36px" Font-Bold="False" Font-Size="Small" OnClick="Button5_Click" /></td>
+                <td>&nbsp;</td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</td>
+                <td> &nbsp;</td>
+                
+
                 <td> <asp:Button ID="Button6" class="btn btn-warning" runat="server" Text="SaklaOzet(Excel)" Width="153px" OnClick="Button6_Click" Height="36px" Font-Bold="False" Font-Size="Small" /></td>
                 
 

@@ -130,7 +130,7 @@ namespace diler.Dal
             {
                 //kayit bulunamadiysa
                 Istif_bilgileri kayit = new Istif_bilgileri();
-                kayit.Lot = "Listelenecek Kayıt Bulunamadı !!";
+                kayit.Lot = "Listelenecek Kayıt Bulunamadı !";
                 kayit.Id = 0;
                 kayitlar.Add(kayit);
             }
@@ -182,7 +182,7 @@ namespace diler.Dal
             {
                 //kayit bulunamadiysa
                 Istif_bilgileri kayit = new Istif_bilgileri();
-                kayit.Lot = "Listelenecek Kayıt Bulunamadı !!";
+                kayit.Lot = "Listelenecek Kayıt Bulunamadı !";
                 kayit.Id = 0;
                 kayitlar_istif_Ozet.Add(kayit);
             }

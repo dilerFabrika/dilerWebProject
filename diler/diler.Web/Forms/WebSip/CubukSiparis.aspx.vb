@@ -3380,11 +3380,10 @@ son2:
         'silmeDurum < 1 ise kayıt silinebilir. Yani giriş ve kontrol seviyesindeki sipariş silinebilir.
         If silmeDurum < 1 Then
             Dim DbConnSil As New ConnectGiris
-            Try
-                SQL = "DELETE FROM MRKSIP_CBK_FLM" _
-              & " WHERE SIP_NO='" & sip_no & "'" _
-              & " AND REVIZ_NO=" & reviz_no
-                DbConnSil.Sil(SQL)
+            SQL = "DELETE FROM MRKSIP_CBK_FLM" _
+            & " WHERE SIP_NO='" & sip_no & "'" _
+            & " AND REVIZ_NO=" & reviz_no
+            DbConnSil.Sil(SQL)
                 DbConnSil.Kapat()
 
                 SQL = "DELETE FROM MRKSIP_CBK_FLM_ALT" _
@@ -3393,31 +3392,17 @@ son2:
                 DbConnSil.Sil(SQL)
                 DbConnSil.Kapat()
                 Try
-                    MailGonder(Session("KULLANICI"), Btn_SIP_SIL_MAIL, "Sipariş Silindi", sip_no, reviz_no, Session("PRGKOD"))
-                    Try
-                        alanlariBeyazlat()
-                        temizle()
-                        txtKayitDurumu.Text = "Sipariş başarıyla silindi."
-                    Catch ex As Exception
-                        txtKayitDurumu.BackColor = Drawing.Color.Red
-                        ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Alanların renkleri değiştirilirken hata oluştu.');", True)
-                        txtKayitDurumu.BackColor = Drawing.Color.Red
-                        txtKayitDurumu.Text = "Alanların renkleri değiştirilirken hata oluştu. Sipariş No:" & sip_no & " Revizyon No:" & reviz_no
-                    End Try
+                    alanlariBeyazlat()
+                    temizle()
+                    txtKayitDurumu.Text = "Sipariş başarıyla silindi."
                 Catch ex As Exception
                     txtKayitDurumu.BackColor = Drawing.Color.Red
-                    ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Silindi maili gönderilirken hata oluştu.');", True)
-                    txtKayitDurumu.BackColor = Drawing.Color.Red
-                    txtKayitDurumu.Text = "Silindi maili gönderilirken hata oluştu. Sipariş No:" & sip_no & " Revizyon No:" & reviz_no
-                End Try
-            Catch ex As Exception
-                DbConnSil.Kapat()
+                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Silme işlemi basarısız oldu.');", True)
                 txtKayitDurumu.BackColor = Drawing.Color.Red
-                ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Alttablo silinirken hata oluştu.');", True)
-                txtKayitDurumu.BackColor = Drawing.Color.Red
-                txtKayitDurumu.Text = "Alttablo silinirken hata oluştu. Sipariş No:" & sip_no & " Revizyon No:" & reviz_no
+                txtKayitDurumu.Text = "Silme işlemi basarısız oldu. Sipariş No:" & sip_no & " Revizyon No:" & reviz_no
             End Try
-            DbConn.Kapat()
+
+                DbConn.Kapat()
         Else
             'ShowMessage("Onaylanmış sipariş silinemez. Sipariş No:" & sip_no & " Revizyon No:" & reviz_no)
             ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Onaylanmış sipariş silinemez.');", True)
@@ -3570,11 +3555,15 @@ son2:
         txtKayitDurumu.BackColor = Drawing.ColorTranslator.FromHtml("#AABE74")
 
 
+
         txtLotNo.Text = ""
-        drpMamulTip.Text = "-"
         drpStandart.Items.Add("-")
         drpStandart.Text = "-"
-        drpKalite.Text = ""
+
+        drpKalite.Items.Clear()
+        ' drpKalite.Text = ""
+
+
         drpCap.Text = ""
         drpND.Text = ""
         drpBoy.Text = ""
@@ -3956,7 +3945,7 @@ son2:
     End Sub
     Protected Sub YeniBtn(GelenYer)
 
-        Timer1.Enabled = False
+        '    Timer1.Enabled = False
 
 
         spreadCapDoldur() ' eger kutuk sıp cagırmıssam ve yenı butonuna basmıssam ve kutuk harıcı bır sıp gıreceksem caplar hatalı gelıyor
@@ -4413,7 +4402,7 @@ son2:
 
     Protected Sub drpMamulTip_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles drpMamulTip.SelectedIndexChanged
 
-        SagTarafı_Temizle()
+        ' SagTarafı_Temizle()
         drpKalite.Items.Clear()
         drpStandart.Items.Clear()
         'drpMarka.Items.Clear()
@@ -4939,13 +4928,11 @@ son2:
 
     Private Sub satirlarYukari(ByVal satir As String)
 
+
         txtLotNo.Text = fpEbatMiktar.Sheets(0).Cells(satir, 2).Text
 
-        If fpEbatMiktar.Sheets(0).Cells(satir, 3).Text <> "" Then
-            drpMamulTip.Text = fpEbatMiktar.Sheets(0).Cells(satir, 3).Text
-        Else
-            drpMamulTip.Text = "-"
-        End If
+
+
 
         If drpMamulTip.Text = "Kangal" Then
             If drpStandart.Text = "-" Then filmasinStandartGetir()
@@ -4964,11 +4951,7 @@ son2:
         ElseIf drpMamulTip.Text = "Kutuk" Then
 
 
-
-            If drpStandart.Items.Count = 1 Then
-                dchstandartGetir()
-            End If
-            If drpStandart.Text = "-" Then dchstandartGetir()
+            dchstandartGetir()
             If drpCap.Text = "" Then kutukCapDoldur()
 
             'If drpStandart.Text = "-" Then dchstandartGetir()
@@ -4979,48 +4962,37 @@ son2:
 
 
             txtKoseRadyusu.Enabled = True
-                txtRombiklik.Enabled = True
-                txtDogSapma.Enabled = True
-                txtBurulma.Enabled = True
-                txtKesmeSekli.Enabled = True
-            End If
-
-
-            'TEST ET HATA ALDIM
-            drpStandart.Text = fpEbatMiktar.Sheets(0).Cells(satir, 4).Text
-
-        'drpKalite.Items.Clear()
-        ''        drpMarka.Items.Clear()
-        'drpND.SelectedIndex = 0
-        'If drpMamulTip.Text = "Kangal" Or drpMamulTip.Text = "Kangal Doğrultma" Then
-        '    filmasinKaliteGetir()
-        '    spreadFilmasinCapDoldur()
-
-        'ElseIf drpMamulTip.Text = "Çubuk" Then
-        '    dhhStdKalitebul()
-        '    spreadDilerCapDoldur()
-        'ElseIf drpMamulTip.Text = "Kutuk" Then
-        '    CHStdKalitebul()
-        '    kutukCapDoldur()
-        'End If
+            txtRombiklik.Enabled = True
+            txtDogSapma.Enabled = True
+            txtBurulma.Enabled = True
+            txtKesmeSekli.Enabled = True
+        End If
 
 
 
+
+        '**************************** GRID BILGILERINI COMBOLARA YAZDIR ************************************
+
+        drpMamulTip.Text = fpEbatMiktar.Sheets(0).Cells(satir, 3).Text
+
+        drpStandart.Items.Add(fpEbatMiktar.Sheets(0).Cells(satir, 4).Text)
+        drpStandart.Text = fpEbatMiktar.Sheets(0).Cells(satir, 4).Text
+
+        drpKalite.Items.Add(fpEbatMiktar.Sheets(0).Cells(satir, 5).Text)
         drpKalite.Text = fpEbatMiktar.Sheets(0).Cells(satir, 5).Text
 
-        drpND.SelectedIndex = 0
 
+        drpCap.Items.Add(fpEbatMiktar.Sheets(0).Cells(satir, 6).Text)
         drpCap.Text = fpEbatMiktar.Sheets(0).Cells(satir, 6).Text
+
+
         drpND.Text = fpEbatMiktar.Sheets(0).Cells(satir, 7).Text
 
-        Dim Boykoy
-        If fpEbatMiktar.Sheets(0).Cells(satir, 8).Text = "0" Then
-            Boykoy = "0"
-            drpBoy.Items.Add("0")
-        Else
-            Boykoy = fpEbatMiktar.Sheets(0).Cells(satir, 8).Text
-        End If
-        drpBoy.Text = Boykoy
+        drpBoy.Items.Add(fpEbatMiktar.Sheets(0).Cells(satir, 8).Text)
+        drpBoy.Text = fpEbatMiktar.Sheets(0).Cells(satir, 8).Text
+        '**************************** ************************************
+
+
         txtBoyTolNeg.Text = fpEbatMiktar.Sheets(0).Cells(satir, 9).Text
         txtBoyTolPoz.Text = fpEbatMiktar.Sheets(0).Cells(satir, 10).Text
         txtMiktar.Text = fpEbatMiktar.Sheets(0).Cells(satir, 11).Text
@@ -5142,6 +5114,7 @@ son2:
     End Sub
 
     Public Shared Sub MailGonder_Attach(ByVal IslemiYapanKısi As String, ByVal MAIL_ATILCAK_ADRES As String, ByVal MailDurumu As String, ByVal Sipno As String, ByVal RevizyonNo As String, ByVal ProgramGrubu As String)
+        Dim MESAJ1
         Dim mailack, MailGittimi
         Dim BAslıkMesajı, SubjectMesajı, mailsmtp
 
@@ -5156,7 +5129,7 @@ son2:
 
         Try
             mailack = "Onaylanan " & Sipno & "/" & RevizyonNo & "'lu Siparişin PDF Dosyası"
-            Dim MESAJ1
+
 
             If ProgramGrubu = "ICPIYS" Then
                 MESAJ1 = "<body>" _
@@ -5246,11 +5219,37 @@ son2:
             smtp.SmtpServer = mailsmtp
             smtp.Send(message)
             MailGittimi = "E"
+
+
         Catch
+
+
+            '*************************** hataya dustu MALI EKDOSY OLMAN GONDER ********************************
             MailGittimi = "H"
 
-            'MessageBox.Show("E-mail gönderilemedi", "Smtp Mail", MessageBoxButtons.OK)
-            'ShowMessage("E-mail gönderilemedi", "Smtp Mail")
+            With message
+
+                .From = "Diler_Uretim_Planlama@dilerhld.com"
+                .To = MAIL_ATILCAK_ADRES
+                .Subject = mailack
+                .Body = MESAJ1
+
+                .BodyFormat = Web.Mail.MailFormat.Html
+                ' For authentication...
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/smtpserver", "DILEREXCH.dilerhld.com")
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/smtpserverport", 25)
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/smtpauthenticate", 1)
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendusername", "Dilerplanlama")
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendpassword", "planlama2014")
+                '.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendusername", "turgayener")
+                '.Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendpassword", "denver")
+                .Fields.Add("http://schemas.microsoft.com/cdo/configuration/sendusing", 2) '2 specifies NTLM, 1 for basic, 0 for none
+            End With
+            Dim smtp As System.Web.Mail.SmtpMail
+            smtp.SmtpServer = mailsmtp
+            smtp.Send(message)
+            MailGittimi = "E"
+
         End Try
 
     End Sub
@@ -5989,6 +5988,11 @@ son2:
 
 
         End If
+
+
+        Soldaki_Tum_alanları_Ac()
+        Siparis_Tipinden_Alan_AcKapat(drpMamulTip.Text)
+
     End Sub
 
 
@@ -6620,8 +6624,13 @@ son:
                 MailGonder_Attach(Session("KULLANICI"), Siparisin_sahibi_Kim_Mail, "Sipariş Onaylandı ", txtUretimSipNo.Text, txtRevizyon.Text, Session("PRGKOD"))
             Else
                 MailGonder(Session("KULLANICI"), Btn_SIP_ONAY_MAIL, "Sipariş Onaylandı ", txtUretimSipNo.Text, txtRevizyon.Text, Session("PRGKOD"))
+                If PrgKod = "DISTIC" Then
+                    MailGonder_Attach(Session("KULLANICI"), Siparisi_Giren_Kim_Mail + ";" + "export@dilerhld.com", "Sipariş Onaylandı ", txtUretimSipNo.Text, txtRevizyon.Text, Session("PRGKOD"))
+                Else
+                    MailGonder_Attach(Session("KULLANICI"), Siparisi_Giren_Kim_Mail, "Sipariş Onaylandı ", txtUretimSipNo.Text, txtRevizyon.Text, Session("PRGKOD"))
+                End If
 
-                MailGonder_Attach(Session("KULLANICI"), Siparisi_Giren_Kim_Mail, "Sipariş Onaylandı ", txtUretimSipNo.Text, txtRevizyon.Text, Session("PRGKOD"))
+
             End If
 
         Else
@@ -6913,7 +6922,7 @@ son:
 
     Protected Sub BtnYeni0_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnKopyala.Click
 
-        Timer1.Enabled = False
+        'Timer1.Enabled = False
 
         Soldaki_Tum_alanları_Ac()
         Siparis_Tipinden_Alan_AcKapat(drpMamulTip.Text)
@@ -6939,7 +6948,7 @@ son:
         'Siparişin düzeltilebilmesi için sipariş durumunun -1 olması gerekmekte
 
         If Session("AktifSiparisDurumu") = "-1" Then
-            Timer1.Enabled = False
+            'Timer1.Enabled = False
             txtKopyalaBasildimi.Text = "Hayır"
             ' alanlariAc()
             txtUretimSipNo.Enabled = False
@@ -7121,7 +7130,7 @@ son:
 
     Protected Sub BtnYeni4_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles IhrKaySip_Yeni.Click
 
-        Timer1.Enabled = False
+        'Timer1.Enabled = False
         temizle()
         Soldaki_Tum_alanları_Ac()
 
@@ -8321,7 +8330,7 @@ cık:
 
     Protected Sub Button2_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnAnalizGir.Click
 
-        Timer1.Enabled = False
+        'Timer1.Enabled = False
         txtLotAnaliz.Text = ""
         For index As Integer = 0 To fpLotKimyasal.Sheets(0).RowCount - 1
 
@@ -9360,12 +9369,6 @@ cık:
 
     End Sub
 
-    Protected Sub Timer1_Tick(ByVal sender As Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        If UserName = "OPR1A11" Or UserName = "OPR1912" Then
-            Rapor_New()
-            'grdcelalbey_getir()
-        End If
-    End Sub
 
     Private Sub ShowMessage(ByVal GelenText As String)
         ScriptManager.RegisterStartupScript(Me, Me.[GetType](), "", "alert('Siparişi Açma Yetkiniz Yok.');", True)
@@ -9935,9 +9938,22 @@ SON:
 
     Protected Sub BtnSakla_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles BtnSakla.Click
 
-        ' txtKayitDurumu.Text = "sakla butonuna basıldı."
 
+
+
+
+        'If Session("AktifSiparisDurumu") = "-1" Or Session("AktifSiparisDurumu") = "88" Then
+        '    sakla()
+        'Else
+        '    txtKayitDurumu.Text = "Onaylanan Siparişte kayıt değiştiremezsiniz..!!!"
+        '    txtKayitDurumu.BackColor = Drawing.Color.Red
+        'End If
+
+
+
+        ' ESKISI
         If txtKopyalaBasildimi.Text = "Evet" Then
+
             Dim dahaOnceKullanildimi As Boolean = False
             Dim DbConnKontrol As New ConnectGiris
             SQL = " SELECT DURUM FROM MRKSIP_CBK_FLM" _
@@ -9948,7 +9964,6 @@ SON:
                 dahaOnceKullanildimi = True
             End While
             DbConnKontrol.Kapat()
-            'alanlariAc()
 
             If dahaOnceKullanildimi Then
                 txtKayitDurumu.Text = "Aynı sipariş numarasıyla daha önce kayıt gerçekleştirilmiş."
@@ -9963,7 +9978,7 @@ SON:
 
         End If
 
-        'GETIR()
+
 
     End Sub
 

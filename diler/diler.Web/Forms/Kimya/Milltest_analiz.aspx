@@ -198,7 +198,7 @@
                                                 <th class="td_yesil ">Fe%</th>
                                                 <th class="td_yesil ">CEQ</th>
                                                 <th class="td_yesil ">CE</th>
-
+                                                <th>Tliq</th>
                                                 <th class="td_yesil ">RACT</th>
                                             </tr>
                                         </thead>
@@ -252,7 +252,7 @@
             $('#spinner5').spinner({ value: 0000001, step: 1, min: 0, max: 9999999 });
 
 
-            setInterval(function () { $("#btn_mill_test").click(); }, 10000);
+           // setInterval(function () { $("#btn_mill_test").click(); }, 10000);
         });
 
     </script>

@@ -69,6 +69,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Refrakter_db.cs" />
     <Compile Include="Tanim_db.cs" />
+    <Compile Include="TeorikTolerans_db.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\diler.Bll\diler.Bll.csproj">

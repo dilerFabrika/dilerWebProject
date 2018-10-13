@@ -61,11 +61,11 @@ namespace diler.Dal
         {
             List<R_ark_ocagi_genel> ark_ocagi_genel = new List<R_ark_ocagi_genel>();
 
-            this.sql = "SELECT *   " +
-            "FROM URTHRK.CH_DOKUMNO_YATAY_AO_GENEL " +
-            "WHERE TARIH >= " + tarih1 + " " +
-            "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_AO_GENEL " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -135,11 +135,11 @@ namespace diler.Dal
         {
             List<R_pota_ocagi_genel> pota_ocagi_genel = new List<R_pota_ocagi_genel>();
 
-            this.sql = "SELECT *   " +
-         "FROM URTHRK.CH_DOKUMNO_YATAY_PO_GENEL " +
-         "WHERE TARIH >= " + tarih1 + " " +
-         "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_PO_GENEL " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -209,11 +209,11 @@ namespace diler.Dal
         {
             List<R_sdm_genel> sdm_genel = new List<R_sdm_genel>();
 
-            this.sql = "SELECT *   " +
-         "FROM URTHRK.CH_DOKUMNO_YATAY_SDM_GENEL " +
-         "WHERE TARIH >= " + tarih1 + " " +
-         "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_SDM_GENEL " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -280,19 +280,12 @@ namespace diler.Dal
         {
             List<R_po_alyaj> po_alyaj = new List<R_po_alyaj>();
 
-            //this.sql = "SELECT *   " +
-            //"FROM URTHRK.CH_DOKUMNO_YATAY_PO_ALYAJ_V " +
-            //"WHERE ";
-            //if (Convert.ToInt32(tarih1) > 0 && Convert.ToInt32(tarih2) > 0)
-            //{
-            //    this.sql += "  TARIH >= " + tarih1 +
-            //            " AND TARIH <= " + tarih2 + " ORDER BY DOKUMNO ASC";
-            //}
-            this.sql = "SELECT *   " +
-       "FROM URTHRK.CH_DOKUMNO_YATAY_PO_ALYAJ " +
-       "WHERE TARIH >= " + tarih1 + " " +
-       "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+          
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_PO_ALYAJ " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -385,11 +378,11 @@ namespace diler.Dal
         {
             List<R_ao_alyaj> ao_alyaj = new List<R_ao_alyaj>();
 
-            this.sql = "SELECT *   " +
-    "FROM URTHRK.CH_DOKUMNO_YATAY_AO_ALYAJ " +
-    "WHERE TARIH >= " + tarih1 + " " +
-    "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_AO_ALYAJ " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -458,11 +451,11 @@ namespace diler.Dal
         {
             List<R_hurda> hurda = new List<R_hurda>();
 
-            this.sql = "SELECT *   " +
-   "FROM URTHRK.CH_DOKUMNO_YATAY_HURDALAR " +
-   "WHERE TARIH >= " + tarih1 + " " +
-   "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_HURDALAR " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -527,11 +520,11 @@ namespace diler.Dal
         {
             List<R_enerji> enerji = new List<R_enerji>();
 
-            this.sql = "SELECT *   " +
-   "FROM URTHRK.CH_DOKUMNO_YATAY_ENERJIDGAZ " +
-   "WHERE TARIH >= " + tarih1 + " " +
-   "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_ENERJIDGAZ " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -589,11 +582,11 @@ namespace diler.Dal
         public List<R_sarfmalzeme> sarf_malzeme_data_read(string tarih1, string tarih2, string kalite, string dokum_no, string sip_no, string dokum_tipi)
         {
             List<R_sarfmalzeme> sarfmalzeme = new List<R_sarfmalzeme>();
-            this.sql = "SELECT *   " +
-   "FROM URTHRK.CH_DOKUMNO_YATAY_SARFMALZEME " +
-   "WHERE TARIH >= " + tarih1 + " " +
-   "AND TARIH <= " + tarih2 + " ";
-            if (kalite != "Tümü")
+            this.sql = "SELECT * " +
+                       "FROM URTHRK.CH_DOKUMNO_YATAY_SARFMALZEME " +
+                       "WHERE TARIH >= " + tarih1 + " " +
+                       "AND TARIH <= " + tarih2 + " ";
+            if (kalite != "Tümü" && kalite != "")
             {
                 this.sql += "AND KALITE='" + kalite + "' ";
             }
@@ -690,8 +683,8 @@ namespace diler.Dal
         public List<string> kalite_comboDoldur(string tarih1_, string tarih2_)
         {
             List<string> kaliteler = new List<string>();
-            // string sql = "SELECT KOD_ACK FROM URTTNM.TANIMLAR WHERE TNMTIPI IN('KALITE') AND TESIS='CH' ORDER BY KOD_ACK";
-            string sql = "SELECT DISTINCT(KALITE)FROM CH_DOKUMNO_URETIM WHERE DOKUMTAR BETWEEN " + tarih1_ + " AND " + tarih2_ + " ORDER BY KALITE";
+       
+            string sql = "SELECT DISTINCT(KALITE) FROM CH_DOKUMNO_URETIM WHERE DOKUMTAR BETWEEN " + tarih1_ + " AND " + tarih2_ + " ORDER BY KALITE";
             this.cmd.CommandText = sql;
             this.dr = this.cmd.ExecuteReader();
             while (dr.Read())

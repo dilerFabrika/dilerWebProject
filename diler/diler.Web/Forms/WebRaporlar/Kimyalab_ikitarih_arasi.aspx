@@ -53,7 +53,7 @@
         div.table-responsive .table tbody tr td {
             font-size: 13px !important;
             text-align: left;
-            padding:4px;
+            padding: 4px;
         }
 
         div.table-responsive .table thead tr th {
@@ -62,6 +62,7 @@
     </style>
 
 </head>
+
 <body>
     <!-- Start content -->
     <div class="content">
@@ -122,12 +123,14 @@
                                             <th>KÜTÜKSAYISI</th>
                                             <th>DÖKÜMSAYISI</th>
                                             <th>TONAJ</th>
+                                            <th>ÜRETİM YERİ</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <asp:PlaceHolder ID="ph_uretim_ozet" runat="server"></asp:PlaceHolder>
                                     </tbody>
                                 </table>
+
                                 <table id="" class="table table-bordered table-striped table_performans_raporu">
                                     <thead>
                                         <tr>
@@ -142,9 +145,9 @@
                                 </table>
                             </div>
 
-
                             <div class="table-responsive" data-pattern="priority-columns">
                                 <p class="tbl_baslik" style="background-color: #1e88e5; color: #FFF; margin-bottom: 0PX;">FİLMAŞİN ÜRETİMLERİ </p>
+
                                 <table id="tech-companies-185" class="table table-bordered table-striped table_performans_raporu">
                                     <thead>
                                         <tr>
@@ -160,6 +163,7 @@
                                         <asp:PlaceHolder ID="ph_filmasin_ozet" runat="server"></asp:PlaceHolder>
                                     </tbody>
                                 </table>
+
                                 <table id="" class="table table-bordered table-striped table_performans_raporu">
                                     <thead>
                                         <tr>
@@ -174,8 +178,44 @@
                                     </tbody>
                                 </table>
                             </div>
+
+                            <div class="table-responsive" data-pattern="priority-columns">
+                                <p class="tbl_baslik" style="background-color: #1e88e5; color: #FFF; margin-bottom: 0PX;">İHRACAT ÜRETİMLERİ </p>
+                                <table id="tech-companies-85" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>SİPARİŞ NO</th>
+                                            <th>ÇELİK CİNSİ</th>
+                                            <th>EBAT</th>
+                                            <th>BOY</th>
+                                            <th>KÜTÜKSAYISI</th>
+                                            <th>DÖKÜMSAYISI</th>
+                                            <th>TONAJ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <asp:PlaceHolder ID="ph_ihracat_ozet" runat="server"></asp:PlaceHolder>
+                                    </tbody>
+                                </table>
+
+                                <table id="" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+
+                                            <th>TOPLAM DÖKÜM SAYISI</th>
+                                            <th>TOPLAM KÜTÜK SAYISI</th>
+                                            <th>TOPLAM TONAJ</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <asp:PlaceHolder ID="ph_ihracat_uretim_toplam" runat="server"></asp:PlaceHolder>
+                                    </tbody>
+                                </table>
+
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="panel">
                             <div class="table-responsive" data-pattern="priority-columns">
@@ -198,6 +238,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="panel">
                             <div class="table-responsive" data-pattern="priority-columns">

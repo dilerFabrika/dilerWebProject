@@ -81,6 +81,7 @@
     <Compile Include="Sarfiyatlar.cs" />
     <Compile Include="Sevkiyat_uretim.cs" />
     <Compile Include="Tanim_bilgileri.cs" />
+    <Compile Include="Teorik_tolerans_bilgiler.cs" />
     <Compile Include="Tonajlar.cs" />
     <Compile Include="Uretimler.cs" />
     <Compile Include="uretim_bilgileri.cs" />

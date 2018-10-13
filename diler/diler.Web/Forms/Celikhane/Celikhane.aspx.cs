@@ -73,6 +73,8 @@ namespace diler.Web
                     ANATAB.TabPages[7].Visible = true; //Refrakter
                     ANATAB.TabPages[0].Visible = true;//Üretim
                     ANATAB.TabPages[6].Visible = true;  //Duruş
+
+                    btn_yeniSira.Enabled = false;
                     Btn_Uretimsakla.Visible = false;
                     Btn_dokumac.Visible = false;
                     Btn_dkmsira_delete.Visible = false;
@@ -89,6 +91,7 @@ namespace diler.Web
                     Grd_analiz2.Enabled = true;
                     Btn_analiz_kayit.Visible = true;
 
+
                 }
                 if (KULLANICI == "D2587")  //Onur meydan görüyor
                 {
@@ -99,6 +102,7 @@ namespace diler.Web
                     Btn_dokumac.Visible = false;
                     Btn_dkmsira_delete.Visible = false;
 
+                    btn_yeniSira.Enabled = false;
 
                 }
                 if (KULLANICI == "CHPOOPR")
@@ -116,6 +120,13 @@ namespace diler.Web
                 }
                 if (KULLANICI == "CHSDMOPR")
                 {
+                    ANATAB.TabPages[0].Visible = true;//Üretim
+
+                    Btn_Uretimsakla.Visible = false;
+                    Btn_dokumac.Visible = false;
+                    Btn_dkmsira_delete.Visible = false;
+                    
+                    btn_yeniSira.Enabled = false;
                     ANATAB.TabPages[7].Visible = true; //Refrakter
                     GRD_CH_GENELBILGILER_SDM.Enabled = true;
                     GRD_CH_SARFMLZ_SDM.Enabled = true;
@@ -144,7 +155,7 @@ namespace diler.Web
                     Btn_refrakter_dokum_sil.Visible = true;
                     //GRD_REFRAKTER.Enabled = false;
                     txt_DokumNo.Visible = false;
-                    Label1.Visible = false;
+                    lbl_secilen_dno.Visible = false;
 
                 }
 
@@ -212,7 +223,7 @@ namespace diler.Web
                     {
                         if (Convert.ToDecimal(degeri) > 0)
                         {
-                            MESAJ = database.alyaj_kayit( txt_DokumNo.Text, degeri, sarj_tip, lokasyon);
+                            MESAJ = database.alyaj_kayit(txt_DokumNo.Text, degeri, sarj_tip, lokasyon);
                             ALYAJ_MSG.Text = "DÖKÜMÜN ALYAJ BİLGİLERİ " + MESAJ;
                             ALYAJ_MSG.ShowOnPageLoad = true;
                         }
@@ -247,7 +258,7 @@ namespace diler.Web
                     {
                         if (Convert.ToDecimal(degeri) > 0)
                         {
-                            MESAJ = database.alyaj_kayit( txt_DokumNo.Text, degeri, sarj_tip, lokasyon);
+                            MESAJ = database.alyaj_kayit(txt_DokumNo.Text, degeri, sarj_tip, lokasyon);
                             ALYAJ_MSG.Text = "DÖKÜMÜN ALYAJ BİLGİLERİ " + MESAJ;
                             ALYAJ_MSG.ShowOnPageLoad = true;
                         }
@@ -430,7 +441,7 @@ namespace diler.Web
                     {
                         if (Convert.ToDecimal(degeri) > 0)
                         {
-                            mesaj = database.sarf_kayit( txt_DokumNo.Text, degeri, sarf_malzeme_tanimi, lokasyon);
+                            mesaj = database.sarf_kayit(txt_DokumNo.Text, degeri, sarf_malzeme_tanimi, lokasyon);
                             SARFMLZ_MSG.Text = "Dökümün Sarf Bilgileri" + mesaj;
                             SARFMLZ_MSG.ShowOnPageLoad = true;
                         }
@@ -550,7 +561,7 @@ namespace diler.Web
         public void genel_bilgi_kayit_po()
         {
             database.connect();
-            string degeri, bilgi_tanimi, lokasyon,mesaj;
+            string degeri, bilgi_tanimi, lokasyon, mesaj;
             gun_kontrol = database.gun_kontrolu_yap(Convert.ToDateTime(Txt_tarih.Text));
             if (gun_kontrol == "True")
             {
@@ -568,7 +579,7 @@ namespace diler.Web
                         GENELBILGI_MSG.Text = "DÖKÜMÜN GENEL BİLGİLERİ " + mesaj;
                         GENELBILGI_MSG.ShowOnPageLoad = true;
                     }
-        
+
 
                 }
             }
@@ -619,14 +630,17 @@ namespace diler.Web
                 for (int i = 0; i <= GRD_CH_ENERJI_AO.VisibleRowCount - 1; i++)
                 {
                     TextBox deger = (TextBox)GRD_CH_ENERJI_AO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ENERJI_AO.Columns["DEGERI"], "txtDegeri6");
-                    degeri = deger.Text.Equals("") ? "0" : deger.Text.ToString();
-                    bilgi_tanim = GRD_CH_ENERJI_AO.GetRowValues(i, "BILGITNM").ToString();
-                    lokasyon = "AO";
-                    if (degeri != "0")
+                    //degeri = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    degeri = deger.Text;
+                    if (degeri != "")
                     {
+                        bilgi_tanim = GRD_CH_ENERJI_AO.GetRowValues(i, "BILGITNM").ToString();
+                        lokasyon = "AO";
+
                         mesaj = database.enerji_kayit(txt_DokumNo.Text, degeri, bilgi_tanim, lokasyon);
                         ENERJI_MSG.Text = "DÖKÜMÜN ENERJİ BİLGİLERİ " + mesaj;
                         ENERJI_MSG.ShowOnPageLoad = true;
+
                     }
 
                 }
@@ -652,10 +666,11 @@ namespace diler.Web
                 for (int i = 0; i <= GRD_CH_ENERJI_PO.VisibleRowCount - 1; i++)
                 {
                     TextBox deger = (TextBox)GRD_CH_ENERJI_PO.FindRowCellTemplateControl(i, (DevExpress.Web.GridViewDataColumn)GRD_CH_ENERJI_PO.Columns["DEGERI"], "txtDegeri7");
-                    degeri = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    //degeri = deger.Text.Equals("") ? "0" : deger.Text.ToString();
+                    degeri = deger.Text;
                     bilgi_tanim = GRD_CH_ENERJI_PO.GetRowValues(i, "BILGITNM").ToString();
                     lokasyon = "PO";
-                    if (degeri != "0")
+                    if (degeri != "")
                     {
                         mesaj = database.enerji_kayit(txt_DokumNo.Text, degeri, bilgi_tanim, lokasyon);
                         ENERJI_MSG.Text = "DÖKÜMÜN ENERJİ BİLGİLERİ " + mesaj;
@@ -816,15 +831,15 @@ namespace diler.Web
                             MESAJ = database.uretim_kayit(txt_DokumNo.Text, sira_no, Convert.ToDateTime(Txt_tarih.Text), vardiya, ozelkod, siparis_no, kalite, boy,
                            ebat, sapma_nedeni, sapma_element, st_disi_neden, st_disi_element, kutugun_gideceği_yer, kutuk_sayisi, kutuk_tonaj,
                            sari_kutuk_sayisi, sari_ktk_tonaj, sari_kutuk_kalite, stn_karisim_sayisi,
-                           karisim_tonaj, aciklama, dokum_durumu, dokumtip, radyo_aktivite, egri_kutuk_sayisi,tandis_bindirme);
+                           karisim_tonaj, aciklama, dokum_durumu, dokumtip, radyo_aktivite, egri_kutuk_sayisi, tandis_bindirme);
                         }
                         else
                         {
                             MESAJ = database.uretim_kayit(txt_DokumNo.Text, sira_no, Convert.ToDateTime(tx_dokum_tarihi.Text), vardiya, ozelkod, siparis_no, kalite, boy,
                           ebat, sapma_nedeni, sapma_element, st_disi_neden, st_disi_element, kutugun_gideceği_yer, kutuk_sayisi, kutuk_tonaj,
                           sari_kutuk_sayisi, sari_ktk_tonaj, sari_kutuk_kalite, stn_karisim_sayisi,
-                          karisim_tonaj, aciklama, dokum_durumu, dokumtip, radyo_aktivite, egri_kutuk_sayisi,tandis_bindirme);
-                            
+                          karisim_tonaj, aciklama, dokum_durumu, dokumtip, radyo_aktivite, egri_kutuk_sayisi, tandis_bindirme);
+
                         }
 
                         KUTUK_MSG.Text = "\n" + MESAJ;
@@ -2457,7 +2472,11 @@ namespace diler.Web
             }
             if (e.Parameter == "transfer")
             {
-                sicak_sarja_gonderilecek_kutuk();
+                if (KULLANICI == "OPRKIM" || KULLANICI == "D1003081")
+                {
+                    sicak_sarja_gonderilecek_kutuk();
+                }
+
             }
             if (e.Parameter == "uretim_bilgi")
             {
@@ -2540,7 +2559,11 @@ namespace diler.Web
             {
                 if (txt_DokumNo.Text != "")
                 {
+                    
                     send_ktk_dokum_liste();
+
+
+
                 }
 
             }

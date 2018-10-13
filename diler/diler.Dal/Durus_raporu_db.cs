@@ -9,8 +9,8 @@ namespace diler.Dal
 {
     public class Durus_raporu_db
     {
-        OracleConnection conn,conn2;
-        string connetionString,sql;
+        OracleConnection conn, conn2;
+        string connetionString, sql;
         OracleCommand cmd;
         OracleDataReader dr, dr2;
         public string tarih_parse;
@@ -108,7 +108,7 @@ namespace diler.Dal
 
             return kayitlar;
         }
-       
+
 
         public List<durus_bilgileri> dokum_bazinda_durus_ozet_read(int tarih = 0, int tarih2 = 0, string durus_nedeni = "")
         {
@@ -155,7 +155,7 @@ namespace diler.Dal
 
             return kayitlar;
         }
-       
+
 
         public List<durus_bilgileri> ariza_bazinda_toplamsure_read(int tarih = 0, int tarih2 = 0, string durus_nedeni = "")
         {
@@ -199,7 +199,7 @@ namespace diler.Dal
 
             return kayitlar;
         }
-     
+
 
         public List<durus_bilgileri> durus_ayrinti_data_read(int tarih = 0, int tarih2 = 0)
         {
@@ -264,7 +264,7 @@ namespace diler.Dal
 
             return kayitlar;
         }
-     
+
 
         public string detay(string arizakodu, string tarihh, string tarihh2)
         {
@@ -286,6 +286,8 @@ namespace diler.Dal
                 kayit.dokumno = this.dr[0].ToString();
                 kayit.SURE = this.dr[1].ToString();
             }
+            dr.Close();
+            dr.Dispose();
 
             return "TOPLAM:" + " " + kayit.dokumno + " " + "DÖKÜM" + " " + kayit.SURE + " " + "DAKİKA";
         }

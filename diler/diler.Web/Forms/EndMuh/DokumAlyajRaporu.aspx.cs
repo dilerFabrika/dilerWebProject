@@ -234,6 +234,9 @@ namespace diler.Web
         protected void Button3_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Kayıtlar update edildi kontrol edelim...", MessageBox.MesajTipleri.Info, false, 5);
+
+        
+
         }
 
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
@@ -244,7 +247,7 @@ namespace diler.Web
         protected void Button4_Click(object sender, EventArgs e)
         {
 
-            string excelFilePath = @"\\192.168.198.8\Documents\alyajlar.xls";
+            string excelFilePath = @"\\192.168.198.8\Documents\alyajlar.xlsx";
             System.IO.FileInfo file = new System.IO.FileInfo(excelFilePath);
 
             if (file.Exists)
@@ -261,7 +264,7 @@ namespace diler.Web
 
 
                 //FpSpread1.OpenExcel(fileName, FarPoint.Excel.ExcelOpenFlags.NoFlagsSet);
-                FpSpread1.OpenExcel(@"\\192.168.198.8\Documents\alyajlar.xls", FarPoint.Excel.ExcelOpenFlags.NoFlagsSet);
+                FpSpread1.OpenExcel(@"\\192.168.198.8\Documents\alyajlar.xlsx", FarPoint.Excel.ExcelOpenFlags.NoFlagsSet);
 
                 FpSpread1.ActiveSheetView.PageSize = FpSpread1.Rows.Count;
 
@@ -444,14 +447,14 @@ namespace diler.Web
             appdirname = Request.ApplicationPath;
             pathname = HttpContext.Current.Server.MapPath(Request.ApplicationPath);
             string newfilepath;
-            string filename = "Documents\\ALJAYLAR_ozet.xls";
+            string filename = "Documents\\ALJAYLAR_ozet";
 
             newfilepath = pathname + filename;
 
             //Store the path name
             //FpSpread1.SaveExcelToResponse(newfilepath);
 
-            FpSpread2.SaveExcelToResponse("alyajlar_ozet.xls");
+            FpSpread2.SaveExcelToResponse("alyajlar_ozet");
         }
     }
 }

@@ -129,15 +129,18 @@
                         <tbody style="border: none;">
                             <tr>
                                 <td>Tarih1:
-                                    <asp:TextBox ID="txt_tarih1" runat="server" TextMode="Date" CssClass="form-control unstyled_date" class="tarih1" OnTextChanged="txt_tarih1_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                    <asp:TextBox ID="txt_tarih1" runat="server" TextMode="Date" CssClass="form-control unstyled_date" class="tarih1"></asp:TextBox>
 
                                 </td>
 
                                 <td>Tarih2:
-                                    <asp:TextBox ID="txt_tarih2" runat="server" TextMode="Date" CssClass="form-control unstyled_date" class="tarih2" OnTextChanged="txt_tarih1_TextChanged" AutoPostBack="True"></asp:TextBox>
+                                    <asp:TextBox ID="txt_tarih2" runat="server" TextMode="Date" CssClass="form-control unstyled_date" class="tarih2"></asp:TextBox>
 
                                 </td>
-
+                                <td>
+                                    <asp:ImageButton ID="Img_ok" runat="server" Style="height: 23px; margin-top: 15px" OnClick="Img_ok_Click"
+                                        ImageUrl="~/Images/32/Ok.png" ToolTip="Tarihe göre kaliteleri getir" />
+                                </td>
                                 <td>Kalite:
                                     <asp:DropDownList ID="cmb_kalite" runat="server" CssClass="form-control unstyled_date" AutoPostBack="False" Style="width: 200px" class="kalite">
                                         <%-- <asp:ListItem Selected="True" Value="All">Tümü</asp:ListItem>--%>

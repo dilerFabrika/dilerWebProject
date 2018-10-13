@@ -199,6 +199,14 @@ namespace diler.Web
                 Response.Write("</script>");
 
             }
+            if (e.Item.Text == "ENTEGRE POLİTİKAMIZ")
+            {
+                Response.Write("<script>");
+                Response.Write("window.open('../../entegrePolitika/ENTEGRE POLİTİKA 2018.pdf','_blank')");
+          
+                Response.Write("</script>");
+
+            }
         }
 
         protected void AnaMenuList_ItemClick1(object source, DevExpress.Web.NavBarItemEventArgs e)

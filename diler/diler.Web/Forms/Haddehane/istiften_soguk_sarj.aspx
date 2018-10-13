@@ -55,7 +55,7 @@
         div.table-responsive .table tbody tr td {
             font-size: 14px !important;
             text-align: center;
-            padding:4px;
+            padding: 4px;
         }
 
         div.table-responsive .table thead tr th {
@@ -98,7 +98,10 @@
                                             <asp:ListItem Selected="True">Stok yeri seçiniz</asp:ListItem>
                                             <asp:ListItem>Çelikhane</asp:ListItem>
                                             <asp:ListItem>Haddehane</asp:ListItem>
-                                            <%-- <asp:ListItem>DENEME</asp:ListItem>--%>
+                                            <asp:ListItem>Filmaşin</asp:ListItem>
+                                            <asp:ListItem>Tavşancıl</asp:ListItem>
+                                            <asp:ListItem>Assan Park Saha</asp:ListItem>
+                                            <asp:ListItem>Resa</asp:ListItem>
                                         </asp:DropDownList>
                                 </td>
                                 <td style="width: 220px">İstif yeri:
@@ -159,7 +162,7 @@
                     </div>
                 </div>
 
-               <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs4">
 
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs12">
                         <div class="panel panel-border panel-primary" style="border-color: #ffffff">
@@ -230,7 +233,7 @@
 
     <script src="../../js/jquery.app.js"></script>
     <script src="../../js/rapor_js.js"></script>
-     <script type="text/javascript">
+    <script type="text/javascript">
         $(".ktk_gonder").click(function () {
 
             var row = $(this).closest('tr');
@@ -268,7 +271,7 @@
                 //else {
                 //    alert(" FIRIN İÇİ TRANSFER İŞLEMİ İPTAL EDİLDİ ");
                 //}
-             
+
             }
 
             else {
@@ -276,7 +279,7 @@
             }
             location.reload();
             $("#btn_Listele").trigger("click");
-            
+
         });
 
     </script>

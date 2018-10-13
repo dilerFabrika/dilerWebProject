@@ -46,7 +46,7 @@
             font-weight: bold;
             text-align: left;
             height: 25px;
-             padding-left:175px;
+            padding-left: 175px;
         }
 
         .auto-style2 {
@@ -96,8 +96,10 @@
                             </dx:MenuItem>
                             <dx:MenuItem Text="DUSWEB">
                             </dx:MenuItem>
-                           
+
                             <dx:MenuItem Text="BOYS">
+                            </dx:MenuItem>
+                            <dx:MenuItem Text="ENTEGRE POLİTİKAMIZ">
                             </dx:MenuItem>
                             <dx:MenuItem Text="ÇIKIŞ">
                             </dx:MenuItem>

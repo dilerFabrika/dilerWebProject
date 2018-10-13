@@ -51,7 +51,12 @@ namespace diler.Entity
         private string karisim_sayisi;
         private string karisim_tonaji;
         private string siparis_no;
-
+        private string uretim_yeri;
+        public string Uretim_yeri
+        {
+            get { return uretim_yeri; }
+            set { uretim_yeri = value; }
+        }
         public string Siparis_no
         {
             get { return siparis_no; }

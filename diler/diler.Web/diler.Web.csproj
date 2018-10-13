@@ -381,6 +381,7 @@
     <Content Include="Forms\EndMuh\KatsayiKontrol.aspx" />
     <Content Include="Forms\EndMuh\net_calisma_suresi.aspx" />
     <Content Include="Forms\EndMuh\Tanimlar.aspx" />
+    <Content Include="Forms\EndMuh\teorik.aspx" />
     <Content Include="Forms\EndMuh\uretim_ayar.aspx" />
     <Content Include="Forms\Fizik_Lab\FizikInstron.aspx" />
     <Content Include="Forms\Haddehane\Haddehane_rapor.aspx" />
@@ -698,6 +699,7 @@
     <Content Include="css\images\anaekranresim\eski\Thumbs.db" />
     <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\common.scss" />
     <Content Include="dataTables_Js\DataTables\Buttons-1.5.2\css\mixins.scss" />
+    <Content Include="entegrePolitika\ENTEGRE POLİTİKA 2018.pdf" />
     <None Include="Properties\PublishProfiles\Diler.pubxml" />
     <Content Include="rapor_css\assets\fastclick\fastclick.js" />
     <Content Include="rapor_css\assets\font-awesome\css\font-awesome.css" />
@@ -1038,6 +1040,13 @@
     </Compile>
     <Compile Include="Forms\EndMuh\Tanimlar.aspx.designer.cs">
       <DependentUpon>Tanimlar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EndMuh\teorik.aspx.cs">
+      <DependentUpon>teorik.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forms\EndMuh\teorik.aspx.designer.cs">
+      <DependentUpon>teorik.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forms\EndMuh\uretim_ayar.aspx.cs">
       <DependentUpon>uretim_ayar.aspx</DependentUpon>

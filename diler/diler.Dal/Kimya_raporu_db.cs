@@ -157,8 +157,8 @@ namespace diler.Dal
                     kayit.Uretimdensapma_element = this.dr["SAPMA_ELEMENT"].ToString();
                     kayit.Standart_disi_element = this.dr["STD_ELEMENT"].ToString();
                     kayit.Siparis_no = this.dr["SIPNUM"].ToString();
-                    kayit.Aciklama = this.dr["KTKACIKLAMA"].ToString();             
-                    kayit.Tandis_no_bindirme_sayisi = this.dr["TANDIS_BINDIRME"].ToString(); 
+                    kayit.Aciklama = this.dr["KTKACIKLAMA"].ToString();
+                    kayit.Tandis_no_bindirme_sayisi = this.dr["TANDIS_BINDIRME"].ToString();
                     //kayit.Dokum_tarihi = Convert.ToInt32(this.dr["DOKUMTAR"].ToString().Equals("") ? "0" : this.dr["DOKUMTAR"].ToString());
                     kayitlar.Add(kayit);
 
@@ -277,137 +277,7 @@ namespace diler.Dal
         /***********************************/
         // İki Tarih arası
 
-        public List<Analizler> uretim_ozet_read(int tarih = 0, int tarih2 = 0)
-        {
-            List<Analizler> kayitlar = new List<Analizler>();
 
-            this.sql = "SELECT distinct(KALITE), boy, ebat,SUM(STDKTKTON),SUM(STDKTKSAY),COUNT(DNO),SUM(STNKARSAY),SUM(STNKARTON) " +
-            "FROM URTHRK.CH_DOKUMNO_URETIM " +
-            "WHERE ";
-            if (tarih > 0 && tarih2 > 0)
-            {
-                this.sql += "  DOKUMTAR >= " + tarih +
-                        " AND DOKUMTAR <= " + tarih2 + "  GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
-            }
-            this.cmd.CommandText = this.sql;
-            this.cmd.Parameters.Clear();
-            this.dr = this.cmd.ExecuteReader();
-            if (!this.dr.HasRows)
-            {
-                //kayit bulunamadiysa
-                Analizler kayit = new Analizler();
-                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !!";
-                kayit.Analiz_id = 0;
-                kayitlar.Add(kayit);
-            }
-            else
-            {
-                while (this.dr.Read())
-                {
-                    Analizler kayit = new Analizler();
-                    kayit.Analiz_id = 1;
-                    kayit.Celik_cinsi = this.dr[0].ToString();
-                    kayit.Boy = this.dr[1].ToString();
-                    kayit.Ebat = this.dr[2].ToString();
-                    kayit.Tonaj = (Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString()) +
-                        Convert.ToDouble(this.dr[7].ToString().Equals("") ? "0.0" : this.dr[7].ToString())).ToString("0.###");
-
-                    string sqlx = "SELECT COUNT(DNO) " +
-                       "FROM URTHRK.CH_DOKUMNO_URETIM " +
-                         "WHERE ";
-                    if (tarih > 0 && tarih2 > 0)
-                    {
-                        sqlx += "  DOKUMTAR >= " + tarih +
-                                 " AND DOKUMTAR <= " + tarih2 + "AND KALITE='" + kayit.Celik_cinsi + "' AND BOY='" + kayit.Boy + "' AND EBAT='" + kayit.Ebat + "'" +
-                                 " GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
-                    }
-                    this.cmd.CommandText = sqlx;
-                    this.cmd.Parameters.Clear();
-                    this.dr2 = this.cmd.ExecuteReader();
-                    while (this.dr2.Read())
-                    {
-                        kayit.Dokum_sayisi = this.dr2[0].ToString();
-
-                    }
-                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[4].ToString().Equals("") ? "0.0" : this.dr[4].ToString())
-                        + Convert.ToDouble(this.dr[6].ToString().Equals("") ? "0.0" : this.dr[6].ToString())).ToString();
-                    kayitlar.Add(kayit);
-                }
-
-            }
-            this.dr.Close();
-            this.dr.Dispose();
-
-            return kayitlar;
-
-        }
-
-        public List<Analizler> filmasin_ozet_read(int tarih = 0, int tarih2 = 0)
-        {
-            List<Analizler> kayitlar = new List<Analizler>();
-
-            this.sql = "SELECT distinct(KALITE), boy, ebat,SUM(STDKTKTON),SUM(STDKTKSAY),COUNT(DNO),SUM(STNKARSAY),SUM(STNKARTON) " +
-            "FROM URTHRK.CH_DOKUMNO_URETIM " +
-            "WHERE ";
-            if (tarih > 0 && tarih2 > 0)
-            {
-                this.sql += "  DOKUMTAR >= " + tarih +
-                        " AND DOKUMTAR <= " + tarih2 + "  AND GIDECEGIYER='Filmaşin'  GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
-            }
-            this.cmd.CommandText = this.sql;
-            this.cmd.Parameters.Clear();
-            this.dr = this.cmd.ExecuteReader();
-            if (!this.dr.HasRows)
-            {
-                //kayit bulunamadiysa
-                Analizler kayit = new Analizler();
-                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !!";
-                kayit.Analiz_id = 0;
-                kayitlar.Add(kayit);
-            }
-            else
-            {
-                while (this.dr.Read())
-                {
-                    Analizler kayit = new Analizler();
-                    kayit.Analiz_id = 1;
-                    kayit.Celik_cinsi = this.dr[0].ToString();
-                    kayit.Boy = this.dr[1].ToString();
-                    kayit.Ebat = this.dr[2].ToString();
-                    kayit.Tonaj = (Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString()) +
-                         Convert.ToDouble(this.dr[7].ToString().Equals("") ? "0.0" : this.dr[7].ToString())).ToString("0.###");
-
-
-                    string sqlx = "SELECT COUNT(DNO) " +
-                    "FROM URTHRK.CH_DOKUMNO_URETIM " +
-                   "WHERE ";
-                    if (tarih > 0 && tarih2 > 0)
-                    {
-                        sqlx += "  DOKUMTAR >= " + tarih +
-                                " AND DOKUMTAR <= " + tarih2 + " AND KALITE='" + kayit.Celik_cinsi + "' AND BOY='" + kayit.Boy + "' AND EBAT='" + kayit.Ebat + "'" +
-                                " AND GIDECEGIYER='Filmaşin'  GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
-                    }
-                    this.cmd.CommandText = sqlx;
-                    this.cmd.Parameters.Clear();
-                    this.dr2 = this.cmd.ExecuteReader();
-                    while (this.dr2.Read())
-                    {
-                        kayit.Dokum_sayisi = this.dr2[0].ToString();
-
-                    }
-
-                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[4].ToString().Equals("") ? "0.0" : this.dr[4].ToString())
-                    + Convert.ToDouble(this.dr[6].ToString().Equals("") ? "0.0" : this.dr[6].ToString())).ToString();
-
-                    kayitlar.Add(kayit);
-                }
-            }
-            this.dr.Close();
-            this.dr.Dispose();
-
-            return kayitlar;
-
-        }
 
         public List<Analizler> uretimdensapma_ozet_read(int tarih = 0, int tarih2 = 0)
         {
@@ -515,6 +385,208 @@ namespace diler.Dal
 
         }
 
+        public List<Analizler> uretim_ozet_read(int tarih = 0, int tarih2 = 0)
+        {
+            List<Analizler> kayitlar = new List<Analizler>();
+
+            this.sql = "SELECT DISTINCT(KALITE),BOY, EBAT,SUM(STDKTKTON),SUM(STDKTKSAY),COUNT(DNO),SUM(STNKARSAY),SUM(STNKARTON),GIDECEGIYER " +
+                       "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                       "WHERE ";
+            if (tarih > 0 && tarih2 > 0)
+            {
+                this.sql += " DOKUMTAR >= " + tarih +
+                            " AND DOKUMTAR <= " + tarih2 + "  GROUP BY BOY,KALITE,EBAT,GIDECEGIYER ORDER BY SUM(STDKTKSAY) DESC";
+            }
+            this.cmd.CommandText = this.sql;
+            this.cmd.Parameters.Clear();
+            this.dr = this.cmd.ExecuteReader();
+            if (!this.dr.HasRows)
+            {
+                //kayit bulunamadiysa
+                Analizler kayit = new Analizler();
+                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !!";
+                kayit.Analiz_id = 0;
+                kayitlar.Add(kayit);
+            }
+            else
+            {
+                while (this.dr.Read())
+                {
+                    Analizler kayit = new Analizler();
+                    kayit.Analiz_id = 1;
+                    kayit.Celik_cinsi = this.dr[0].ToString();
+                    kayit.Boy = this.dr[1].ToString();
+                    kayit.Ebat = this.dr[2].ToString();
+                    kayit.Tonaj = (Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString()) +
+                        Convert.ToDouble(this.dr[7].ToString().Equals("") ? "0.0" : this.dr[7].ToString())).ToString("0.###");
+
+                    kayit.Uretim_yeri = this.dr[8].ToString();
+                    string sqlx = "SELECT COUNT(DNO) " +
+                                  "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                                  "WHERE ";
+                    if (tarih > 0 && tarih2 > 0)
+                    {
+                        sqlx += " DOKUMTAR >= " + tarih + " AND DOKUMTAR <= " + tarih2 + " AND DSNO=1" +
+                                " AND KALITE='" + kayit.Celik_cinsi + "' AND BOY='" + kayit.Boy + "' AND EBAT='" + kayit.Ebat + "' AND GIDECEGIYER='" + kayit.Uretim_yeri + "'" +
+                                " GROUP BY BOY,KALITE,EBAT,GIDECEGIYER ORDER BY SUM(STDKTKSAY) DESC";
+                    }
+                    this.cmd.CommandText = sqlx;
+                    this.cmd.Parameters.Clear();
+                    this.dr2 = this.cmd.ExecuteReader();
+                    while (this.dr2.Read())
+                    {
+                        kayit.Dokum_sayisi = this.dr2[0].ToString();
+
+                    }
+                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[4].ToString().Equals("") ? "0.0" : this.dr[4].ToString())
+                        + Convert.ToDouble(this.dr[6].ToString().Equals("") ? "0.0" : this.dr[6].ToString())).ToString();
+
+                    kayitlar.Add(kayit);
+                }
+
+
+
+            }
+            this.dr.Close();
+            this.dr.Dispose();
+
+            return kayitlar;
+
+        }
+
+        public List<Analizler> filmasin_ozet_read(int tarih = 0, int tarih2 = 0)
+        {
+            List<Analizler> kayitlar = new List<Analizler>();
+
+            this.sql = "SELECT DISTINCT(KALITE),BOY,EBAT,SUM(STDKTKTON),SUM(STDKTKSAY),COUNT(DNO),SUM(STNKARSAY),SUM(STNKARTON) " +
+            "FROM URTHRK.CH_DOKUMNO_URETIM " +
+            "WHERE ";
+            if (tarih > 0 && tarih2 > 0)
+            {
+                this.sql += "  DOKUMTAR >= " + tarih +
+                        " AND DOKUMTAR <= " + tarih2 + "  AND GIDECEGIYER='Filmaşin'  GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
+            }
+            this.cmd.CommandText = this.sql;
+            this.cmd.Parameters.Clear();
+            this.dr = this.cmd.ExecuteReader();
+            if (!this.dr.HasRows)
+            {
+                //kayit bulunamadiysa
+                Analizler kayit = new Analizler();
+                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !!";
+                kayit.Analiz_id = 0;
+                kayitlar.Add(kayit);
+            }
+            else
+            {
+                while (this.dr.Read())
+                {
+                    Analizler kayit = new Analizler();
+                    kayit.Analiz_id = 1;
+                    kayit.Celik_cinsi = this.dr[0].ToString();
+                    kayit.Boy = this.dr[1].ToString();
+                    kayit.Ebat = this.dr[2].ToString();
+                    kayit.Tonaj = (Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString()) +
+                         Convert.ToDouble(this.dr[7].ToString().Equals("") ? "0.0" : this.dr[7].ToString())).ToString("0.###");
+
+
+                    string sqlx = "SELECT COUNT(DNO) " +
+                    "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                   "WHERE ";
+                    if (tarih > 0 && tarih2 > 0)
+                    {
+                        sqlx += "  DOKUMTAR >= " + tarih +
+                                " AND DOKUMTAR <= " + tarih2 + " AND KALITE='" + kayit.Celik_cinsi + "' AND BOY='" + kayit.Boy + "' AND EBAT='" + kayit.Ebat + "'" +
+                                " AND GIDECEGIYER='Filmaşin' AND DSNO=1  GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
+                    }
+                    this.cmd.CommandText = sqlx;
+                    this.cmd.Parameters.Clear();
+                    this.dr2 = this.cmd.ExecuteReader();
+                    while (this.dr2.Read())
+                    {
+                        kayit.Dokum_sayisi = this.dr2[0].ToString();
+
+                    }
+
+                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[4].ToString().Equals("") ? "0.0" : this.dr[4].ToString())
+                    + Convert.ToDouble(this.dr[6].ToString().Equals("") ? "0.0" : this.dr[6].ToString())).ToString();
+
+                    kayitlar.Add(kayit);
+                }
+            }
+            this.dr.Close();
+            this.dr.Dispose();
+
+            return kayitlar;
+
+        }
+        public List<Analizler> ihracat_ozet_read(int tarih = 0, int tarih2 = 0)
+        {
+            List<Analizler> kayitlar = new List<Analizler>();
+
+            this.sql = "SELECT DISTINCT(KALITE),BOY,EBAT,SUM(STDKTKTON),SUM(STDKTKSAY),COUNT(DNO),SUM(STNKARSAY),SUM(STNKARTON),SIPNUM " +
+                       "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                       "WHERE ";
+            if (tarih > 0 && tarih2 > 0)
+            {
+                this.sql += " DOKUMTAR >= " + tarih +
+                            " AND DOKUMTAR <= " + tarih2 + "  AND GIDECEGIYER='Kutuk Ihracat'" +
+                            " GROUP BY BOY,KALITE,EBAT,SIPNUM ORDER BY SUM(STDKTKSAY) DESC";
+            }
+            this.cmd.CommandText = this.sql;
+            this.cmd.Parameters.Clear();
+            this.dr = this.cmd.ExecuteReader();
+            if (!this.dr.HasRows)
+            {
+                //kayit bulunamadıysa
+                Analizler kayit = new Analizler();
+                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !";
+                kayit.Analiz_id = 0;
+                kayitlar.Add(kayit);
+            }
+            else
+            {
+                while (this.dr.Read())
+                {
+                    Analizler kayit = new Analizler();
+                    kayit.Analiz_id = 1;
+                    kayit.Celik_cinsi = this.dr[0].ToString();
+                    kayit.Boy = this.dr[1].ToString();
+                    kayit.Ebat = this.dr[2].ToString();
+                    kayit.Tonaj = (Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString()) +
+                         Convert.ToDouble(this.dr[7].ToString().Equals("") ? "0.0" : this.dr[7].ToString())).ToString("0.###");
+                    kayit.Siparis_no = this.dr[8].ToString();
+
+                    string sqlx = "SELECT COUNT(DNO) " +
+                                  "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                                  "WHERE ";
+                    if (tarih > 0 && tarih2 > 0)
+                    {
+                        sqlx += " DOKUMTAR >= " + tarih + " AND DOKUMTAR <= " + tarih2 + "" +
+                                " AND KALITE='" + kayit.Celik_cinsi + "' AND BOY='" + kayit.Boy + "' AND EBAT='" + kayit.Ebat + "' AND DSNO=1" +
+                                " AND GIDECEGIYER='Kutuk Ihracat' AND SIPNUM='" + kayit.Siparis_no + "' GROUP BY BOY,KALITE,EBAT ORDER BY SUM(STDKTKSAY) DESC";
+                    }
+                    this.cmd.CommandText = sqlx;
+                    this.cmd.Parameters.Clear();
+                    this.dr2 = this.cmd.ExecuteReader();
+                    while (this.dr2.Read())
+                    {
+                        kayit.Dokum_sayisi = this.dr2[0].ToString();
+
+                    }
+
+                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[4].ToString().Equals("") ? "0.0" : this.dr[4].ToString())
+                    + Convert.ToDouble(this.dr[6].ToString().Equals("") ? "0.0" : this.dr[6].ToString())).ToString();
+
+                    kayitlar.Add(kayit);
+                }
+            }
+            this.dr.Close();
+            this.dr.Dispose();
+
+            return kayitlar;
+        }
+
         public List<Analizler> toplam_uretim(int tarih = 0, int tarih2 = 0)
         {
             List<Analizler> kayitlar = new List<Analizler>();
@@ -577,13 +649,13 @@ namespace diler.Dal
         public List<Analizler> toplam_uretim_filmasin(int tarih = 0, int tarih2 = 0)
         {
             List<Analizler> kayitlar = new List<Analizler>();
-            this.sql = "SELECT SUM(STDKTKTON),SUM(STDKTKSAY), SUM(STNKARSAY),SUM(STNKARTON) " +
+            this.sql = "SELECT SUM(STDKTKTON),SUM(STDKTKSAY),SUM(STNKARSAY),SUM(STNKARTON) " +
                        "FROM URTHRK.CH_DOKUMNO_URETIM " +
                        "WHERE ";
             if (tarih > 0 && tarih2 > 0)
             {
-                this.sql += "  DOKUMTAR >= " + tarih +
-                        " AND DOKUMTAR <= " + tarih2 + "  AND GIDECEGIYER='Filmaşin'";
+                this.sql += " DOKUMTAR >= " + tarih +
+                            " AND DOKUMTAR <= " + tarih2 + " AND GIDECEGIYER='Filmaşin'";
             }
 
             this.cmd.CommandText = this.sql;
@@ -593,7 +665,7 @@ namespace diler.Dal
             {
                 //kayit bulunamadiysa
                 Analizler kayit = new Analizler();
-                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !!";
+                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !";
                 kayit.Analiz_id = 0;
                 kayitlar.Add(kayit);
             }
@@ -605,14 +677,74 @@ namespace diler.Dal
                     kayit.Analiz_id = 1;
 
                     kayit.Tonaj = (Convert.ToDouble(this.dr[0].ToString().Equals("") ? "0.0" : this.dr[0].ToString()) +
-                   Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString())).ToString("0.###");
+                                    Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString())).ToString("0.###");
                     string sqlx = "SELECT COUNT(DNO) " +
-                    "FROM URTHRK.CH_DOKUMNO_URETIM " +
-                    "WHERE ";
+                                  "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                                  "WHERE ";
                     if (tarih > 0 && tarih2 > 0)
                     {
-                        sqlx += "  DOKUMTAR >= " + tarih +
+                        sqlx += " DOKUMTAR >= " + tarih +
                                 " AND DOKUMTAR <= " + tarih2 + " AND DSNO=1 AND GIDECEGIYER='Filmaşin' ";
+                    }
+                    this.cmd.CommandText = sqlx;
+                    this.cmd.Parameters.Clear();
+                    this.dr2 = this.cmd.ExecuteReader();
+                    while (this.dr2.Read())
+                    {
+                        kayit.Dokum_sayisi = this.dr2[0].ToString();
+                    }
+                    kayit.Kutuk_sayisi = (Convert.ToDouble(this.dr[1].ToString().Equals("") ? "0.0" : this.dr[1].ToString()) +
+                                          Convert.ToDouble(this.dr[2].ToString().Equals("") ? "0.0" : this.dr[2].ToString())).ToString();
+                    kayitlar.Add(kayit);
+                }
+            }
+            this.dr.Close();
+            this.dr.Dispose();
+
+            return kayitlar;
+
+        }
+
+        public List<Analizler> toplam_uretim_ihracat(int tarih = 0, int tarih2 = 0)
+        {
+            List<Analizler> kayitlar = new List<Analizler>();
+            this.sql = "SELECT SUM(STDKTKTON),SUM(STDKTKSAY), SUM(STNKARSAY),SUM(STNKARTON) " +
+                       "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                       "WHERE ";
+            if (tarih > 0 && tarih2 > 0)
+            {
+                this.sql += "  DOKUMTAR >= " + tarih +
+                        " AND DOKUMTAR <= " + tarih2 + "  AND GIDECEGIYER='Kutuk Ihracat'";
+            }
+
+            this.cmd.CommandText = this.sql;
+            this.cmd.Parameters.Clear();
+            this.dr = this.cmd.ExecuteReader();
+            if (!this.dr.HasRows)
+            {
+                //kayit bulunamadiysa
+                Analizler kayit = new Analizler();
+                kayit.Aciklama = "Listelenecek Kayıt Bulunamadı !";
+                kayit.Analiz_id = 0;
+                kayitlar.Add(kayit);
+            }
+            else
+            {
+                while (this.dr.Read())
+                {
+                    Analizler kayit = new Analizler();
+                    kayit.Analiz_id = 1;
+
+                    kayit.Tonaj = (Convert.ToDouble(this.dr[0].ToString().Equals("") ? "0.0" : this.dr[0].ToString()) +
+                    Convert.ToDouble(this.dr[3].ToString().Equals("") ? "0.0" : this.dr[3].ToString())).ToString("0.###");
+
+                    string sqlx = "SELECT COUNT(DNO) " +
+                                  "FROM URTHRK.CH_DOKUMNO_URETIM " +
+                                  "WHERE ";
+                    if (tarih > 0 && tarih2 > 0)
+                    {
+                        sqlx += " DOKUMTAR >= " + tarih +
+                                " AND DOKUMTAR <= " + tarih2 + " AND DSNO=1 AND GIDECEGIYER='Kutuk Ihracat' ";
                     }
                     this.cmd.CommandText = sqlx;
                     this.cmd.Parameters.Clear();
@@ -632,6 +764,8 @@ namespace diler.Dal
             return kayitlar;
 
         }
+
+
 
 
 

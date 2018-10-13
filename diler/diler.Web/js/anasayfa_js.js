@@ -405,6 +405,7 @@ $(function () {
     }
 
     $.aylik_grafikler();// ilk acilista aylik grafikler acilsin.
+    //$.yillik_grafikler();
 
     $("a.grafik_degis").click(function () {
         var title = $(this).attr("title");

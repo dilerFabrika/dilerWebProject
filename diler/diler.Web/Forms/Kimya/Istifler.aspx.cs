@@ -72,6 +72,19 @@ namespace diler.Web.Forms.Kimya
             ph_istif_Ozetch.Controls.Add(new Literal { Text = htmlTable.ToString() });
 
 
+            ph_istif_OzetFilmasin.Controls.Clear();
+            ph_istif_OzetFilmasin.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_OzetTavsancil.Controls.Clear();
+            ph_istif_OzetTavsancil.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_OzetAssanParkSaha.Controls.Clear();
+            ph_istif_OzetAssanParkSaha.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_OzetResa.Controls.Clear();
+            ph_istif_OzetResa.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+
         }
         private void istif_takip_Listele(string stok_yeri, string istif_yeri)
         {
@@ -122,6 +135,20 @@ namespace diler.Web.Forms.Kimya
             ph_istif_takipch.Controls.Clear();
             ph_istif_takipch.Controls.Add(new Literal { Text = htmlTable.ToString() });
 
+            ph_istif_takipFilmasin.Controls.Clear();
+            ph_istif_takipFilmasin.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_takipAssanParkSaha.Controls.Clear();
+            ph_istif_takipAssanParkSaha.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_takipResa.Controls.Clear();
+            ph_istif_takipResa.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+            ph_istif_takipTavsancil.Controls.Clear();
+            ph_istif_takipTavsancil.Controls.Add(new Literal { Text = htmlTable.ToString() });
+
+
+
 
 
 
@@ -133,7 +160,7 @@ namespace diler.Web.Forms.Kimya
 
 
 
-        protected void ASPxCallbackPanel_istif_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        protected void ASPxCallbackPanel_istifhh1_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
             if (e.Parameter == "istif_hh1")
             {
@@ -146,7 +173,7 @@ namespace diler.Web.Forms.Kimya
             }
 
         }
-        protected void ASPxCallbackPanel_istif2_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        protected void ASPxCallbackPanel_istifhh2_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
         {
             if (e.Parameter == "istif_hh2")
             {
@@ -178,6 +205,55 @@ namespace diler.Web.Forms.Kimya
                 string istif_yeri = txt_istif.Text.Replace("_", "").Trim();
                 istif_takip_Listele("Çelikhane", istif_yeri);
                 istif_takip_Ozet_listele("Çelikhane", istif_yeri);
+                db.Disconnect();
+
+            }
+        }
+
+        protected void ASPxCallbackPanel_filmasin_istif_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "istif_filmasin")
+            {
+                db.Connect();
+                string istif_yeri = txt_istif.Text.Replace("_", "").Trim();
+                istif_takip_Listele("Filmaşin", istif_yeri);
+                istif_takip_Ozet_listele("Filmaşin", istif_yeri);
+                db.Disconnect();
+
+            }
+        }
+        protected void ASPxCallbackPanel_tavsancil_istif_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "istif_tavsancil")
+            {
+                db.Connect();
+                string istif_yeri = txt_istif.Text.Replace("_", "").Trim();
+                istif_takip_Listele("Tavşancıl", istif_yeri);
+                istif_takip_Ozet_listele("Tavşancıl", istif_yeri);
+                db.Disconnect();
+
+            }
+        }
+        protected void ASPxCallbackPanel_resa_istif_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "istif_resa")
+            {
+                db.Connect();
+                string istif_yeri = txt_istif.Text.Replace("_", "").Trim();
+                istif_takip_Listele("Resa", istif_yeri);
+                istif_takip_Ozet_listele("Resa", istif_yeri);
+                db.Disconnect();
+
+            }
+        }
+        protected void ASPxCallbackPanel_assanParkSaha_Callback(object sender, DevExpress.Web.CallbackEventArgsBase e)
+        {
+            if (e.Parameter == "istif_AssanParkSaha")
+            {
+                db.Connect();
+                string istif_yeri = txt_istif.Text.Replace("_", "").Trim();
+                istif_takip_Listele("Assan Park Saha", istif_yeri);
+                istif_takip_Ozet_listele("Assan Park Saha", istif_yeri);
                 db.Disconnect();
 
             }

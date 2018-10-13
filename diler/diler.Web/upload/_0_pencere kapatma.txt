@@ -1,0 +1,1 @@
+Me.ClientScript.RegisterClientScriptBlock(Me.GetType, "Close", "window.close()", True)

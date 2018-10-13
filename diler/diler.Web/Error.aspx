@@ -14,7 +14,7 @@
             
             Style="left: 536px; position: absolute; top: 176px; height: 231px; width: 236px;" />
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Height="32px"
-            Text="Veri tabanı bağlantısı gerçekleştirilemiyor.Lütfen tekrar deneyiniz."
+            Text="Sistem teknik bir hata ile karşılaştı.Lütfen bilgi işlem bölümü ile irtibata geçiniz."
             Width="976px"></asp:Label>
    <%--     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Login.aspx" Style="left: 112px;
             position: absolute; top: 208px">Şifremi Yanlış Girdim Tekrar Giriş Sayfasına Dön</asp:HyperLink>--%>

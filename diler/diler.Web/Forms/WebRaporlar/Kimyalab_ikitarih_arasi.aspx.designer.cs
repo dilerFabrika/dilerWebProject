@@ -85,6 +85,24 @@ namespace diler.Web.Forms.WebRaporlar {
         protected global::System.Web.UI.WebControls.PlaceHolder ph_filmasin_uretim_toplam;
         
         /// <summary>
+        /// ph_ihracat_ozet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_ihracat_ozet;
+        
+        /// <summary>
+        /// ph_ihracat_uretim_toplam control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_ihracat_uretim_toplam;
+        
+        /// <summary>
         /// ph_uretim_std_disi_ozet control.
         /// </summary>
         /// <remarks>

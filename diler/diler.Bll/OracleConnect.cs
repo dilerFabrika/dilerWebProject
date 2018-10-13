@@ -95,6 +95,7 @@ namespace diler.Bll
         public void Close()
         {
             conn.Close();
+          
         }
     }
 }

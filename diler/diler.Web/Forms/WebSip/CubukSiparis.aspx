@@ -649,8 +649,6 @@ function btnprint0_onclick() {
     </table>
     <asp:UpdatePanel ID="UpdatePanel3" runat="server">
         <ContentTemplate>
-            <asp:Timer ID="Timer1" runat="server" EnableViewState="False" OnTick="Timer1_Tick" Enabled="False">
-            </asp:Timer>
             <table border="1" class="auto-style6">
                 <tr>
                     <td class="style32">
@@ -681,7 +679,7 @@ function btnprint0_onclick() {
             <div style="position: absolute; top: 39px; left: 10px; width: 1119px; height: 849px;
                 overflow: auto; top: 79px; left: 11px; height: 1300px; width: 1310px;">
                 <ajaxToolkit:TabContainer ID="tabAnaliz" runat="server" CssClass="fancy fancy-green"
-                    Width="1310px" Height="1070px" ActiveTabIndex="1" Font-Size="Medium" meta:resourcekey="TabContainer1Resource1"
+                    Width="1310px" Height="1070px" ActiveTabIndex="0" Font-Size="Medium" meta:resourcekey="TabContainer1Resource1"
                     Style="font-weight: bold">
                     <ajaxToolkit:TabPanel ID="TabPanel1" runat="server" meta:resourcekey="TabPanel1Resource1">
                         <HeaderTemplate>
@@ -819,7 +817,6 @@ function btnprint0_onclick() {
                                                 <td colspan="2">
                                                     <asp:DropDownList ID="drpMamulTip" runat="server" AutoPostBack="True" Font-Size="Small"
                                                         TabIndex="16" Width="146px" Height="22px" meta:resourcekey="drpMamulTipResource1" CssClass="dropdown">
-                                                        <asp:ListItem meta:resourcekey="ListItemResource8" Selected="True">-</asp:ListItem>
                                                         <asp:ListItem meta:resourcekey="ListItemResource9">Çubuk</asp:ListItem>
                                                         <asp:ListItem meta:resourcekey="ListItemResource10">Kangal</asp:ListItem>
                                                         <asp:ListItem meta:resourcekey="ListItemResource11">Kangal Doğrultma</asp:ListItem>
@@ -1424,7 +1421,7 @@ function btnprint0_onclick() {
                                     <td class="style48">
                                         <asp:Button ID="BtnYeni3" runat="server" BackColor="#0066FF" BorderColor="White"
                                             BorderStyle="Outset" BorderWidth="2px" Font-Size="Small" ForeColor="White" Height="34px"
-                                            Style="font-size: x-small" Text="Düzelt" Width="57px" meta:resourcekey="BtnYeni3Resource1" CssClass="btn-primary:hover" />
+                                            Style="font-size: x-small" Text="Düzelt" Width="57px" meta:resourcekey="BtnYeni3Resource1" CssClass="btn-primary:hover" Visible="True" />
                                     </td>
                                     <td class="auto-style25">
                                         <asp:Button ID="BtnKopyala" runat="server" BackColor="#0066FF" BorderColor="White"

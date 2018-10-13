@@ -520,7 +520,7 @@
                 <td style="font-size: small;" class="auto-style8">Liste için Tarih Seçimi Yapınız..</td>
                 <td style="text-align: right; font-family: Tahoma; font-size: small; color: #88b2f3; font-weight: bold; margin-left: 10px;"
                     class="auto-style2">
-                    <asp:Label ID="Label1" runat="server" Text="SEÇİLEN DÖKÜM NO:"></asp:Label></td>
+                    <asp:Label ID="lbl_secilen_dno" runat="server" Text="SEÇİLEN DÖKÜM NO:"></asp:Label></td>
                 <td style="text-align: right;" class="auto-style3">
                     <dxe:ASPxTextBox ID="txt_DokumNo" runat="server"
                         ClientInstanceName="txt_DokumNo" Width="178px" text-align="center"
@@ -836,6 +836,11 @@
                                                                                                 <dxe:ListEditItem Text="Pb" Value="15" />
                                                                                                 <dxe:ListEditItem Text="Ca" Value="16" />
                                                                                                 <dxe:ListEditItem Text="B" Value="17" />
+                                                                                                <dxe:ListEditItem Text="Nb" Value="18" />
+                                                                                                <dxe:ListEditItem Text="Zr" Value="19" />
+                                                                                                <dxe:ListEditItem Text="Ceq" Value="20" />
+                                                                                                <dxe:ListEditItem Text="Ce" Value="21" />
+
                                                                                             </Items>
                                                                                         </dxe:ASPxComboBox>
                                                                                         <br />
@@ -896,6 +901,11 @@
                                                                                                 <dxe:ListEditItem Text="Pb" Value="15" />
                                                                                                 <dxe:ListEditItem Text="Ca" Value="16" />
                                                                                                 <dxe:ListEditItem Text="B" Value="17" />
+                                                                                                <dxe:ListEditItem Text="Nb" Value="18" />
+                                                                                                <dxe:ListEditItem Text="Zr" Value="19" />
+                                                                                                <dxe:ListEditItem Text="Ceq" Value="20" />
+                                                                                                <dxe:ListEditItem Text="Ce" Value="21" />
+                                                                                                
 
                                                                                             </Items>
                                                                                         </dxe:ASPxComboBox>
@@ -2004,7 +2014,7 @@
                                                                                                 <dx:GridViewDataTextColumn Caption="LOKASYON" FieldName="LOKASYON"
                                                                                                     Name="LOKASYON" VisibleIndex="1" Width="100px">
                                                                                                 </dx:GridViewDataTextColumn>
-                                                                                                <dx:GridViewDataTextColumn Caption="DEĞERİ" FieldName="DEGERI" Name="DEGERI"
+                                                                                                <dx:GridViewDataTextColumn Caption="DEĞERİ (Kg)" FieldName="DEGERI" Name="DEGERI"
                                                                                                     ToolTip="DEĞERİ" VisibleIndex="2" Width="100px">
                                                                                                     <DataItemTemplate>
                                                                                                         <asp:TextBox ID="txtDegeri" runat="server" CssClass="txt_css"
@@ -2092,7 +2102,7 @@
                                                                                                 <dx:GridViewDataTextColumn Caption="LOKASYON" FieldName="LOKASYON"
                                                                                                     Name="LOKASYON" VisibleIndex="1" Width="100px">
                                                                                                 </dx:GridViewDataTextColumn>
-                                                                                                <dx:GridViewDataTextColumn Caption="DEĞERİ" FieldName="DEGERI" Name="DEGERI"
+                                                                                                <dx:GridViewDataTextColumn Caption="DEĞERİ (Kg)" FieldName="DEGERI" Name="DEGERI"
                                                                                                     ToolTip="DEĞERİ" VisibleIndex="2" Width="100px">
                                                                                                     <DataItemTemplate>
                                                                                                         <asp:TextBox ID="txtDegeri" runat="server" CssClass="txt_css"
@@ -2506,7 +2516,10 @@
                                                                                             <dxe:ListEditItem Text="HAZNEDAR" Value="1" />
                                                                                             <%--   <dxe:ListEditItem Text="LWB" Value="2" />--%>
                                                                                             <dxe:ListEditItem Text="RHI & MAGNESITA" Value="2" />
+
                                                                                             <dxe:ListEditItem Text="VESUVIUS" Value="3" />
+                                                                                            <dxe:ListEditItem Text="SÖRMAŞ" Value="4" />
+
                                                                                         </Items>
                                                                                     </dx:ASPxComboBox>
                                                                                     <br />

@@ -110,7 +110,7 @@
           </div>
       </div>
 
-        <asp:DropDownList ID="RaporCombo" runat="server" AutoPostBack="True" Height="20px" Width="576px" CssClass="auto-style3">
+        <asp:DropDownList ID="RaporCombo" runat="server" AutoPostBack="True" Height="20px" Width="576px" CssClass="auto-style3" Visible="False">
         </asp:DropDownList>
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="X-Large" Style="left: 8px;
             position: absolute; top: 432px" Text="..." ForeColor="Blue"></asp:Label>

@@ -34,6 +34,7 @@ namespace diler.Dal
         public void disConnect()
 
         {
+            
             DbConn.Close();
 
         }
@@ -1396,7 +1397,8 @@ namespace diler.Dal
                 string neden = DbConn.MyDataReader["DURNDNACK"].ToString();
                 nedenler.Add(neden);
             }
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return nedenler;
 
 
@@ -1410,6 +1412,8 @@ namespace diler.Dal
                 gelen_durus_kodu = DbConn.MyDataReader.GetValue(0).ToString();
 
             }
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return gelen_durus_kodu;
         }
         public List<string> ariza_neden_cmbDoldur(object durus_kod)
@@ -1422,6 +1426,8 @@ namespace diler.Dal
                 string neden = DbConn.MyDataReader["ARZACK"].ToString();
                 nedenler.Add(neden);
             }
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return nedenler;
         }
 
@@ -1434,6 +1440,8 @@ namespace diler.Dal
                 gelen_ariza_kodu = DbConn.MyDataReader.GetValue(0).ToString();
 
             }
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return gelen_ariza_kodu;
         }
         public void durus_sablon_getir(object dokum_no, DateTime tarih)
@@ -1963,7 +1971,8 @@ namespace diler.Dal
 
             }
 
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return kayitlar;
         }
 
@@ -1983,7 +1992,8 @@ namespace diler.Dal
                 kayitlar.Add(kayit);
 
             }
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
 
             return kayitlar;
         }
@@ -2004,7 +2014,8 @@ namespace diler.Dal
 
             }
 
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return kayitlar;
         }
 
@@ -2025,7 +2036,8 @@ namespace diler.Dal
 
             }
 
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
             return kayitlar;
         }
         public List<Haber> dosis_tablosu(string tarih3)
@@ -2044,7 +2056,8 @@ namespace diler.Dal
                 kayitlar.Add(kayit);
 
             }
-
+            DbConn.MyDataReader.Close();
+            DbConn.MyDataReader.Dispose();
 
             return kayitlar;
         }

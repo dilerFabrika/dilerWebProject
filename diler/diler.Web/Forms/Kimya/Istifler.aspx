@@ -82,12 +82,12 @@
 
 
 
-        .btn, .btnn, .btnn_, .btn_ {
+        .btn_hh2, .btn_hh1, .btn_cubuk, .btn_ch, .btn_filmasin, .btn_tavsancil, .btn_resa, .btn_assanParkSaha {
             box-shadow: 0 0 10px 2px #ED4517 inset, 0 0 0 0;
             transition: all 150ms ease-in-out;
         }
 
-            btn:hover, .btnn:hover, .btnn_:hover, .btn_:hover {
+            btn_hh2:hover, .btn_hh1:hover, .btn_cubuk:hover, .btn_ch:hover, .btn_filmasin:hover, .btn_tavsancil:hover, .btn_resa:hover, .btn_assanParkSaha:hover {
                 box-shadow: 0 0 3px 3px #ED4517 inset, 0 0 3px 3px #ED4517;
             }
 
@@ -103,6 +103,7 @@
     <form runat="server">
 
         <div class="row icon-list">
+
             <div class="col-sm-4">
 
                 <div class="col-md-3">
@@ -111,10 +112,12 @@
 
                 </div>
             </div>
+
             <div class="col-sm-4">
 
                 <p style="text-align: center; padding: 10px; font-size: 18px; color: #ED4517; margin-left: 30px; font-weight: bold;">STOK VE İSTİF BAZINDA DÖKÜM TAKİBİ</p>
             </div>
+
             <div class="col-sm-4">
             </div>
         </div>
@@ -124,6 +127,10 @@
             <li><a href="#2a" data-toggle="tab">HH 1.İSTİF</a>  </li>
             <li><a href="#3a" data-toggle="tab">HH ÇUBUK İSTİF</a> </li>
             <li><a href="#4a" data-toggle="tab">CH 5.İSTİF</a> </li>
+            <li><a href="#5a" data-toggle="tab">FİLMAŞİN</a> </li>
+            <li><a href="#6a" data-toggle="tab">TAVŞANCIL</a> </li>
+            <li><a href="#7a" data-toggle="tab">RESA</a> </li>
+            <li><a href="#8a" data-toggle="tab">ASSAN PARK SAHA</a> </li>
 
         </ul>
 
@@ -139,32 +146,32 @@
                             <tr>
                                 <td>
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_2" runat="server" Text="Kulübe önü İstif(2)" class="btnn"
+                                        <asp:Button ID="_2" runat="server" Text="Kulübe önü İstif(2)" class="btn_hh2"
                                             Style="width: 155px; height: 95px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
 
-                                        <asp:Button ID="_3" runat="server" Text="Yol tarafı İstif(3)" class="btnn"
+                                        <asp:Button ID="_3" runat="server" Text="Yol tarafı İstif(3)" class="btn_hh2"
                                             Style="width: 155px; height: 95px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
 
                                     </div>
                                 </td>
                                 <td style="width: 85px;">
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_17" runat="server" Text="Paket İstif(17)" class="btnn"
+                                        <asp:Button ID="_17" runat="server" Text="Paket İstif(17)" class="btn_hh2"
                                             Style="width: 180px; height: 40px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
 
                                         <span style="font-weight: bold; font-size: 15px;">9.İSTİF</span>
 
-                                        <asp:Button ID="_18" runat="server" Text="Paket İstif(18)" class="btnn"
+                                        <asp:Button ID="_18" runat="server" Text="Paket İstif(18)" class="btn_hh2"
                                             Style="width: 180px; height: 40px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">10.İSTİF</span>
 
 
-                                        <asp:Button ID="_19" runat="server" Text="Paket İstif(19)" class="btnn"
+                                        <asp:Button ID="_19" runat="server" Text="Paket İstif(19)" class="btn_hh2"
                                             Style="width: 180px; height: 40px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">11.İSTİF</span>
 
 
-                                        <asp:Button ID="_20" runat="server" Text="Paket İstif(20)" class="btnn"
+                                        <asp:Button ID="_20" runat="server" Text="Paket İstif(20)" class="btn_hh2"
                                             Style="width: 180px; height: 40px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">12.İSTİF</span>
 
@@ -173,40 +180,40 @@
                                 <td>
 
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_9" runat="server" Text="Paket İstif(9)" class="btnn"
+                                        <asp:Button ID="_9" runat="server" Text="Paket İstif(9)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">1.İSTİF</span>
-                                        <asp:Button ID="_10" runat="server" Text="Paket İstif(10)" class="btnn"
+                                        <asp:Button ID="_10" runat="server" Text="Paket İstif(10)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">2.İSTİF</span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_12" runat="server" Text="Paket İstif(12)" class="btnn"
+                                        <asp:Button ID="_12" runat="server" Text="Paket İstif(12)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">3.İSTİF</span>
-                                        <asp:Button ID="_11" runat="server" Text="Paket İstif(11)" class="btnn"
+                                        <asp:Button ID="_11" runat="server" Text="Paket İstif(11)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">4.İSTİF</span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_13" runat="server" Text="Paket İstif(13)" class="btnn"
+                                        <asp:Button ID="_13" runat="server" Text="Paket İstif(13)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">5.İSTİF</span>
-                                        <asp:Button ID="_15" runat="server" Text="Paket İstif(15)" class="btnn"
+                                        <asp:Button ID="_15" runat="server" Text="Paket İstif(15)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">6.İSTİF</span>
                                     </div>
                                 </td>
                                 <td>
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                        <asp:Button ID="_14" runat="server" Text="Paket İstif(14)" class="btnn"
+                                        <asp:Button ID="_14" runat="server" Text="Paket İstif(14)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">7.İSTİF</span>
-                                        <asp:Button ID="_16" runat="server" Text="Paket İstif(16)" class="btnn"
+                                        <asp:Button ID="_16" runat="server" Text="Paket İstif(16)" class="btn_hh2"
                                             Style="width: 140px; height: 95px; border: 0px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         <span style="font-weight: bold; font-size: 15px;">8.İSTİF</span>
                                     </div>
@@ -220,7 +227,9 @@
 
 
                 </div>
-                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_istif2" runat="server" ClientInstanceName="ASPxCallbackPanel_istif2" OnCallback="ASPxCallbackPanel_istif2_Callback" Theme="Office2010Silver">
+
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_istifhh2" runat="server" ClientInstanceName="ASPxCallbackPanel_istifhh2"
+                    OnCallback="ASPxCallbackPanel_istifhh2_Callback" Theme="Office2010Silver">
                     <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
                     <PanelCollection>
                         <dxe:PanelContent runat="server">
@@ -284,13 +293,14 @@
                         </dxe:PanelContent>
                     </PanelCollection>
                 </dxe:ASPxCallbackPanel>
+
                 <dx:ASPxButton ID="btn_listehh2" runat="server" AutoPostBack="False"
-                    ClientInstanceName="btn_liste2" CssClass="istifbtn"
+                    ClientInstanceName="btn_listehh2" CssClass="istifbtn"
                     CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
                     CssPostfix="Office2003Blue"
                     SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
                     Text="LİSTELE" Theme="Youthful">
-                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_istif2.PerformCallback('istif_hh2');  }"></ClientSideEvents>
+                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_istifhh2.PerformCallback('istif_hh2');  }"></ClientSideEvents>
                 </dx:ASPxButton>
 
 
@@ -308,31 +318,34 @@
                                     <td>
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
                                             <asp:Button ID="btn_yol1" runat="server" Text="YOL"
-                                                Style="width: 40px; height: 485px; border: 0px; margin-top: 15px; font-size: 15px; font-weight: bold; background-color: #6e6a6b; color: white;" OnClientClick="return false" />
+                                                Style="width: 40px; height: 485px; border: 0px; margin-top: 15px; font-size: 15px; font-weight: bold; background-color: #6e6a6b; color: white;"
+                                                OnClientClick="return false" />
                                         </div>
 
                                     </td>
+
                                     <td>
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                                            <input type="button" id="_21" value="Aktarma hattı yanı(21)" class="btn"
+                                            <input type="button" id="_21" value="Aktarma hattı yanı(21)" class="btn_hh1"
                                                 style="width: 155px; height: 145px; border: 0px; margin-top: 55px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" onclientclick="return false" />
-                                            <asp:Button ID="_22" runat="server" Text="Aktarma hattı yanı(22)" class="btn"
+                                            <asp:Button ID="_22" runat="server" Text="Aktarma hattı yanı(22)" class="btn_hh1"
                                                 Style="width: 155px; height: 145px; border: 0px; margin-top: 55px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         </div>
                                     </td>
+
                                     <td>
                                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
                                             <asp:Button ID="Btn_kutuk_aktarma_hatti" runat="server" Text="Kütük aktarma hattı"
                                                 Style="width: 180px; height: 75px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
-                                            <asp:Button ID="_23" runat="server" Text="Aktarma hattı Önü(23)" class="btn"
+                                            <asp:Button ID="_23" runat="server" Text="Aktarma hattı Önü(23)" class="btn_hh1"
                                                 Style="width: 180px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
-                                            <asp:Button ID="_6" runat="server" Text="Köşebaşı istifi(6)" class="btn"
+                                            <asp:Button ID="_6" runat="server" Text="Köşebaşı istifi(6)" class="btn_hh1"
                                                 Style="width: 180px; height: 45px; border: 0px; margin-top: 95px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
-                                            <asp:Button ID="_7" runat="server" Text="1.Yığma istifi(7)" class="btn"
+                                            <asp:Button ID="_7" runat="server" Text="1.Yığma istifi(7)" class="btn_hh1"
                                                 Style="width: 180px; height: 45px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
-                                            <asp:Button ID="_1" runat="server" Text="Hidrolik ünitesi arkası(1)" class="btn"
+                                            <asp:Button ID="_1" runat="server" Text="Hidrolik ünitesi arkası(1)" class="btn_hh1"
                                                 Style="width: 180px; height: 45px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
-                                            <asp:Button ID="_8" runat="server" Text="2.Yığma istifi(8)" class="btn"
+                                            <asp:Button ID="_8" runat="server" Text="2.Yığma istifi(8)" class="btn_hh1"
                                                 Style="width: 180px; height: 45px; border: 0px; margin-top: 15px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                         </div>
 
@@ -343,8 +356,8 @@
 
                     </div>
 
-
-                    <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_istif" runat="server" ClientInstanceName="ASPxCallbackPanel_istif" OnCallback="ASPxCallbackPanel_istif_Callback" Theme="Office2010Silver">
+                    <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_istifhh1" runat="server" ClientInstanceName="ASPxCallbackPanel_istifhh1"
+                        OnCallback="ASPxCallbackPanel_istifhh1_Callback" Theme="Office2010Silver">
                         <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
                         <PanelCollection>
                             <dxe:PanelContent runat="server">
@@ -381,6 +394,7 @@
                                     </div>
 
                                 </div>
+
                                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs3" style="padding-left: 0;">
                                     <div class="panel panel-border panel-primary" style="border-color: #ffffff">
                                         <div class="panel-body">
@@ -407,13 +421,14 @@
                             </dxe:PanelContent>
                         </PanelCollection>
                     </dxe:ASPxCallbackPanel>
+
                     <dx:ASPxButton ID="btn_listehh1" runat="server" AutoPostBack="False"
-                        ClientInstanceName="btn_liste1" CssClass="istifbtn"
+                        ClientInstanceName="btn_listehh1" CssClass="istifbtn"
                         CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
                         CssPostfix="Office2003Blue"
                         SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
                         Text="LİSTELE" Theme="Youthful">
-                        <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_istif.PerformCallback('istif_hh1');  }"></ClientSideEvents>
+                        <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_istifhh1.PerformCallback('istif_hh1');  }"></ClientSideEvents>
                     </dx:ASPxButton>
 
                 </div>
@@ -426,14 +441,14 @@
                             <tr>
                                 <td>
                                     <div class="col-lg-1 col-md-1 col-sm-1 col-xs1">
-                                        <asp:Button ID="__4" runat="server" Text="Çubuk sahası 1.istif(4)" class="btn_"
+                                        <asp:Button ID="__4" runat="server" Text="Çubuk sahası 1.istif(4)" class="btn_cubuk"
                                             Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
 
                                     </div>
                                 </td>
                                 <td>
                                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2" style="margin-left: 10px">
-                                        <asp:Button ID="__5" runat="server" Text="Çubuk sahası 2.istif(5)" class="btn_"
+                                        <asp:Button ID="__5" runat="server" Text="Çubuk sahası 2.istif(5)" class="btn_cubuk"
                                             Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                                     </div>
                                 </td>
@@ -444,7 +459,8 @@
 
                 </div>
 
-                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_cubukistif" runat="server" ClientInstanceName="ASPxCallbackPanel_cubukistif" OnCallback="ASPxCallbackPanel_cubukistif_Callback" Theme="Office2010Silver">
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_cubukistif" runat="server" ClientInstanceName="ASPxCallbackPanel_cubukistif"
+                    OnCallback="ASPxCallbackPanel_cubukistif_Callback" Theme="Office2010Silver">
                     <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
                     <PanelCollection>
                         <dxe:PanelContent runat="server">
@@ -524,7 +540,7 @@
 
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs12" style="margin-left: 20px">
                     <div class="col-lg-2 col-md-2 col-sm-2 col-xs2">
-                        <asp:Button ID="_50" runat="server" Text="5.İstif" class="btnn_"
+                        <asp:Button ID="_50" runat="server" Text="5.İstif" class="btn_ch"
                             Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
                     </div>
                 </div>
@@ -606,6 +622,401 @@
 
             </div>
 
+            <div class="tab-pane" id="5a">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs12" style="margin-left: 20px">
+
+                    <table>
+                        <tbody style="border: none;">
+                            <tr>
+                                <td>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs1">
+                                        <asp:Button ID="_100" runat="server" Text="Filmaşin Kuyu 1" class="btn_filmasin"
+                                            Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
+
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs2" style="margin-left: 10px">
+                                        <asp:Button ID="_101" runat="server" Text="Filmaşin Kuyu 2" class="btn_filmasin"
+                                            Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_filmasin_istif" runat="server" ClientInstanceName="ASPxCallbackPanel_filmasin_istif"
+                    OnCallback="ASPxCallbackPanel_filmasin_istif_Callback" Theme="Office2010Silver">
+                    <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
+                    <PanelCollection>
+                        <dxe:PanelContent runat="server">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs12">
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs7">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-17" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>İstif sırano</th>
+                                                            <th>Döküm tarihi</th>
+                                                            <th>Döküm no</th>
+                                                            <th>Stok yeri</th>
+                                                            <th>İstif yeri<br />
+                                                            </th>
+                                                            <th>İstif adet</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                            <th>Ebat</th>
+                                                            <th>Sipariş no</th>
+                                                            <th>Lot</th>
+                                                            <th>Açıklama</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_takipFilmasin" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs5" style="padding-left: 0;">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-7" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>Yer</th>
+                                                            <th>Adet</th>
+                                                            <th>Ebat</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_OzetFilmasin" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </dxe:PanelContent>
+                    </PanelCollection>
+                </dxe:ASPxCallbackPanel>
+
+                <dx:ASPxButton ID="btn_liste_filmasin" runat="server" AutoPostBack="False"
+                    ClientInstanceName="btn_liste_filmasin" CssClass="istifbtn"
+                    CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
+                    CssPostfix="Office2003Blue"
+                    SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
+                    Text="LİSTELE" Theme="Youthful">
+                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_filmasin_istif.PerformCallback('istif_filmasin');  }"></ClientSideEvents>
+                </dx:ASPxButton>
+
+            </div>
+
+            <div class="tab-pane" id="6a">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs12" style="margin-left: 20px">
+                    <table>
+                        <tbody style="border: none;">
+                            <tr>
+                                <td>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs1">
+                                        <asp:Button ID="_102" runat="server" Text="Tavşancıl" class="btn_tavsancil"
+                                            Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_tavsancil_istif" runat="server" ClientInstanceName="ASPxCallbackPanel_tavsancil_istif"
+                    OnCallback="ASPxCallbackPanel_tavsancil_istif_Callback" Theme="Office2010Silver">
+                    <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
+                    <PanelCollection>
+                        <dxe:PanelContent runat="server">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs12">
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs7">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-87" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>İstif sırano</th>
+                                                            <th>Döküm tarihi</th>
+                                                            <th>Döküm no</th>
+                                                            <th>Stok yeri</th>
+                                                            <th>İstif yeri<br />
+                                                            </th>
+                                                            <th>İstif adet</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                            <th>Ebat</th>
+                                                            <th>Sipariş no</th>
+                                                            <th>Lot</th>
+                                                            <th>Açıklama</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_takipTavsancil" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs5" style="padding-left: 0;">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-36" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>Yer</th>
+                                                            <th>Adet</th>
+                                                            <th>Ebat</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_OzetTavsancil" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </dxe:PanelContent>
+                    </PanelCollection>
+                </dxe:ASPxCallbackPanel>
+
+                <dx:ASPxButton ID="btn_liste_tavsancil" runat="server" AutoPostBack="False"
+                    ClientInstanceName="btn_liste_tavsancil" CssClass="istifbtn"
+                    CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
+                    CssPostfix="Office2003Blue"
+                    SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
+                    Text="LİSTELE" Theme="Youthful">
+                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_tavsancil_istif.PerformCallback('istif_tavsancil');  }"></ClientSideEvents>
+                </dx:ASPxButton>
+
+            </div>
+
+            <div class="tab-pane" id="7a">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs12" style="margin-left: 20px">
+                    <table>
+                        <tbody style="border: none;">
+                            <tr>
+                                <td>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs1">
+                                        <asp:Button ID="_103" runat="server" Text="Resa" class="btn_resa"
+                                            Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_resa_istif" runat="server" ClientInstanceName="ASPxCallbackPanel_resa_istif"
+                    OnCallback="ASPxCallbackPanel_resa_istif_Callback" Theme="Office2010Silver">
+                    <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
+                    <PanelCollection>
+                        <dxe:PanelContent runat="server">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs12">
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs7">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-25" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>İstif sırano</th>
+                                                            <th>Döküm tarihi</th>
+                                                            <th>Döküm no</th>
+                                                            <th>Stok yeri</th>
+                                                            <th>İstif yeri<br />
+                                                            </th>
+                                                            <th>İstif adet</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                            <th>Ebat</th>
+                                                            <th>Sipariş no</th>
+                                                            <th>Lot</th>
+                                                            <th>Açıklama</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_takipResa" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs5" style="padding-left: 0;">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-396" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>Yer</th>
+                                                            <th>Adet</th>
+                                                            <th>Ebat</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_OzetResa" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </dxe:PanelContent>
+                    </PanelCollection>
+                </dxe:ASPxCallbackPanel>
+
+                <dx:ASPxButton ID="btn_liste_resa" runat="server" AutoPostBack="False"
+                    ClientInstanceName="btn_liste_resa" CssClass="istifbtn"
+                    CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
+                    CssPostfix="Office2003Blue"
+                    SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
+                    Text="LİSTELE" Theme="Youthful">
+                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_resa_istif.PerformCallback('istif_resa');  }"></ClientSideEvents>
+                </dx:ASPxButton>
+
+            </div>
+
+            <div class="tab-pane" id="8a">
+
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs12" style="margin-left: 20px">
+                    <table>
+                        <tbody style="border: none;">
+                            <tr>
+                                <td>
+                                    <div class="col-lg-1 col-md-1 col-sm-1 col-xs1">
+                                        <asp:Button ID="_104" runat="server" Text="Assan Park Saha" class="btn_assanParkSaha"
+                                            Style="width: 155px; height: 45px; border: 0px; margin-top: 25px; font-size: 14px; background-color: #dddddd; color: #6e6a6b;" OnClientClick="return false" />
+
+                                    </div>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <dxe:ASPxCallbackPanel ID="ASPxCallbackPanel_assanParkSaha" runat="server" ClientInstanceName="ASPxCallbackPanel_assanParkSaha"
+                    OnCallback="ASPxCallbackPanel_assanParkSaha_Callback" Theme="Office2010Silver">
+                    <SettingsLoadingPanel ShowImage="False" Text=""></SettingsLoadingPanel>
+                    <PanelCollection>
+                        <dxe:PanelContent runat="server">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs12">
+
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs7">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-27" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>İstif sırano</th>
+                                                            <th>Döküm tarihi</th>
+                                                            <th>Döküm no</th>
+                                                            <th>Stok yeri</th>
+                                                            <th>İstif yeri<br />
+                                                            </th>
+                                                            <th>İstif adet</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                            <th>Ebat</th>
+                                                            <th>Sipariş no</th>
+                                                            <th>Lot</th>
+                                                            <th>Açıklama</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_takipAssanParkSaha" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs5" style="padding-left: 0;">
+                                    <div class="panel panel-border panel-primary" style="border-color: #ffffff">
+                                        <div class="panel-body">
+                                            <div class="table-responsive" data-pattern="priority-columns">
+                                                <table id="tech-companies-9" class="table table-bordered table-striped istif_takip_">
+                                                    <thead>
+                                                        <tr style="height: 25px;">
+                                                            <th>Yer</th>
+                                                            <th>Adet</th>
+                                                            <th>Ebat</th>
+                                                            <th>Çelik cinsi</th>
+                                                            <th>Boy</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <asp:PlaceHolder ID="ph_istif_OzetAssanParkSaha" runat="server"></asp:PlaceHolder>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </dxe:PanelContent>
+                    </PanelCollection>
+                </dxe:ASPxCallbackPanel>
+
+                <dx:ASPxButton ID="btn_liste_AssanParkSaha" runat="server" AutoPostBack="False"
+                    ClientInstanceName="btn_liste_AssanParkSaha" CssClass="istifbtn"
+                    CssFilePath="~/App_Themes/Office2003Blue/{0}/styles.css"
+                    CssPostfix="Office2003Blue"
+                    SpriteCssFilePath="~/App_Themes/Office2003Blue/{0}/sprite.css"
+                    Text="LİSTELE" Theme="Youthful">
+                    <ClientSideEvents Click="function(s, e) { ASPxCallbackPanel_assanParkSaha.PerformCallback('istif_AssanParkSaha');  }"></ClientSideEvents>
+                </dx:ASPxButton>
+
+            </div>
+
+
+
 
         </div>
 
@@ -638,7 +1049,7 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-            $(".btnn").click(function () {
+            $(".btn_hh2").click(function () {
                 var istif_yeri = $(this).attr("id");
                 $("#txt_istif").val(istif_yeri);
                 $("#btn_listehh2").trigger("click");
@@ -649,7 +1060,7 @@
         });
 
         $(document).ready(function () {
-            $(".btn").click(function () {
+            $(".btn_hh1").click(function () {
                 var istif_yeri = $(this).attr("id");
                 $("#txt_istif").val(istif_yeri);
                 $("#btn_listehh1").trigger("click");
@@ -660,7 +1071,7 @@
         });
 
         $(document).ready(function () {
-            $(".btn_").click(function () {
+            $(".btn_cubuk").click(function () {
                 var istif_yeri = $(this).attr("id");
                 $("#txt_istif").val(istif_yeri);
                 $("#btn_liste_cubuk").trigger("click");
@@ -671,10 +1082,54 @@
         });
 
         $(document).ready(function () {
-            $(".btnn_").click(function () {
+            $(".btn_ch").click(function () {
                 var istif_yeri = $(this).attr("id");
                 $("#txt_istif").val(istif_yeri);
                 $("#btn_liste_ch").trigger("click");
+
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            $(".btn_filmasin").click(function () {
+                var istif_yeri = $(this).attr("id");
+                $("#txt_istif").val(istif_yeri);
+                $("#btn_liste_filmasin").trigger("click");
+
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            $(".btn_tavsancil").click(function () {
+                var istif_yeri = $(this).attr("id");
+                $("#txt_istif").val(istif_yeri);
+                $("#btn_liste_tavsancil").trigger("click");
+
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            $(".btn_resa").click(function () {
+                var istif_yeri = $(this).attr("id");
+                $("#txt_istif").val(istif_yeri);
+                $("#btn_liste_resa").trigger("click");
+
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            $(".btn_assanParkSaha").click(function () {
+                var istif_yeri = $(this).attr("id");
+                $("#txt_istif").val(istif_yeri);
+                $("#btn_liste_AssanParkSaha").trigger("click");
 
 
             });

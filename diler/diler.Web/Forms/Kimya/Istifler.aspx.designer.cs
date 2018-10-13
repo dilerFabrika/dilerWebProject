@@ -157,13 +157,13 @@ namespace diler.Web.Forms.Kimya {
         protected global::System.Web.UI.WebControls.Button _16;
         
         /// <summary>
-        /// ASPxCallbackPanel_istif2 control.
+        /// ASPxCallbackPanel_istifhh2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_istif2;
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_istifhh2;
         
         /// <summary>
         /// ph_istif_takiphh2 control.
@@ -265,13 +265,13 @@ namespace diler.Web.Forms.Kimya {
         protected global::System.Web.UI.WebControls.Button _8;
         
         /// <summary>
-        /// ASPxCallbackPanel_istif control.
+        /// ASPxCallbackPanel_istifhh1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_istif;
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_istifhh1;
         
         /// <summary>
         /// ph_istif_takiphh1 control.
@@ -398,5 +398,194 @@ namespace diler.Web.Forms.Kimya {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxButton btn_liste_ch;
+        
+        /// <summary>
+        /// _100 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _100;
+        
+        /// <summary>
+        /// _101 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _101;
+        
+        /// <summary>
+        /// ASPxCallbackPanel_filmasin_istif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_filmasin_istif;
+        
+        /// <summary>
+        /// ph_istif_takipFilmasin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_takipFilmasin;
+        
+        /// <summary>
+        /// ph_istif_OzetFilmasin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_OzetFilmasin;
+        
+        /// <summary>
+        /// btn_liste_filmasin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn_liste_filmasin;
+        
+        /// <summary>
+        /// _102 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _102;
+        
+        /// <summary>
+        /// ASPxCallbackPanel_tavsancil_istif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_tavsancil_istif;
+        
+        /// <summary>
+        /// ph_istif_takipTavsancil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_takipTavsancil;
+        
+        /// <summary>
+        /// ph_istif_OzetTavsancil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_OzetTavsancil;
+        
+        /// <summary>
+        /// btn_liste_tavsancil control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn_liste_tavsancil;
+        
+        /// <summary>
+        /// _103 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _103;
+        
+        /// <summary>
+        /// ASPxCallbackPanel_resa_istif control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_resa_istif;
+        
+        /// <summary>
+        /// ph_istif_takipResa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_takipResa;
+        
+        /// <summary>
+        /// ph_istif_OzetResa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_OzetResa;
+        
+        /// <summary>
+        /// btn_liste_resa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn_liste_resa;
+        
+        /// <summary>
+        /// _104 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button _104;
+        
+        /// <summary>
+        /// ASPxCallbackPanel_assanParkSaha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxCallbackPanel ASPxCallbackPanel_assanParkSaha;
+        
+        /// <summary>
+        /// ph_istif_takipAssanParkSaha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_takipAssanParkSaha;
+        
+        /// <summary>
+        /// ph_istif_OzetAssanParkSaha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ph_istif_OzetAssanParkSaha;
+        
+        /// <summary>
+        /// btn_liste_AssanParkSaha control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxButton btn_liste_AssanParkSaha;
     }
 }

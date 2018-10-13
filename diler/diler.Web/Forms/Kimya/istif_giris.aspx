@@ -189,7 +189,7 @@
                             <td style="width: 220px">İstif yeri:
                                     <asp:DropDownList ID="Cmb_istif_yeri" runat="server" Style="width: 220px" CssClass="form-control unstyled_date">
                                         <asp:ListItem Selected="True">İstif yeri seçiniz</asp:ListItem>
-                                        <asp:ListItem>50 CH 5. Istif</asp:ListItem>
+                                      
                                         <asp:ListItem>1 HH 1. Istif Hidrolik Unitesi</asp:ListItem>
                                         <asp:ListItem>2 HH 2. Istif Kulube Onu</asp:ListItem>
                                         <asp:ListItem>3 HH 3. Istif Yol tarafi</asp:ListItem>
@@ -213,6 +213,13 @@
                                         <asp:ListItem>21 Aktarma Hatti Yani 1</asp:ListItem>
                                         <asp:ListItem>22 Aktarma Hatti Yani 2</asp:ListItem>
                                         <asp:ListItem>23 Kutuk Aktarma Hatti Onu</asp:ListItem>
+                                        <asp:ListItem>50 CH 5. Istif</asp:ListItem>
+                                  
+                                        <asp:ListItem>100 Filmaşin Kuyu 1</asp:ListItem>
+                                        <asp:ListItem>101 Filmaşin Kuyu 2</asp:ListItem>
+                                        <asp:ListItem>102 Tavşancıl</asp:ListItem>
+                                        <asp:ListItem>103 Resa</asp:ListItem>
+                                        <asp:ListItem>104 Assan Park Saha</asp:ListItem>
 
                                     </asp:DropDownList>
 

@@ -1066,7 +1066,7 @@ Friend Class ConnectOracleDilerIK
             Dim connectionString As String = "Data Source=(DESCRIPTION=" _
                 & "(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.198.191)(PORT=1521)))" _
                 & "(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=DLRORA)));" _
-                & "User Id=URTHRK;Password=URTHRK;"
+                & "User Id=IK;Password=IK;"
             conn = (New OracleConnection(connectionString))
             cmd.Connection = conn
             conn.Open()

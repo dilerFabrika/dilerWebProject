@@ -27,7 +27,26 @@ namespace diler.Web.Forms.Kimya
         {
             Response.Redirect("../../Default2.aspx");
         }
-
+        protected void Img_ok_Click(object sender, ImageClickEventArgs e)
+        {
+            string tarih1 = txt_tarih1.Text;
+            string tarih2 = txt_tarih2.Text;
+            string tarih1_ = tarih1.Replace("-", "");//veritabanindaki kayit bicimi
+            string tarih2_ = tarih2.Replace("-", "");//veritabanindaki kayit bicimi
+            if (tarih1 != "" && tarih2 != "")
+            {
+                cmb_kalite.Items.Clear();
+                db.Connect();
+                List<string> kayitlar = new List<string>();
+                kayitlar = db.kalite_comboDoldur(tarih1_, tarih2_);
+                cmb_kalite.Items.Add("Tümü");
+                foreach (var kalite in kayitlar)
+                {
+                    cmb_kalite.Items.Add(kalite);
+                }
+                db.Disconnect();
+            }
+        }
         private void ark_ocak_genel_liste()
         {
 
@@ -610,29 +629,7 @@ namespace diler.Web.Forms.Kimya
             }
         }
 
-        protected void txt_tarih1_TextChanged(object sender, EventArgs e)
-        {
-            string tarih1 = txt_tarih1.Text;
-            string tarih2 = txt_tarih2.Text;
-            string tarih1_ = tarih1.Replace("-", "");//veritabanindaki kayit bicimi
-            string tarih2_ = tarih2.Replace("-", "");//veritabanindaki kayit bicimi
-            if (tarih1 != "" && tarih2 != "")
-            {
-                cmb_kalite.Items.Clear();
-                db.Connect();
-                List<string> kayitlar = new List<string>();
-                kayitlar = db.kalite_comboDoldur(tarih1_, tarih2_);
-                cmb_kalite.Items.Add("Tümü");
-                foreach (var kalite in kayitlar)
-                {
-                    cmb_kalite.Items.Add(kalite);
-                }
-                db.Disconnect();
-            }
-
-
-
-        }
+       
 
     }
 }

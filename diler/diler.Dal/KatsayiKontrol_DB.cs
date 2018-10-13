@@ -86,7 +86,7 @@ namespace diler.Dal
                     sql2 = "SELECT KATSAYI FROM "
                                    + "("
                                    + " SELECT * FROM URTTNM.KATSAYI_TARTIMDAN"
-                                   + " AND EBAT='" + Ebat + "'"
+                                   + " WHERE EBAT='" + Ebat + "'"
                                    + " AND BOY='" + Boy + "'"
                                    + " ORDER BY TARIH DESC"
                                    + " )"

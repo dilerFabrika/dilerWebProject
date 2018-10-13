@@ -152,7 +152,7 @@ namespace diler.Web.Forms.Kimya
                 {
                     gelentarih = tarih_format(istif_tarihi);
                 }
-                
+
                 istif_yeri = istifyeri.Text;
 
                 if (istif_yeri != "")
@@ -175,7 +175,8 @@ namespace diler.Web.Forms.Kimya
             }
             try
             {
-                istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
+                //istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
+                istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 3).Replace("H", "").Trim();
                 kayitlar = db.istifleri_listele(stok_yeri, istif_yeri.ToString());
                 Grd_istif.DataSource = kayitlar;
                 Grd_istif.DataBind();
@@ -207,7 +208,7 @@ namespace diler.Web.Forms.Kimya
 
         private void istif_ide_gore_kayit_sil()
         {
-            string stok_yeri;
+            string stok_yeri="";
             db.Connect();
             string istif_id = txt_istif_id.Text;
             if (istif_id != "" && istif_id != null)
@@ -221,17 +222,14 @@ namespace diler.Web.Forms.Kimya
 
                 if (Cmb_istif_yeri.Text != "İstif yeri seçiniz")
                 {
-                    //string stok_yeri = Cmb_stok_yeri.SelectedItem.ToString();                
-                    string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
+                             
+                    string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 3).Replace("H","").Trim();
 
-                    if (Convert.ToInt32(istif_yeri) >= 50)
+                    veriler = db.stokYeri_v_sahaTanim_bul(istif_yeri);
+                    foreach (var kayit in veriler)
                     {
-                        stok_yeri = "Çelikhane";
+                        stok_yeri = kayit.Stok_yeri;
 
-                    }
-                    else
-                    {
-                        stok_yeri = "Haddehane";
                     }
 
                     kayitlar = db.istifleri_listele(stok_yeri, istif_yeri);
@@ -247,22 +245,18 @@ namespace diler.Web.Forms.Kimya
 
         protected void btn_Listele_Click(object sender, EventArgs e)
         {
-            string stok_yeri;
+            string stok_yeri="";
             if (Cmb_istif_yeri.Text != "İstif yeri seçiniz")
             {
-                string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
-
-                if (Convert.ToInt32(istif_yeri) >= 50)
-                {
-                    stok_yeri = "Çelikhane";
-
-                }
-                else
-                {
-                    stok_yeri = "Haddehane";
-                }
-
+                //string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
+                string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 3).Replace("H", "").Trim();
                 db.Connect();
+                veriler = db.stokYeri_v_sahaTanim_bul(istif_yeri);
+                foreach (var kayit in veriler)
+                {
+                    stok_yeri = kayit.Stok_yeri;
+
+                }
                 kayitlar = db.istifleri_listele(stok_yeri, istif_yeri);
                 Grd_istif.DataSource = kayitlar;
                 Grd_istif.DataBind();
@@ -276,23 +270,20 @@ namespace diler.Web.Forms.Kimya
 
         protected void btn_row_insert_Click(object sender, EventArgs e)
         {
-            string stok_yeri;
+            string stok_yeri = "";
+            String saha_tanim = "";
             if (Cmb_istif_yeri.Text != "İstif yeri seçiniz")
             {
 
-                string saha_tanim = Cmb_istif_yeri.SelectedItem.ToString().Substring(2).Trim();
-                string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 2).Trim();
-
-                if (Convert.ToInt32(istif_yeri) >= 50)
-                {
-                    stok_yeri = "Çelikhane";
-
-                }
-                else
-                {
-                    stok_yeri = "Haddehane";
-                }
+                //string saha_tanim = Cmb_istif_yeri.SelectedItem.ToString().Substring(2).Trim();
+                string istif_yeri = Cmb_istif_yeri.SelectedItem.ToString().Substring(0, 3).Replace("H", "").Trim();
                 db.Connect();
+                veriler = db.stokYeri_v_sahaTanim_bul(istif_yeri);
+                foreach (var kayit in veriler)
+                {
+                    stok_yeri = kayit.Stok_yeri;
+                    saha_tanim = kayit.Saha_tanim;
+                }
                 string single_row_insert = db.single_row_insert(Convert.ToInt32(istif_yeri), stok_yeri, saha_tanim);
                 kayitlar = db.istifleri_listele(stok_yeri, istif_yeri);
                 Grd_istif.DataSource = kayitlar;

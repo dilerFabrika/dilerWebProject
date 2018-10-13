@@ -1132,7 +1132,8 @@ namespace diler.Dal
                     duruslar.Add(d);
                 }
             }
-
+            this.dr.Close();
+            this.dr.Dispose();
             return duruslar;
         }
         public List<durus_bilgileri> tel_cubuk_haddehane_durus_data_read(int tarih_telcubuk, int tarih2_telcubuk)
@@ -1185,7 +1186,8 @@ namespace diler.Dal
             }
 
 
-
+            this.dr.Close();
+            this.dr.Dispose();
 
             return duruslar;
         }
@@ -1229,7 +1231,8 @@ namespace diler.Dal
                     kayitlar.Add(kayit);
                 }
             }
-
+            this.dr.Close();
+            this.dr.Dispose();
             return kayitlar;
         }
         public string uretim_kayit(string dokum_no, string sira_no, string kutuk_sayisi, string birim_tonaj, string tarih)
@@ -1298,7 +1301,8 @@ namespace diler.Dal
                     kayitlar.Add(u);
                 }
             }
-
+            dr.Close();
+            dr.Dispose();
             return kayitlar;
         }
 
